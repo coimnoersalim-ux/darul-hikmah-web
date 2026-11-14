@@ -128,13 +128,15 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm">
       <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         <a href="#beranda" class="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
-          <!-- Logo Emblem Yayasan Riyadul Hikmah (SVG Vektor Tajam) -->
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 p-1.5 border border-gold-400/60 flex items-center justify-center shadow-md shrink-0 group-hover:scale-105 transition">
-            <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Yayasan Riyadul Hikmah Mekarrahayu">
-              <polygon points="32,3 41,11 53,11 53,23 61,32 53,41 53,53 41,53 32,61 23,53 11,53 11,41 3,32 11,23 11,11 23,11" stroke="#fbbf24" stroke-width="2.5" fill="#064e3b"/>
-              <path d="M18 42C23 39 28 40 32 43C36 40 41 39 46 42V25C41 22 36 23 32 26C28 23 23 22 18 25V42Z" fill="#ecfdf5" stroke="#fbbf24" stroke-width="1.8"/>
-              <path d="M32 26V43" stroke="#047857" stroke-width="1.8"/>
-              <path d="M32 12L34.2 16.5L39 17.2L35.5 20.6L36.3 25.4L32 23.1L27.7 25.4L28.5 20.6L25 17.2L29.8 16.5L32 12Z" fill="#fbbf24"/>
+          <!-- Logo Resmi Yayasan Riyadul Hikmah Mekarrahayu (Dapat diganti via Admin -> Profil Madrasah & Akun) -->
+          <div id="logo-wrap-yayasan" class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white p-1 border-2 border-emerald-700/30 flex items-center justify-center shadow-md shrink-0 group-hover:scale-105 transition overflow-hidden">
+            <img id="img-logo-yayasan" src="" alt="Logo Yayasan Riyadul Hikmah" class="hidden w-full h-full object-contain">
+            <svg id="svg-logo-yayasan" viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Yayasan Riyadul Hikmah Mekarrahayu">
+              <circle cx="32" cy="32" r="29" fill="#064e3b" stroke="#f59e0b" stroke-width="2.5"/>
+              <polygon points="32,7 39,16 50,16 50,27 57,34 50,41 50,50 39,50 32,57 25,50 14,50 14,41 7,34 14,27 14,16 25,16" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+              <path d="M19 42C24 39.5 28.5 40.5 32 43C35.5 40.5 40 39.5 45 42V26C40 23.5 35.5 24.5 32 27C28.5 24.5 24 23.5 19 26V42Z" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+              <path d="M32 27V43" stroke="#065f46" stroke-width="1.6"/>
+              <polygon points="32,13 33.8,17.2 38.4,17.7 35,20.8 35.9,25.2 32,22.9 28.1,25.2 29,20.8 25.6,17.7 30.2,17.2" fill="#fbbf24"/>
             </svg>
           </div>
           <div class="min-w-0">
@@ -261,12 +263,14 @@
 
           <a href="#pesantren" class="block bg-gradient-to-r from-emerald-900 to-emerald-800/90 hover:from-emerald-800 hover:to-emerald-700 p-4 rounded-2xl border border-gold-400/40 transition group">
             <div class="flex items-center gap-3.5">
-              <!-- Emblem Ponpes Riyadul Hikmah -->
-              <div class="w-12 h-12 rounded-2xl bg-emerald-950 border border-gold-400/60 p-2 shadow-md shrink-0 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" class="w-full h-full" fill="none">
-                  <path d="M24 6C17 11 13 17 13 24H35C35 17 31 11 24 6Z" fill="#fbbf24"/>
-                  <rect x="11" y="25" width="26" height="16" rx="2" fill="#ecfdf5"/>
-                  <path d="M21 41V32C21 30.3 22.3 29 24 29C25.7 29 27 30.3 27 32V41" fill="#047857"/>
+              <!-- Logo Ponpes Riyadul Hikmah -->
+              <div class="w-12 h-12 rounded-2xl bg-white border-2 border-gold-400/80 p-1.5 shadow-md shrink-0 flex items-center justify-center overflow-hidden">
+                <img id="img-logo-ponpes" src="" alt="Logo Ponpes Riyadul Hikmah" class="hidden w-full h-full object-contain">
+                <svg id="svg-logo-ponpes" viewBox="0 0 64 64" class="w-full h-full" fill="none">
+                  <circle cx="32" cy="32" r="29" fill="#064e3b" stroke="#fbbf24" stroke-width="2"/>
+                  <path d="M32 10C23 16 18 22 18 30H46C46 22 41 16 32 10Z" fill="#fbbf24"/>
+                  <rect x="16" y="32" width="32" height="18" rx="2" fill="#ffffff"/>
+                  <path d="M27 50V39C27 36.8 29.2 35 32 35C34.8 35 37 36.8 37 39V50" fill="#065f46"/>
                 </svg>
               </div>
               <div class="flex-1 min-w-0">
@@ -282,11 +286,12 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <!-- Portal PAUD Kober Al-Hasani -->
             <button type="button" onclick="selectUnitPortal('PAUD')" class="text-left bg-white/10 hover:bg-white/20 p-3 rounded-2xl border border-white/20 transition group flex sm:block items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 border border-sky-200 p-1.5 shadow shrink-0 sm:mb-2 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" class="w-full h-full" fill="none">
-                  <circle cx="24" cy="18" r="8" fill="#38bdf8"/>
-                  <path d="M12 38C12 31.4 17.4 26 24 26C30.6 26 36 31.4 36 38" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-                  <circle cx="36" cy="12" r="4" fill="#fbbf24"/>
+              <div class="w-11 h-11 rounded-xl bg-white border border-sky-300 p-1 shadow shrink-0 sm:mb-2 flex items-center justify-center overflow-hidden">
+                <img id="img-logo-paud" src="" alt="Logo PAUD Kober Al-Hasani" class="hidden w-full h-full object-contain">
+                <svg id="svg-logo-paud" viewBox="0 0 64 64" class="w-full h-full" fill="none">
+                  <circle cx="32" cy="32" r="29" fill="#0369a1" stroke="#7dd3fc" stroke-width="2"/>
+                  <path d="M16 42C22 39 27 40 32 43C37 40 42 39 48 42V25C42 22 37 23 32 26C27 23 22 22 16 25V42Z" fill="#ffffff"/>
+                  <circle cx="32" cy="16" r="5" fill="#fbbf24"/>
                 </svg>
               </div>
               <div>
@@ -299,11 +304,12 @@
 
             <!-- Portal MTs Darul Hikmah -->
             <button type="button" onclick="selectUnitPortal('MTs')" class="text-left bg-white/10 hover:bg-white/20 p-3 rounded-2xl border border-white/20 transition group flex sm:block items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 p-1.5 shadow shrink-0 sm:mb-2 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" class="w-full h-full" fill="none">
-                  <path d="M10 34C15 31 20 32 24 35C28 32 33 31 38 34V16C33 13 28 14 24 17C20 14 15 13 10 16V34Z" fill="#059669"/>
-                  <path d="M24 17V35" stroke="#ecfdf5" stroke-width="2"/>
-                  <circle cx="24" cy="10" r="3.5" fill="#f59e0b"/>
+              <div class="w-11 h-11 rounded-xl bg-white border border-emerald-300 p-1 shadow shrink-0 sm:mb-2 flex items-center justify-center overflow-hidden">
+                <img id="img-logo-mts" src="" alt="Logo MTs Darul Hikmah" class="hidden w-full h-full object-contain">
+                <svg id="svg-logo-mts" viewBox="0 0 64 64" class="w-full h-full" fill="none">
+                  <polygon points="32,4 56,16 56,42 32,60 8,42 8,16" fill="#047857" stroke="#fbbf24" stroke-width="2.5"/>
+                  <path d="M18 40C23 37.5 28 38.5 32 41C36 38.5 41 37.5 46 40V24C41 21.5 36 22.5 32 25C28 22.5 23 21.5 18 24V40Z" fill="#ffffff"/>
+                  <polygon points="32,11 33.8,15 38,15.5 35,18.4 35.8,22.5 32,20.5 28.2,22.5 29,18.4 26,15.5 30.2,15" fill="#fbbf24"/>
                 </svg>
               </div>
               <div>
@@ -316,11 +322,12 @@
 
             <!-- Portal MA Darul Hikmah -->
             <button type="button" onclick="selectUnitPortal('MA')" class="text-left bg-white/10 hover:bg-white/20 p-3 rounded-2xl border border-white/20 transition group flex sm:block items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 p-1.5 shadow shrink-0 sm:mb-2 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" class="w-full h-full" fill="none">
-                  <polygon points="24,8 42,17 24,26 6,17" fill="#d97706"/>
-                  <path d="M14 22V32C14 35 18.5 38 24 38C29.5 38 34 35 34 32V22" fill="#065f46"/>
-                  <line x1="40" y1="18" x2="40" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <div class="w-11 h-11 rounded-xl bg-white border border-amber-300 p-1 shadow shrink-0 sm:mb-2 flex items-center justify-center overflow-hidden">
+                <img id="img-logo-ma" src="" alt="Logo MA Darul Hikmah" class="hidden w-full h-full object-contain">
+                <svg id="svg-logo-ma" viewBox="0 0 64 64" class="w-full h-full" fill="none">
+                  <polygon points="32,4 56,16 56,42 32,60 8,42 8,16" fill="#064e3b" stroke="#f59e0b" stroke-width="2.5"/>
+                  <path d="M18 41C23 38.5 28 39.5 32 42C36 39.5 41 38.5 46 41V25C41 22.5 36 23.5 32 26C28 23.5 23 22.5 18 25V41Z" fill="#fbbf24"/>
+                  <circle cx="32" cy="16" r="4.5" fill="#ffffff"/>
                 </svg>
               </div>
               <div>
@@ -596,43 +603,19 @@
           <p class="text-slate-600 text-sm mt-2">Potret pembinaan santri Pondok Pesantren Riyadul Hikmah, keceriaan PAUD Kober Al-Hasani, serta prestasi siswa MTs &amp; MA Darul Hikmah.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition">
-            <div class="overflow-hidden h-48">
-              <img src="https://placehold.co/600x400/064e3b/fbbf24?text=Halaqah+Tahfidz+%26+Kitab" onerror="this.src='https://placehold.co/600x400/064e3b/ffffff?text=Tahfidz'" alt="Halaqah Tahfidz" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <!-- Galeri Dokumentasi Dinamis -->
+        <div id="public-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14"></div>
+
+        <!-- Katalog Ekstrakurikuler Dinamis -->
+        <div class="pt-10 border-t border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-8">
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-700">Pengembangan Bakat &amp; Minat</span>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-emerald-950">Program Ekstrakurikuler Unggulan</h3>
             </div>
-            <div class="p-4">
-              <span class="text-[10px] font-extrabold uppercase text-emerald-700">Ponpes Riyadul Hikmah</span>
-              <h4 class="font-bold text-slate-900 text-sm mt-1">Halaqah Tahfidz &amp; Kajian Turats</h4>
-            </div>
+            <span class="text-xs text-slate-500">Terbuka untuk santri &amp; siswa sesuai jenjang</span>
           </div>
-          <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition">
-            <div class="overflow-hidden h-48">
-              <img src="https://placehold.co/600x400/0284c7/ffffff?text=PAUD+Kober+Al-Hasani" onerror="this.src='https://placehold.co/600x400/0284c7/ffffff?text=PAUD'" alt="PAUD Kober Al-Hasani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-            </div>
-            <div class="p-4">
-              <span class="text-[10px] font-extrabold uppercase text-sky-700">PAUD Kober Al-Hasani</span>
-              <h4 class="font-bold text-slate-900 text-sm mt-1">Belajar Ceria &amp; Praktik Manasik</h4>
-            </div>
-          </div>
-          <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition">
-            <div class="overflow-hidden h-48">
-              <img src="https://placehold.co/600x400/047857/ffffff?text=Pramuka+%26+Paskibra+MTs" onerror="this.src='https://placehold.co/600x400/047857/ffffff?text=Pramuka'" alt="Pramuka MTs" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-            </div>
-            <div class="p-4">
-              <span class="text-[10px] font-extrabold uppercase text-emerald-700">MTs Darul Hikmah</span>
-              <h4 class="font-bold text-slate-900 text-sm mt-1">Pramuka, Hadroh &amp; Olimpiade KSM</h4>
-            </div>
-          </div>
-          <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition">
-            <div class="overflow-hidden h-48">
-              <img src="https://placehold.co/600x400/b45309/ffffff?text=Riset+Sains+%26+OSIM+MA" onerror="this.src='https://placehold.co/600x400/b45309/ffffff?text=MA'" alt="Kegiatan MA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-            </div>
-            <div class="p-4">
-              <span class="text-[10px] font-extrabold uppercase text-amber-700">MA Darul Hikmah</span>
-              <h4 class="font-bold text-slate-900 text-sm mt-1">Karya Ilmiah Remaja &amp; Kepemimpinan</h4>
-            </div>
-          </div>
+          <div id="public-ekskul-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
         </div>
       </div>
     </section>
@@ -772,10 +755,12 @@
         <div>
           <h4 class="font-extrabold text-sm text-gold-400 mb-3">Kontak Sekretariat &amp; PPDB</h4>
           <ul class="space-y-2 text-xs text-emerald-100">
-            <li>&#128222; Sekretariat Yayasan: 0812-3456-7890</li>
-            <li>&#128231; Email: info@riyadulhikmah.sch.id</li>
+            <li>&#128222; Sekretariat Yayasan: <span id="pub-footer-phone">0812-3456-7890</span></li>
+            <li>&#128231; Email: <span id="pub-footer-email">info@riyadulhikmah.sch.id</span></li>
             <li>&#128338; Jam Layanan: Senin – Sabtu (07.30 – 15.30 WIB)</li>
           </ul>
+          <!-- Tautan Media Sosial Dinamis -->
+          <div id="public-social-links" class="flex flex-wrap gap-2 mt-3"></div>
           <div class="mt-4">
             <button type="button" onclick="openLoginModal()" class="inline-flex items-center gap-2 bg-amber-500/20 hover:bg-amber-500/30 border border-gold-400/50 text-gold-300 font-bold px-3.5 py-2 rounded-xl text-xs transition">
               <span>&#128274;</span> Portal Admin &amp; Absensi QR
@@ -846,35 +831,72 @@
 
   <!-- ==================== 3. DASHBOARD ADMIN TERPADU ==================== -->
   <div id="admin-view" class="hidden min-h-screen bg-slate-100 flex flex-col lg:flex-row">
-    <!-- Sidebar -->
-    <aside class="w-full lg:w-72 bg-emerald-950 text-white flex flex-col shrink-0">
-      <div class="p-6 border-b border-emerald-800">
+    <!-- Sidebar Lengkap Sesuai Struktur Super Admin -->
+    <aside class="w-full lg:w-72 bg-[#022c22] text-white flex flex-col shrink-0">
+      <div class="p-6 border-b border-emerald-900">
         <span id="admin-role-badge" class="inline-block px-2.5 py-0.5 rounded-md bg-gold-500 text-emerald-950 text-[10px] font-extrabold uppercase mb-1.5">SUPER ADMIN YAYASAN</span>
         <h2 id="admin-unit-title" class="font-extrabold text-base leading-snug">Yayasan Riyadul Hikmah</h2>
         <p class="text-[11px] text-emerald-300 mt-1">Database Cloud &amp; Lokal Sinkron &#128994;</p>
       </div>
 
-      <nav class="flex-1 p-4 space-y-1.5 text-xs sm:text-sm font-semibold">
-        <button type="button" onclick="switchAdminTab('overview')" id="nav-tab-overview" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white transition">
-          &#128202; Ringkasan &amp; Laporan Excel
+      <nav class="flex-1 p-4 space-y-1 text-xs sm:text-sm font-semibold overflow-y-auto">
+        <button type="button" onclick="switchAdminTab('overview')" id="nav-tab-overview" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white transition flex items-center gap-2.5">
+          <span>&#128202;</span>
+          <span>Ringkasan Dashboard</span>
         </button>
-        <button type="button" onclick="switchAdminTab('qr-scan')" id="nav-tab-qr-scan" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100 transition">
-          &#128247; Scan QR Absensi Digital
+
+        <div class="pt-4 pb-1.5 px-4 text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
+          Kesiswaan &amp; Absensi
+        </div>
+        <button type="button" onclick="switchAdminTab('students')" id="nav-tab-students" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#127891;</span>
+          <span>Data Siswa (<span id="nav-scope-label">Ponpes, PAUD, MTs &amp; MA</span>)</span>
         </button>
-        <button type="button" onclick="switchAdminTab('students')" id="nav-tab-students" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100 transition">
-          &#127891; Data Santri &amp; Siswa (<span id="nav-scope-label">Semua</span>)
+        <button type="button" onclick="switchAdminTab('qr-scan')" id="nav-tab-qr-scan" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#128247;</span>
+          <span>Scan QR Absensi</span>
         </button>
-        <button type="button" onclick="switchAdminTab('ppdb')" id="nav-tab-ppdb" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100 transition">
-          &#128221; Pendaftar PPDB Satu Pintu
+        <button type="button" onclick="switchAdminTab('rekap-excel')" id="nav-tab-rekap-excel" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#128203;</span>
+          <span>Rekap &amp; Ekspor Excel</span>
         </button>
-        <button type="button" onclick="switchAdminTab('cms')" id="nav-tab-cms" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100 transition">
-          &#128240; Kelola Berita &amp; Running Text
+
+        <div class="pt-4 pb-1.5 px-4 text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
+          Manajemen Konten Publik
+        </div>
+        <button type="button" onclick="switchAdminTab('cms')" id="nav-tab-cms" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#128240;</span>
+          <span>Kelola Berita &amp; Artikel</span>
+        </button>
+        <button type="button" onclick="switchAdminTab('galeri')" id="nav-tab-galeri" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#128248;</span>
+          <span>Galeri Dokumentasi</span>
+        </button>
+        <button type="button" onclick="switchAdminTab('medsos')" id="nav-tab-medsos" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#127760;</span>
+          <span>Akun Media Sosial</span>
+        </button>
+        <button type="button" onclick="switchAdminTab('ekskul')" id="nav-tab-ekskul" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#127942;</span>
+          <span>Kelola Ekstrakurikuler</span>
+        </button>
+        <button type="button" onclick="switchAdminTab('ppdb')" id="nav-tab-ppdb" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#128221;</span>
+          <span>PPDB &amp; Data Pendaftar</span>
+        </button>
+
+        <div id="sidebar-group-sistem" class="pt-4 pb-1.5 px-4 text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
+          Sistem &amp; Identitas
+        </div>
+        <button type="button" onclick="switchAdminTab('profil-akun')" id="nav-tab-profil-akun" class="admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5">
+          <span>&#9881;&#65039;</span>
+          <span>Profil Madrasah &amp; Akun</span>
         </button>
       </nav>
 
-      <div class="p-4 border-t border-emerald-800">
-        <button type="button" onclick="logoutAdmin()" class="w-full py-2.5 rounded-xl bg-red-500/20 hover:bg-red-600 text-red-200 hover:text-white text-xs font-bold transition">
-          &larr; Keluar ke Halaman Publik
+      <div class="p-4 border-t border-emerald-900">
+        <button type="button" onclick="logoutAdmin()" class="w-full py-3 rounded-xl bg-amber-950/70 hover:bg-amber-900 border border-amber-700/50 text-amber-200 hover:text-white text-xs font-extrabold transition">
+          Keluar / Lihat Website Publik
         </button>
       </div>
     </aside>
@@ -982,6 +1004,81 @@
         </div>
       </section>
 
+      <!-- TAB: REKAP & EKSPOR EXCEL -->
+      <section id="admin-tab-rekap-excel" class="admin-section hidden space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Rekapitulasi &amp; Ekspor Laporan Excel</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Unduh laporan lengkap Data Induk Santri/Siswa, Presensi QR, dan Pendaftar PPDB dalam format Microsoft Excel (.xlsx).</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="text-[11px] font-extrabold uppercase text-emerald-700">Paket Lengkap</span>
+              <h3 class="font-extrabold text-base text-slate-900 mt-1">Semua Laporan (3 Sheet)</h3>
+              <p class="text-xs text-slate-500 mt-1">Berisi sheet Data Santri/Siswa, Pendaftar PPDB, dan Log Absensi QR sekaligus.</p>
+            </div>
+            <button type="button" onclick="exportExcelReport('ALL')" class="w-full py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-extrabold">
+              &#128196; Unduh Semua (.xlsx)
+            </button>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="text-[11px] font-extrabold uppercase text-sky-700">Kesiswaan</span>
+              <h3 class="font-extrabold text-base text-slate-900 mt-1">Data Induk Santri &amp; Siswa</h3>
+              <p class="text-xs text-slate-500 mt-1">Rekap NISN, nama lengkap, unit lembaga, dan kelas/kamar.</p>
+            </div>
+            <button type="button" onclick="exportExcelReport('STUDENTS')" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-extrabold">
+              &#128196; Ekspor Data Siswa
+            </button>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="text-[11px] font-extrabold uppercase text-teal-700">Presensi QR</span>
+              <h3 class="font-extrabold text-base text-slate-900 mt-1">Rekap Absensi Digital</h3>
+              <p class="text-xs text-slate-500 mt-1">Log jam masuk hasil pemindaian kartu QR hari ini.</p>
+            </div>
+            <button type="button" onclick="exportExcelReport('ATTENDANCE')" class="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-extrabold">
+              &#128196; Ekspor Absensi QR
+            </button>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="text-[11px] font-extrabold uppercase text-amber-700">PSB / PPDB</span>
+              <h3 class="font-extrabold text-base text-slate-900 mt-1">Data Pendaftar Baru</h3>
+              <p class="text-xs text-slate-500 mt-1">Daftar calon santri/siswa baru, asal sekolah, nomor WA &amp; status.</p>
+            </div>
+            <button type="button" onclick="exportExcelReport('PPDB')" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-emerald-950 text-xs font-extrabold">
+              &#128196; Ekspor Data PPDB
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabel Pratinjau Rekap Absensi -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="font-extrabold text-sm text-slate-900">Pratinjau Rekap Kehadiran &amp; Status Santri</h3>
+            <span class="text-xs text-slate-500">Otomatis terfilter sesuai hak akses akun admin</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead class="bg-slate-50 border-b border-slate-200 text-[11px] uppercase text-slate-500">
+                <tr>
+                  <th class="p-3.5">NISN</th>
+                  <th class="p-3.5">Nama Santri / Siswa</th>
+                  <th class="p-3.5">Unit Lembaga</th>
+                  <th class="p-3.5">Kelas / Kamar</th>
+                  <th class="p-3.5">Status Hari Ini</th>
+                </tr>
+              </thead>
+              <tbody id="rekap-preview-tbody" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <!-- TAB 3: DATA SANTRI & SISWA -->
       <section id="admin-tab-students" class="admin-section hidden space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-4">
@@ -1058,7 +1155,7 @@
 
       <!-- TAB 5: KELOLA BERITA & RUNNING TEXT -->
       <section id="admin-tab-cms" class="admin-section hidden space-y-6">
-        <h1 class="text-2xl font-extrabold text-slate-900">Pengaturan Berita &amp; Info Running Text</h1>
+        <h1 class="text-2xl font-extrabold text-slate-900">Kelola Berita, Artikel &amp; Running Text</h1>
 
         <!-- Editor Running Text -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-3">
@@ -1073,7 +1170,7 @@
 
         <!-- Tambah Berita Baru -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 class="font-extrabold text-sm text-emerald-950">Publikasikan Berita / Pengumuman Baru</h3>
+          <h3 class="font-extrabold text-sm text-emerald-950">Publikasikan Berita / Artikel Baru</h3>
           <form onsubmit="addNewsPost(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-600 mb-1">Judul Berita</label>
@@ -1097,6 +1194,180 @@
               </button>
             </div>
           </form>
+        </div>
+
+        <!-- Daftar Berita Aktif -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-3">
+          <h3 class="font-extrabold text-sm text-slate-900">Daftar Artikel Dipublikasikan</h3>
+          <div id="admin-news-list" class="divide-y divide-slate-100"></div>
+        </div>
+      </section>
+
+      <!-- TAB 6: GALERI DOKUMENTASI -->
+      <section id="admin-tab-galeri" class="admin-section hidden space-y-6">
+        <h1 class="text-2xl font-extrabold text-slate-900">Galeri Dokumentasi Kegiatan</h1>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
+          <h3 class="font-extrabold text-sm text-emerald-950">Tambah Foto Dokumentasi Baru</h3>
+          <form onsubmit="addGalleryItem(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">Unit Lembaga</label>
+              <select id="gal-unit" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+                <option value="Ponpes Riyadul Hikmah">Ponpes Riyadul Hikmah</option>
+                <option value="PAUD Kober Al-Hasani">PAUD Kober Al-Hasani</option>
+                <option value="MTs Darul Hikmah">MTs Darul Hikmah</option>
+                <option value="MA Darul Hikmah">MA Darul Hikmah</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">Judul / Keterangan Foto</label>
+              <input type="text" id="gal-title" required placeholder="Contoh: Wisuda Tahfidz 2026" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">URL Foto (atau pilih file di bawah)</label>
+              <input type="url" id="gal-url" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div class="sm:col-span-3 flex flex-wrap items-center justify-between gap-3">
+              <input type="file" id="gal-file" accept="image/*" class="text-xs text-slate-600">
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold">
+                + Tambahkan ke Galeri Publik
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="admin-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+      </section>
+
+      <!-- TAB 7: AKUN MEDIA SOSIAL -->
+      <section id="admin-tab-medsos" class="admin-section hidden space-y-6">
+        <h1 class="text-2xl font-extrabold text-slate-900">Pengaturan Akun Media Sosial Resmi</h1>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 max-w-2xl space-y-4">
+          <p class="text-xs text-slate-500">Tautan media sosial di bawah ini akan langsung tampil pada bagian Footer &amp; Kontak di halaman depan website.</p>
+          <form onsubmit="saveSocialLinks(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Instagram Resmi</label>
+              <input type="url" id="soc-ig" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">YouTube Channel</label>
+              <input type="url" id="soc-yt" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Facebook Page</label>
+              <input type="url" id="soc-fb" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">TikTok Resmi</label>
+              <input type="url" id="soc-tt" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Link WhatsApp Sekretariat (wa.me)</label>
+              <input type="url" id="soc-wa" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs sm:text-sm">
+            </div>
+            <button type="submit" class="px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold">
+              Simpan &amp; Terapkan ke Website
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- TAB 8: KELOLA EKSTRAKURIKULER -->
+      <section id="admin-tab-ekskul" class="admin-section hidden space-y-6">
+        <h1 class="text-2xl font-extrabold text-slate-900">Kelola Program Ekstrakurikuler</h1>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
+          <h3 class="font-extrabold text-sm text-emerald-950">Tambah Kegiatan Ekstrakurikuler</h3>
+          <form onsubmit="addEkskulItem(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">Nama Ekstrakurikuler</label>
+              <input type="text" id="eks-nama" required placeholder="Contoh: Tahfidz & Tilawah" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">Unit Peserta</label>
+              <input type="text" id="eks-unit" required placeholder="Contoh: Ponpes, MTs & MA" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">Jadwal Latihan</label>
+              <input type="text" id="eks-jadwal" required placeholder="Contoh: Sabtu, 15.30 WIB" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+            </div>
+            <div class="sm:col-span-3 flex flex-wrap items-center justify-between gap-3">
+              <input type="text" id="eks-desc" required placeholder="Deskripsi singkat pembinaan dan target prestasi..." class="flex-1 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm">
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-emerald-950 text-xs font-extrabold shrink-0">
+                + Tambah Ekskul
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="admin-ekskul-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </section>
+
+      <!-- TAB 9: PROFIL MADRASAH, LOGO RESMI & AKUN -->
+      <section id="admin-tab-profil-akun" class="admin-section hidden space-y-6">
+        <h1 class="text-2xl font-extrabold text-slate-900">Profil Yayasan, Logo Resmi &amp; Akun Pengelola</h1>
+
+        <!-- Pengaturan Logo Resmi Setiap Lembaga -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-5">
+          <div>
+            <h3 class="font-extrabold text-base text-emerald-950">Pengaturan Logo Resmi Yayasan &amp; Unit Lembaga</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Unggah file gambar logo asli (PNG/JPG/SVG) atau tempel tautan gambar untuk masing-masing lembaga agar tampil di seluruh halaman publik.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="logo-settings-cards"></div>
+        </div>
+
+        <!-- Pengaturan Identitas & Kontak Yayasan -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4">
+            <h3 class="font-extrabold text-sm text-emerald-950">Identitas Header &amp; Kontak Sekretariat</h3>
+            <form onsubmit="saveSchoolIdentity(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Judul Utama Header</label>
+                <input type="text" id="id-nav-title" value="YAYASAN" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Subjudul Nama Yayasan</label>
+                <input type="text" id="id-nav-subtitle" value="Riyadul Hikmah Mekarrahayu" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm">
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Telepon / WA Sekretariat</label>
+                  <input type="text" id="id-phone" value="0812-3456-7890" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Email Resmi</label>
+                  <input type="email" id="id-email" value="info@riyadulhikmah.sch.id" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm">
+                </div>
+              </div>
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold">
+                Simpan Perubahan Identitas
+              </button>
+            </form>
+          </div>
+
+          <!-- Daftar Akun Pengelola Lembaga -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 space-y-3">
+            <h3 class="font-extrabold text-sm text-emerald-950">Daftar Akun Admin Multi-Lembaga</h3>
+            <p class="text-xs text-slate-500">Setiap admin unit hanya dapat mengelola data santri/siswa pada lembaganya masing-masing, sedangkan Super Admin dapat mengakses seluruh unit.</p>
+            <div class="divide-y divide-slate-100 text-xs">
+              <div class="py-2.5 flex justify-between items-center">
+                <div><strong class="text-slate-900">Super Admin Yayasan</strong><span class="block text-slate-500">admin@riyadulhikmah.sch.id</span></div>
+                <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold">Semua Akses</span>
+              </div>
+              <div class="py-2.5 flex justify-between items-center">
+                <div><strong class="text-slate-900">Admin Ponpes Riyadul Hikmah</strong><span class="block text-slate-500">ponpes@riyadulhikmah.sch.id</span></div>
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-900 font-bold">Unit PONPES</span>
+              </div>
+              <div class="py-2.5 flex justify-between items-center">
+                <div><strong class="text-slate-900">Admin PAUD Kober Al-Hasani</strong><span class="block text-slate-500">paud@riyadulhikmah.sch.id</span></div>
+                <span class="px-2.5 py-1 rounded-lg bg-sky-100 text-sky-900 font-bold">Unit PAUD</span>
+              </div>
+              <div class="py-2.5 flex justify-between items-center">
+                <div><strong class="text-slate-900">Admin MTs Darul Hikmah</strong><span class="block text-slate-500">mts@darulhikmah.sch.id</span></div>
+                <span class="px-2.5 py-1 rounded-lg bg-teal-100 text-teal-900 font-bold">Unit MTs</span>
+              </div>
+              <div class="py-2.5 flex justify-between items-center">
+                <div><strong class="text-slate-900">Admin MA Darul Hikmah</strong><span class="block text-slate-500">ma@darulhikmah.sch.id</span></div>
+                <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold">Unit MA</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -1238,19 +1509,73 @@
       }
     ];
 
+    let galleryItems = [
+      { unit: 'Ponpes Riyadul Hikmah', title: 'Halaqah Tahfidz & Kajian Turats', url: 'https://placehold.co/600x400/064e3b/fbbf24?text=Halaqah+Tahfidz+%26+Kitab' },
+      { unit: 'PAUD Kober Al-Hasani', title: 'Belajar Ceria & Praktik Manasik', url: 'https://placehold.co/600x400/0284c7/ffffff?text=PAUD+Kober+Al-Hasani' },
+      { unit: 'MTs Darul Hikmah', title: 'Pramuka, Hadroh & Olimpiade KSM', url: 'https://placehold.co/600x400/047857/ffffff?text=Pramuka+%26+Paskibra+MTs' },
+      { unit: 'MA Darul Hikmah', title: 'Karya Ilmiah Remaja & Kepemimpinan', url: 'https://placehold.co/600x400/b45309/ffffff?text=Riset+Sains+%26+OSIM+MA' }
+    ];
+
+    let ekskulItems = [
+      { nama: 'Tahfidzul Qur’an & Qira’at', unit: 'Ponpes, MTs & MA', jadwal: 'Setiap Ba’da Subuh & Maghrib', desc: 'Halaqah setoran hafalan harian bersanad, tahsin tilawah, dan persiapan MTQ.' },
+      { nama: 'Bahtsul Masa’il & Kitab Kuning', unit: 'Ponpes & MA', jadwal: 'Malam Rabu & Malam Jum’at', desc: 'Pendalaman gramatika Arab (Nahwu-Shorof) dan kajian fiqih klasik.' },
+      { nama: 'Pramuka & Paskibra Madrasah', unit: 'MTs & MA Darul Hikmah', jadwal: 'Sabtu, 14.30 – 17.00 WIB', desc: 'Pembinaan kedisiplinan, kepemimpinan, baris-berbaris, dan kemandirian.' },
+      { nama: 'Seni Hadroh, Marawis & Kaligrafi', unit: 'PAUD, MTs & MA', jadwal: 'Jum’at, 15.30 – 17.00 WIB', desc: 'Pelestarian seni budaya Islami, shalawat rebana, dan seni kaligrafi Arab.' }
+    ];
+
+    let socialLinks = {
+      instagram: 'https://instagram.com',
+      youtube: 'https://youtube.com',
+      facebook: 'https://facebook.com',
+      tiktok: 'https://tiktok.com',
+      whatsapp: 'https://wa.me/6281234567890'
+    };
+
+    let customLogos = {
+      yayasan: '',
+      ponpes: '',
+      paud: '',
+      mts: '',
+      ma: ''
+    };
+
+    const ADMIN_CREDENTIALS = {
+      'admin@riyadulhikmah.sch.id': {
+        pass: 'admin123',
+        role: 'SUPER',
+        badge: 'SUPER ADMIN YAYASAN',
+        title: 'Yayasan Riyadul Hikmah'
+      },
+      'ponpes@riyadulhikmah.sch.id': {
+        pass: 'ponpes123',
+        role: 'PONPES',
+        badge: 'ADMIN PONPES',
+        title: 'Ponpes Riyadul Hikmah'
+      },
+      'paud@riyadulhikmah.sch.id': {
+        pass: 'paud123',
+        role: 'PAUD',
+        badge: 'ADMIN PAUD',
+        title: 'PAUD Kober Al-Hasani'
+      },
+      'mts@darulhikmah.sch.id': {
+        pass: 'mts123',
+        role: 'MTs',
+        badge: 'ADMIN MTs',
+        title: 'MTs Darul Hikmah'
+      },
+      'ma@darulhikmah.sch.id': {
+        pass: 'ma123',
+        role: 'MA',
+        badge: 'ADMIN MA',
+        title: 'MA Darul Hikmah'
+      }
+    };
+
     let activeRole = 'SUPER';
     let studentFilterUnit = 'ALL';
     let html5QrScanner = null;
     let scanCooldown = false;
-
-    const ADMIN_CREDENTIALS = {
-      'admin@riyadulhikmah.sch.id': { pass: 'admin123', role: 'SUPER', title: 'Yayasan Riyadul Hikmah', badge: 'SUPER ADMIN YAYASAN' },
-      'admin@darulhikmah.sch.id':   { pass: 'admin123', role: 'SUPER', title: 'Yayasan Riyadul Hikmah', badge: 'SUPER ADMIN YAYASAN' },
-      'ponpes@riyadulhikmah.sch.id':{ pass: 'ponpes123', role: 'PONPES', title: 'Ponpes Riyadul Hikmah', badge: 'ADMIN PONPES' },
-      'paud@riyadulhikmah.sch.id':  { pass: 'paud123',  role: 'PAUD',  title: 'PAUD Kober Al-Hasani', badge: 'ADMIN PAUD' },
-      'mts@darulhikmah.sch.id':     { pass: 'mts123',   role: 'MTs',   title: 'MTs Darul Hikmah', badge: 'ADMIN MTs' },
-      'ma@darulhikmah.sch.id':      { pass: 'ma123',    role: 'MA',    title: 'MA Darul Hikmah', badge: 'ADMIN MA' }
-    };
 
     // Toast Pengganti alert()
     function showToast(message) {
@@ -1465,13 +1790,22 @@
         activeRole = acc.role;
         document.getElementById('admin-role-badge').textContent = acc.badge;
         document.getElementById('admin-unit-title').textContent = acc.title;
-        document.getElementById('nav-scope-label').textContent = activeRole === 'SUPER' ? 'Semua' : activeRole;
+        document.getElementById('nav-scope-label').textContent = activeRole === 'SUPER' ? 'Ponpes, PAUD, MTs & MA' : activeRole;
+
+        // Tampilkan menu Sistem & Identitas khusus untuk Super Admin
+        const sysGroup = document.getElementById('sidebar-group-sistem');
+        const sysBtn = document.getElementById('nav-tab-profil-akun');
+        if (sysGroup && sysBtn) {
+          sysGroup.classList.toggle('hidden', activeRole !== 'SUPER');
+          sysBtn.classList.toggle('hidden', activeRole !== 'SUPER');
+        }
 
         closeLoginModal();
         document.getElementById('public-view').classList.add('hidden');
         document.getElementById('admin-view').classList.remove('hidden');
         switchAdminTab('overview');
         syncAllCloudData();
+        renderAllAdminModules();
         showToast(`Selamat datang, ${acc.badge}`);
       } else {
         showToast('Email atau kata sandi admin tidak valid!');
@@ -1488,15 +1822,17 @@
 
     function switchAdminTab(tabName) {
       document.querySelectorAll('.admin-section').forEach(sec => sec.classList.add('hidden'));
-      document.getElementById('admin-tab-' + tabName).classList.remove('hidden');
+      const targetSec = document.getElementById('admin-tab-' + tabName);
+      if (targetSec) targetSec.classList.remove('hidden');
 
       document.querySelectorAll('.admin-nav-btn').forEach(btn => {
-        btn.className = 'admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100 transition';
+        btn.className = 'admin-nav-btn w-full text-left px-4 py-2.5 rounded-xl hover:bg-emerald-900/70 text-emerald-100 transition flex items-center gap-2.5';
       });
       const activeNav = document.getElementById('nav-tab-' + tabName);
       if (activeNav) {
-        activeNav.className = 'admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white transition';
+        activeNav.className = 'admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white transition flex items-center gap-2.5 shadow-xs';
       }
+      renderAllAdminModules();
     }
 
     // Sinkronisasi Data Cloud Supabase + Render Dashboard
@@ -1536,6 +1872,30 @@
       renderAdminStudentsTable();
       renderAdminPpdbTable();
       renderAttendanceLog();
+      renderRekapPreviewTable();
+    }
+
+    function renderRekapPreviewTable() {
+      const tbody = document.getElementById('rekap-preview-tbody');
+      if (!tbody) return;
+      const scoped = activeRole === 'SUPER' ? studentsList : studentsList.filter(s => s.jenjang === activeRole);
+      tbody.innerHTML = scoped.map(s => {
+        const hadir = attendanceRecords.find(a => a.nisn === s.nisn);
+        return `
+          <tr class="hover:bg-slate-50">
+            <td class="p-3.5 font-mono text-xs text-slate-600">${s.nisn}</td>
+            <td class="p-3.5 font-bold text-slate-900">${s.nama}</td>
+            <td class="p-3.5"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 text-xs font-bold">${s.jenjang}</span></td>
+            <td class="p-3.5 text-slate-600">${s.kelas}</td>
+            <td class="p-3.5">
+              ${hadir
+                ? `<span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-extrabold">Hadir (${hadir.waktu} WIB)</span>`
+                : `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-xs font-semibold">Belum Scan</span>`
+              }
+            </td>
+          </tr>
+        `;
+      }).join('');
     }
 
     function setAdminStudentFilter(unit) {
@@ -1769,8 +2129,259 @@
 
       e.target.reset();
       renderPublicNews();
+      renderAllAdminModules();
       refreshAdminDashboard();
       showToast('Berita baru berhasil diterbitkan ke halaman publik!');
+    }
+
+    function deleteNewsPost(idx) {
+      newsPosts.splice(idx, 1);
+      renderPublicNews();
+      renderAllAdminModules();
+      refreshAdminDashboard();
+      showToast('Artikel dihapus.');
+    }
+
+    // Render Galeri, Ekskul, Medsos & Pengaturan Logo
+    function renderPublicGalleryAndEkskul() {
+      const galGrid = document.getElementById('public-gallery-grid');
+      if (galGrid) {
+        galGrid.innerHTML = galleryItems.map(g => `
+          <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition">
+            <div class="overflow-hidden h-48">
+              <img src="${g.url}" onerror="this.src='https://placehold.co/600x400/064e3b/ffffff?text=Dokumentasi'" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-extrabold uppercase text-emerald-700">${g.unit}</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-1">${g.title}</h4>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const eksGrid = document.getElementById('public-ekskul-grid');
+      if (eksGrid) {
+        eksGrid.innerHTML = ekskulItems.map(ek => `
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 hover:border-emerald-500 shadow-xs transition flex flex-col justify-between">
+            <div>
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-extrabold uppercase mb-2">${ek.unit}</span>
+              <h4 class="font-extrabold text-slate-900 text-sm">${ek.nama}</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">${ek.desc}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-amber-700">
+              &#128338; ${ek.jadwal}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const socBox = document.getElementById('public-social-links');
+      if (socBox) {
+        const items = [
+          { label: 'Instagram', url: socialLinks.instagram },
+          { label: 'YouTube', url: socialLinks.youtube },
+          { label: 'Facebook', url: socialLinks.facebook },
+          { label: 'TikTok', url: socialLinks.tiktok },
+          { label: 'WhatsApp', url: socialLinks.whatsapp }
+        ].filter(i => i.url);
+        socBox.innerHTML = items.map(i => `
+          <a href="${i.url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-emerald-900 hover:bg-emerald-800 border border-emerald-700 text-[11px] font-bold text-emerald-100 transition">
+            ${i.label}
+          </a>
+        `).join('');
+      }
+    }
+
+    function applyCustomLogosToDOM() {
+      ['yayasan', 'ponpes', 'paud', 'mts', 'ma'].forEach(key => {
+        const imgEl = document.getElementById('img-logo-' + key);
+        const svgEl = document.getElementById('svg-logo-' + key);
+        if (!imgEl || !svgEl) return;
+        if (customLogos[key]) {
+          imgEl.src = customLogos[key];
+          imgEl.classList.remove('hidden');
+          svgEl.classList.add('hidden');
+        } else {
+          imgEl.classList.add('hidden');
+          svgEl.classList.remove('hidden');
+        }
+      });
+    }
+
+    function renderAllAdminModules() {
+      // 1. Admin News List
+      const admNews = document.getElementById('admin-news-list');
+      if (admNews) {
+        admNews.innerHTML = newsPosts.map((n, idx) => `
+          <div class="py-3 flex items-center justify-between gap-4">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-emerald-700">${n.kategori} &bull; ${n.tanggal}</span>
+              <h4 class="font-bold text-xs sm:text-sm text-slate-900">${n.judul}</h4>
+            </div>
+            <button type="button" onclick="deleteNewsPost(${idx})" class="px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-700 text-xs font-bold shrink-0">Hapus</button>
+          </div>
+        `).join('');
+      }
+
+      // 2. Admin Gallery Grid
+      const admGal = document.getElementById('admin-gallery-grid');
+      if (admGal) {
+        admGal.innerHTML = galleryItems.map((g, idx) => `
+          <div class="bg-white rounded-2xl overflow-hidden border border-slate-200">
+            <img src="${g.url}" class="w-full h-36 object-cover" alt="${g.title}">
+            <div class="p-3.5 flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <span class="text-[10px] font-bold text-emerald-700 block truncate">${g.unit}</span>
+                <span class="font-bold text-xs text-slate-900 block truncate">${g.title}</span>
+              </div>
+              <button type="button" onclick="deleteGalleryItem(${idx})" class="px-2.5 py-1 rounded-lg bg-red-50 text-red-700 text-[11px] font-bold shrink-0">Hapus</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 3. Admin Ekskul Grid
+      const admEks = document.getElementById('admin-ekskul-grid');
+      if (admEks) {
+        admEks.innerHTML = ekskulItems.map((ek, idx) => `
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase text-emerald-700">${ek.unit}</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-0.5">${ek.nama}</h4>
+              <p class="text-xs text-slate-600 mt-1">${ek.desc}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-amber-700">${ek.jadwal}</span>
+              <button type="button" onclick="deleteEkskulItem(${idx})" class="text-xs font-bold text-red-600 hover:underline">Hapus</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 4. Form Medsos
+      if (document.getElementById('soc-ig')) {
+        document.getElementById('soc-ig').value = socialLinks.instagram;
+        document.getElementById('soc-yt').value = socialLinks.youtube;
+        document.getElementById('soc-fb').value = socialLinks.facebook;
+        document.getElementById('soc-tt').value = socialLinks.tiktok;
+        document.getElementById('soc-wa').value = socialLinks.whatsapp;
+      }
+
+      // 5. Pengaturan Logo Resmi
+      const logoCards = document.getElementById('logo-settings-cards');
+      if (logoCards) {
+        const units = [
+          { key: 'yayasan', label: 'Logo Yayasan Riyadul Hikmah' },
+          { key: 'ponpes', label: 'Logo Ponpes Riyadul Hikmah' },
+          { key: 'paud', label: 'Logo PAUD Kober Al-Hasani' },
+          { key: 'mts', label: 'Logo MTs Darul Hikmah' },
+          { key: 'ma', label: 'Logo MA Darul Hikmah' }
+        ];
+        logoCards.innerHTML = units.map(u => `
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+            <div class="font-extrabold text-xs text-emerald-950">${u.label}</div>
+            <input type="url" id="logo-url-${u.key}" value="${customLogos[u.key] || ''}" placeholder="Tempel URL gambar logo..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs bg-white">
+            <div class="flex items-center justify-between gap-2">
+              <label class="cursor-pointer px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-[11px] font-bold text-slate-700">
+                Pilih File Logo
+                <input type="file" accept="image/*" onchange="handleLogoFileUpload('${u.key}', this)" class="hidden">
+              </label>
+              <button type="button" onclick="saveLogoUrl('${u.key}')" class="px-3 py-1.5 rounded-lg bg-emerald-700 text-white text-[11px] font-bold">
+                Terapkan
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function addGalleryItem(e) {
+      e.preventDefault();
+      const unit = document.getElementById('gal-unit').value;
+      const title = document.getElementById('gal-title').value.trim();
+      const urlInput = document.getElementById('gal-url').value.trim();
+      const fileInput = document.getElementById('gal-file');
+
+      const finalizeAdd = (finalUrl) => {
+        galleryItems.unshift({ unit, title, url: finalUrl });
+        e.target.reset();
+        renderPublicGalleryAndEkskul();
+        renderAllAdminModules();
+        showToast('Foto dokumentasi berhasil ditambahkan!');
+      };
+
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const blobUrl = URL.createObjectURL(fileInput.files[0]);
+        finalizeAdd(blobUrl);
+      } else {
+        finalizeAdd(urlInput || `https://placehold.co/600x400/064e3b/fbbf24?text=${encodeURIComponent(title)}`);
+      }
+    }
+
+    function deleteGalleryItem(idx) {
+      galleryItems.splice(idx, 1);
+      renderPublicGalleryAndEkskul();
+      renderAllAdminModules();
+      showToast('Foto dokumentasi dihapus.');
+    }
+
+    function saveSocialLinks(e) {
+      e.preventDefault();
+      socialLinks = {
+        instagram: document.getElementById('soc-ig').value.trim(),
+        youtube: document.getElementById('soc-yt').value.trim(),
+        facebook: document.getElementById('soc-fb').value.trim(),
+        tiktok: document.getElementById('soc-tt').value.trim(),
+        whatsapp: document.getElementById('soc-wa').value.trim()
+      };
+      renderPublicGalleryAndEkskul();
+      showToast('Tautan media sosial berhasil diperbarui!');
+    }
+
+    function addEkskulItem(e) {
+      e.preventDefault();
+      ekskulItems.unshift({
+        nama: document.getElementById('eks-nama').value.trim(),
+        unit: document.getElementById('eks-unit').value.trim(),
+        jadwal: document.getElementById('eks-jadwal').value.trim(),
+        desc: document.getElementById('eks-desc').value.trim()
+      });
+      e.target.reset();
+      renderPublicGalleryAndEkskul();
+      renderAllAdminModules();
+      showToast('Program ekstrakurikuler berhasil ditambahkan!');
+    }
+
+    function deleteEkskulItem(idx) {
+      ekskulItems.splice(idx, 1);
+      renderPublicGalleryAndEkskul();
+      renderAllAdminModules();
+      showToast('Program ekstrakurikuler dihapus.');
+    }
+
+    function handleLogoFileUpload(key, inputEl) {
+      if (inputEl.files && inputEl.files[0]) {
+        const blobUrl = URL.createObjectURL(inputEl.files[0]);
+        customLogos[key] = blobUrl;
+        applyCustomLogosToDOM();
+        showToast(`Logo ${key.toUpperCase()} berhasil diperbarui!`);
+      }
+    }
+
+    function saveLogoUrl(key) {
+      const val = document.getElementById('logo-url-' + key).value.trim();
+      customLogos[key] = val;
+      applyCustomLogosToDOM();
+      showToast(val ? `Logo ${key.toUpperCase()} diterapkan!` : `Logo ${key.toUpperCase()} dikembalikan ke emblem default.`);
+    }
+
+    function saveSchoolIdentity(e) {
+      e.preventDefault();
+      document.getElementById('pub-nav-title').textContent = document.getElementById('id-nav-title').value.trim();
+      document.getElementById('pub-nav-subtitle').textContent = document.getElementById('id-nav-subtitle').value.trim();
+      document.getElementById('pub-footer-phone').textContent = document.getElementById('id-phone').value.trim();
+      document.getElementById('pub-footer-email').textContent = document.getElementById('id-email').value.trim();
+      showToast('Identitas Yayasan & Kontak berhasil diperbarui!');
     }
 
     // Ekspor Laporan ke Excel (.xlsx) menggunakan SheetJS
@@ -1810,6 +2421,8 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       renderPublicNews();
+      renderPublicGalleryAndEkskul();
+      applyCustomLogosToDOM();
       initVisitorCounter();
       syncAllCloudData();
     });
