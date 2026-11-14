@@ -2539,5 +2539,88 @@
       }
     }
   </script>
+  <!-- BAGIAN CATATAN PENGUNJUNG -->
+<section id="catatan-pengunjung" style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: sans-serif;">
+  <h3>Catatan Pengunjung</h3>
+  
+  <form id="form-catatan" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+    <input type="text" id="nama-pengunjung" placeholder="Nama Anda" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+    <textarea id="isi-catatan" rows="3" placeholder="Tulis pesan atau kesan Anda..." required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+    <button type="submit" id="btn-kirim" style="padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Kirim Catatan</button>
+  </form>
+
+  <div id="daftar-catatan" style="display: flex; flex-direction: column; gap: 10px;">
+    <p style="color: #888;">Memuat catatan...</p>
+  </div>
+</section>
+
+<!-- SCRIPT FIREBASE & FIRESTORE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmnX1v7lyWmkO6JjnCOYSAp7SHHI2LYpw",
+    authDomain: "web-darul-hikmah.firebaseapp.com",
+    projectId: "web-darul-hikmah",
+    storageBucket: "web-darul-hikmah.firebasestorage.app",
+    messagingSenderId: "349664555345",
+    appId: "1:349664555345:web:08b880cba0fa50e0f8e370"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const catatanRef = collection(db, "catatan_pengunjung");
+
+  // 1. Fungsi Simpan Catatan
+  const form = document.getElementById("form-catatan");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("btn-kirim");
+    const nama = document.getElementById("nama-pengunjung").value;
+    const pesan = document.getElementById("isi-catatan").value;
+
+    btn.disabled = true;
+    btn.textContent = "Mengirim...";
+
+    try {
+      await addDoc(catatanRef, {
+        nama: nama,
+        pesan: pesan,
+        waktu: serverTimestamp()
+      });
+      form.reset();
+    } catch (error) {
+      alert("Gagal mengirim catatan: " + error.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Kirim Catatan";
+    }
+  });
+
+  // 2. Fungsi Tampilkan Catatan Secara Real-time
+  const q = query(catatanRef, orderBy("waktu", "desc"));
+  onSnapshot(q, (snapshot) => {
+    const daftarEl = document.getElementById("daftar-catatan");
+    daftarEl.innerHTML = "";
+
+    if (snapshot.empty) {
+      daftarEl.innerHTML = "<p style='color: #888;'>Belum ada catatan pengunjung.</p>";
+      return;
+    }
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const tanggal = data.waktu ? data.waktu.toDate().toLocaleDateString("id-ID", { day: 'numeric', month: 'short', year: 'numeric' }) : "Baru saja";
+      
+      daftarEl.innerHTML += `
+        <div style="padding: 12px; background: #f9f9f9; border-left: 4px solid #28a745; border-radius: 4px;">
+          <strong>${data.nama}</strong> <small style="color: #777;">• ${tanggal}</small>
+          <p style="margin: 5px 0 0 0; color: #333;">${data.pesan}</p>
+        </div>
+      `;
+    });
+  });
+</script>
 </body>
 </html>
