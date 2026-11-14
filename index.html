@@ -107,8 +107,8 @@
         <a href="#beranda" class="flex items-center gap-3">
           <div class="w-11 h-11 rounded-xl bg-emerald-800 text-gold-400 border border-gold-400/40 flex items-center justify-center font-extrabold text-lg shadow-md">RH</div>
           <div>
-            <span id="pub-nav-title" class="block text-base sm:text-lg font-extrabold text-emerald-950 leading-tight">PONPES RIYADUL HIKMAH</span>
-            <span class="block text-[11px] font-bold text-emerald-700 tracking-wide">Yayasan Riyadul Hikmah Mekarrahayu</span>
+            <span id="pub-nav-title" class="block text-base sm:text-lg font-extrabold text-emerald-950 leading-tight tracking-wide">YAYASAN</span>
+            <span id="pub-nav-subtitle" class="block text-[11px] sm:text-xs font-bold text-emerald-700 tracking-wide">Riyadul Hikmah Mekarrahayu</span>
           </div>
         </a>
         <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
@@ -1138,7 +1138,7 @@
     let docsList = [];
     let ekskulList = [];
     let siteConfig = {
-      school_name: "PONPES RIYADUL HIKMAH",
+      school_name: "YAYASAN",
       ppdb_badge: "Penerimaan Santri & Peserta Didik Baru Satu Pintu (Pesantren, MTs & MA) Dibuka",
       hero_desc: "Pusat pembinaan akhlak, kajian kitab kuning (turats), dan tahfidzul Qur'an di bawah naungan Yayasan Riyadul Hikmah Mekarrahayu dengan layanan pendidikan formal terpadu satu pintu jenjang MTs dan MA.",
       akreditasi: "A",
@@ -1229,7 +1229,8 @@
     }
 
     function applySiteConfigToPublic() {
-      document.getElementById('pub-nav-title').innerText = siteConfig.school_name;
+      const navTitle = (!siteConfig.school_name || siteConfig.school_name.toUpperCase().includes('DARUL HIKMAH')) ? 'YAYASAN' : siteConfig.school_name;
+      document.getElementById('pub-nav-title').innerText = navTitle;
       document.getElementById('pub-ppdb-badge').innerHTML = `<span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span> ${siteConfig.ppdb_badge}`;
       document.getElementById('pub-hero-desc').innerText = siteConfig.hero_desc;
       document.getElementById('pub-stat-akreditasi').innerText = siteConfig.akreditasi;
