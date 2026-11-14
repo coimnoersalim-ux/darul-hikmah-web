@@ -96,6 +96,7 @@
           <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
           <a href="#profil" class="hover:text-emerald-700 transition">Profil</a>
           <a href="#berita" class="hover:text-emerald-700 transition">Berita</a>
+          <a href="#dokumentasi" class="hover:text-emerald-700 transition">Dokumentasi</a>
           <a href="#ekskul" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
           <a href="#ppdb" class="hover:text-emerald-700 transition">PPDB</a>
           <a href="#kontak" class="hover:text-emerald-700 transition">Kontak</a>
@@ -202,6 +203,37 @@
       </div>
     </section>
 
+    <!-- Dokumentasi & Media Sosial Sekolah -->
+    <section id="dokumentasi" class="py-20 bg-emerald-50/50 border-t border-slate-200/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Galeri &amp; Kanal Resmi</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Dokumentasi Kegiatan &amp; Media Sosial</h2>
+            <p class="text-slate-600 text-sm mt-2 max-w-2xl">Ikuti aktivitas harian santri, liputan kegiatan madrasah, dan publikasi resmi melalui akun media sosial MTs &amp; MA Darul Hikmah.</p>
+          </div>
+          <!-- Tombol Tautan Akun Medsos Resmi -->
+          <div class="flex flex-wrap gap-2.5">
+            <a id="link-medsos-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-amber-500 hover:opacity-90 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
+              <span>&#128248;</span> Instagram
+            </a>
+            <a id="link-medsos-yt" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
+              <span>&#9654;&#65039;</span> YouTube
+            </a>
+            <a id="link-medsos-tt" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
+              <span>&#127925;</span> TikTok
+            </a>
+            <a id="link-medsos-fb" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
+              <span>&#128101;</span> Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Grid Galeri Dokumentasi Terhubung ke Medsos -->
+        <div id="public-docs-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      </div>
+    </section>
+
     <!-- Ekstrakurikuler -->
     <section id="ekskul" class="py-20 bg-white border-t border-slate-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -281,6 +313,15 @@
             Telepon / WA: <span id="pub-telp">+62 812-3456-7890</span><br>
             Email: <span id="pub-email">info@darulhikmah.sch.id</span>
           </p>
+          <div class="flex flex-wrap gap-3 mt-3 text-xs font-semibold">
+            <a id="footer-medsos-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">Instagram</a>
+            <span class="text-slate-600">&bull;</span>
+            <a id="footer-medsos-yt" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline">YouTube</a>
+            <span class="text-slate-600">&bull;</span>
+            <a id="footer-medsos-tt" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="text-slate-200 hover:underline">TikTok</a>
+            <span class="text-slate-600">&bull;</span>
+            <a id="footer-medsos-fb" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Facebook</a>
+          </div>
         </div>
         <div>
           <div class="text-white font-bold mb-2">Akses Sistem</div>
@@ -343,6 +384,9 @@
           <div class="pt-3 pb-1 px-3.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400/80">Manajemen Konten Publik</div>
           <button onclick="switchAdminTab('berita-admin')" id="nav-berita-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
             &#128240; Kelola Berita &amp; Artikel
+          </button>
+          <button onclick="switchAdminTab('docs-admin')" id="nav-docs-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#128248; Dokumentasi &amp; Medsos
           </button>
           <button onclick="switchAdminTab('ekskul-admin')" id="nav-ekskul-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
             &#127942; Kelola Ekstrakurikuler
@@ -533,6 +577,53 @@
             </thead>
             <tbody id="admin-news-table" class="divide-y divide-slate-100"></tbody>
           </table>
+        </div>
+      </div>
+
+      <!-- TAB: KELOLA DOKUMENTASI & AKUN MEDSOS SEKOLAH -->
+      <div id="tab-docs-admin" class="hidden space-y-8">
+        <div>
+          <h1 class="text-2xl font-extrabold text-slate-900">Dokumentasi Kegiatan &amp; Akun Media Sosial</h1>
+          <p class="text-xs text-slate-500">Hubungkan tautan akun resmi madrasah (Instagram, YouTube, TikTok, Facebook) dan kelola galeri dokumentasi kegiatan.</p>
+        </div>
+
+        <!-- Form Pengaturan Tautan Akun Medsos Resmi -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-4">Tautan Akun Media Sosial Resmi Madrasah</h3>
+          <form onsubmit="saveMedsosLinks(event)" class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">URL Instagram Sekolah</label>
+              <input type="url" id="set-medsos-ig" placeholder="https://instagram.com/darulhikmah.official" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">URL Channel YouTube Sekolah</label>
+              <input type="url" id="set-medsos-yt" placeholder="https://youtube.com/@darulhikmahtv" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">URL TikTok Sekolah</label>
+              <input type="url" id="set-medsos-tt" placeholder="https://tiktok.com/@darulhikmah.id" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">URL Facebook Sekolah</label>
+              <input type="url" id="set-medsos-fb" placeholder="https://facebook.com/darulhikmah" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs">
+            </div>
+            <div class="sm:col-span-2 flex justify-end">
+              <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow">
+                Simpan Tautan Media Sosial
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Manajemen Item Dokumentasi Galeri -->
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <h3 class="font-bold text-slate-900 text-lg">Daftar Album &amp; Postingan Dokumentasi</h3>
+            <button onclick="openDocModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow">
+              + Tambah Dokumentasi Baru
+            </button>
+          </div>
+          <div id="admin-docs-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </div>
       </div>
 
@@ -755,6 +846,49 @@
     </div>
   </div>
 
+  <!-- Modal Tambah / Edit Dokumentasi -->
+  <div id="doc-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-7 shadow-2xl relative">
+      <button onclick="document.getElementById('doc-modal').classList.add('hidden')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">&times;</button>
+      <h3 class="text-xl font-extrabold text-slate-900 mb-4">Tambah / Edit Dokumentasi Kegiatan</h3>
+      <form onsubmit="saveDocItem(event)" class="space-y-4">
+        <input type="hidden" id="edit-doc-id">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Platform Sumber</label>
+            <select id="form-doc-platform" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+              <option value="Instagram">Instagram</option>
+              <option value="YouTube">YouTube</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Facebook">Facebook</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Tanggal Kegiatan</label>
+            <input type="text" id="form-doc-date" required placeholder="14 November 2026" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Judul Dokumentasi</label>
+          <input type="text" id="form-doc-title" required placeholder="Contoh: Upacara Hari Santri Nasional 2026" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">URL Gambar / Thumbnail (Opsional)</label>
+          <input type="url" id="form-doc-image" placeholder="https://images.unsplash.com/..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Link Postingan / Video Medsos Sekolah</label>
+          <input type="url" id="form-doc-url" required placeholder="https://instagram.com/p/..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Keterangan Singkat</label>
+          <textarea id="form-doc-desc" rows="2" required placeholder="Deskripsi singkat momen kegiatan..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow">Simpan Dokumentasi</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Modal Tambah / Edit Ekstrakurikuler -->
   <div id="ekskul-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl relative">
@@ -812,6 +946,7 @@
     let allAttendances = [];
     let ppdbList = [];
     let newsList = [];
+    let docsList = [];
     let ekskulList = [];
     let siteConfig = {
       school_name: "DARUL HIKMAH",
@@ -829,6 +964,10 @@
       alamat: "Jl. Pendidikan Islam No. 99, Indonesia. Membina generasi berilmu amaliah dan beramal ilmiah.",
       telp: "+62 812-3456-7890",
       email: "info@darulhikmah.sch.id",
+      medsos_ig: "https://instagram.com",
+      medsos_yt: "https://youtube.com",
+      medsos_tt: "https://tiktok.com",
+      medsos_fb: "https://facebook.com",
       admin_user: "admin",
       admin_pass: "admin123"
     };
@@ -838,6 +977,36 @@
       { id: 1, title: "Siswa MA Darul Hikmah Raih Medali Emas KSM Tingkat Provinsi", date: "12 November 2026", tag: "Prestasi", description: "Alhamdulillah, delegasi olimpiade biologi dan matematika terintegrasi kembali mengharumkan nama madrasah." },
       { id: 2, title: "Pembukaan Wisuda Tahfidz Al-Qur'an Angkatan ke-14", date: "05 November 2026", tag: "Kegiatan", description: "Sebanyak 85 santriwan dan santriwati MTs serta MA mengikuti uji publik hafalan 5 hingga 15 Juz." },
       { id: 3, title: "Informasi Jadwal Tes Seleksi PPDB Gelombang Pertama", date: "01 November 2026", tag: "PPDB", description: "Calon peserta didik yang telah mendaftar online diharapkan mencetak kartu ujian melalui panitia." }
+    ];
+
+    const defaultDocs = [
+      {
+        id: 1,
+        platform: "Instagram",
+        date: "10 November 2026",
+        title: "Peringatan Hari Pahlawan & Apel Santri MTs-MA",
+        image_url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
+        post_url: "https://instagram.com",
+        description: "Dokumentasi lengkap upacara bendera dan pembacaan ikrar santri di lapangan utama madrasah."
+      },
+      {
+        id: 2,
+        platform: "YouTube",
+        date: "02 November 2026",
+        title: "Video Profil & Kegiatan Tahfidz Al-Qur'an Darul Hikmah",
+        image_url: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80",
+        post_url: "https://youtube.com",
+        description: "Liputan dokumenter halaqah tahfidz pagi dan pembinaan karakter Islami peserta didik."
+      },
+      {
+        id: 3,
+        platform: "TikTok",
+        date: "25 Oktober 2026",
+        title: "Highlight Pentas Seni & Hadrah Al-Banjari Santri",
+        image_url: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+        post_url: "https://tiktok.com",
+        description: "Cuplikan penampilan tim hadrah dan kreasi seni siswa-siswi MTs dan MA Darul Hikmah."
+      }
     ];
 
     const defaultEkskul = [
@@ -861,7 +1030,12 @@
       newsList = (nData && nData.length > 0) ? nData : defaultNews;
       renderPublicNews();
 
-      // 3. Muat Ekstrakurikuler
+      // 3. Muat Dokumentasi
+      const { data: dData } = await db.from('documentations').select('*').order('id', { ascending: false });
+      docsList = (dData && dData.length > 0) ? dData : defaultDocs;
+      renderPublicDocs();
+
+      // 4. Muat Ekstrakurikuler
       const { data: eData } = await db.from('extracurriculars').select('*').order('id', { ascending: true });
       ekskulList = (eData && eData.length > 0) ? eData : defaultEkskul;
       renderPublicEkskul();
@@ -883,6 +1057,16 @@
       document.getElementById('pub-alamat').innerText = siteConfig.alamat;
       document.getElementById('pub-telp').innerText = siteConfig.telp;
       document.getElementById('pub-email').innerText = siteConfig.email;
+
+      const ig = siteConfig.medsos_ig || 'https://instagram.com';
+      const yt = siteConfig.medsos_yt || 'https://youtube.com';
+      const tt = siteConfig.medsos_tt || 'https://tiktok.com';
+      const fb = siteConfig.medsos_fb || 'https://facebook.com';
+
+      ['link-medsos-ig', 'footer-medsos-ig'].forEach(id => { const el = document.getElementById(id); if (el) el.href = ig; });
+      ['link-medsos-yt', 'footer-medsos-yt'].forEach(id => { const el = document.getElementById(id); if (el) el.href = yt; });
+      ['link-medsos-tt', 'footer-medsos-tt'].forEach(id => { const el = document.getElementById(id); if (el) el.href = tt; });
+      ['link-medsos-fb', 'footer-medsos-fb'].forEach(id => { const el = document.getElementById(id); if (el) el.href = fb; });
     }
 
     function renderPublicNews() {
@@ -897,6 +1081,45 @@
           <div class="text-[11px] text-slate-400 font-medium mt-5 pt-4 border-t border-slate-100">${item.date}</div>
         </article>
       `).join('');
+    }
+
+    function getPlatformBadgeStyle(platform) {
+      const p = (platform || '').toLowerCase();
+      if (p === 'instagram') return 'bg-pink-600 text-white';
+      if (p === 'youtube') return 'bg-red-600 text-white';
+      if (p === 'tiktok') return 'bg-slate-900 text-white';
+      return 'bg-blue-600 text-white';
+    }
+
+    function renderPublicDocs() {
+      const grid = document.getElementById('public-docs-grid');
+      if (!grid) return;
+      grid.innerHTML = docsList.map(item => {
+        const fallbackImg = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80';
+        const imgSrc = item.image_url && item.image_url.trim() !== '' ? item.image_url : fallbackImg;
+        const targetUrl = item.post_url || siteConfig.medsos_ig || '#';
+        return `
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+            <div>
+              <div class="relative h-48 overflow-hidden bg-slate-200">
+                <img src="${imgSrc}" alt="${item.title}" onerror="this.src='${fallbackImg}'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold shadow ${getPlatformBadgeStyle(item.platform)}">
+                  ${item.platform || 'Medsos'}
+                </span>
+              </div>
+              <div class="p-6">
+                <div class="text-[11px] text-slate-400 font-semibold mb-1.5">${item.date || ''}</div>
+                <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition leading-snug mb-2">${item.title}</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">${item.description || ''}</p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 pt-2 flex items-center justify-between text-xs font-bold text-emerald-700">
+              <span>Lihat di ${item.platform || 'Media Sosial'}</span>
+              <span class="group-hover:translate-x-1 transition">&rarr;</span>
+            </div>
+          </a>
+        `;
+      }).join('');
     }
 
     function renderPublicEkskul() {
@@ -980,7 +1203,7 @@
     }
 
     function switchAdminTab(tabName) {
-      const tabs = ['dashboard', 'siswa', 'absensi', 'rekap', 'berita-admin', 'ekskul-admin', 'ppdb-admin', 'profil-admin'];
+      const tabs = ['dashboard', 'siswa', 'absensi', 'rekap', 'berita-admin', 'docs-admin', 'ekskul-admin', 'ppdb-admin', 'profil-admin'];
       if (!tabs.includes(tabName)) tabName = 'dashboard';
       tabs.forEach(t => {
         document.getElementById('tab-' + t).classList.add('hidden');
@@ -1021,7 +1244,11 @@
       renderStudentsTable('ALL');
       renderAttendanceLog(todayAttendances);
       renderPPDBTable();
+      const { data: dData } = await db.from('documentations').select('*').order('id', { ascending: false });
+      if (dData) docsList = dData;
+
       renderAdminNewsTable();
+      renderAdminDocsGrid();
       renderAdminEkskulGrid();
       populateSettingsForms();
     }
@@ -1156,6 +1383,84 @@
       `).join('');
     }
 
+    // ==================== CRUD DOKUMENTASI & MEDSOS ====================
+    function openDocModal(item = null) {
+      document.getElementById('edit-doc-id').value = item ? item.id : '';
+      document.getElementById('form-doc-platform').value = item ? item.platform : 'Instagram';
+      document.getElementById('form-doc-date').value = item ? item.date : new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+      document.getElementById('form-doc-title').value = item ? item.title : '';
+      document.getElementById('form-doc-image').value = item ? (item.image_url || '') : '';
+      document.getElementById('form-doc-url').value = item ? (item.post_url || '') : (siteConfig.medsos_ig || '');
+      document.getElementById('form-doc-desc').value = item ? (item.description || '') : '';
+      document.getElementById('doc-modal').classList.remove('hidden');
+    }
+
+    async function saveDocItem(e) {
+      e.preventDefault();
+      const id = document.getElementById('edit-doc-id').value;
+      const payload = {
+        platform: document.getElementById('form-doc-platform').value,
+        date: document.getElementById('form-doc-date').value,
+        title: document.getElementById('form-doc-title').value,
+        image_url: document.getElementById('form-doc-image').value.trim(),
+        post_url: document.getElementById('form-doc-url').value.trim(),
+        description: document.getElementById('form-doc-desc').value
+      };
+      const res = id ? await db.from('documentations').update(payload).eq('id', id) : await db.from('documentations').insert([payload]);
+      if (res.error) {
+        alert('Pastikan tabel "documentations" sudah dibuat di Supabase: ' + res.error.message);
+      } else {
+        document.getElementById('doc-modal').classList.add('hidden');
+        await loadAllDataFromDB();
+      }
+    }
+
+    async function deleteDocItem(id) {
+      if (!confirm('Hapus item dokumentasi ini?')) return;
+      await db.from('documentations').delete().eq('id', id);
+      await loadAllDataFromDB();
+    }
+
+    function renderAdminDocsGrid() {
+      const grid = document.getElementById('admin-docs-grid');
+      if (!grid) return;
+      if (!docsList || docsList.length === 0) {
+        grid.innerHTML = '<p class="text-xs text-slate-400">Belum ada dokumentasi di database. Klik "+ Tambah Dokumentasi Baru".</p>';
+        return;
+      }
+      grid.innerHTML = docsList.map(d => `
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold ${getPlatformBadgeStyle(d.platform)}">${d.platform}</span>
+              <span class="text-[11px] text-slate-400">${d.date || ''}</span>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-slate-900 text-sm">${d.title}</h4>
+              <p class="text-xs text-slate-600 mt-1 line-clamp-2">${d.description || ''}</p>
+              <a href="${d.post_url}" target="_blank" class="inline-block mt-2 text-[11px] text-emerald-700 font-semibold hover:underline truncate max-w-full">${d.post_url}</a>
+            </div>
+          </div>
+          <div class="flex gap-2 p-4 pt-2 border-t border-slate-100">
+            <button onclick='openDocModal(${JSON.stringify(d)})' class="flex-1 bg-amber-100 text-amber-800 text-xs font-bold py-1.5 rounded-lg">Edit</button>
+            <button onclick="deleteDocItem(${d.id})" class="flex-1 bg-red-100 text-red-700 text-xs font-bold py-1.5 rounded-lg">Hapus</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function saveMedsosLinks(e) {
+      e.preventDefault();
+      const updated = {
+        ...siteConfig,
+        medsos_ig: document.getElementById('set-medsos-ig').value.trim() || 'https://instagram.com',
+        medsos_yt: document.getElementById('set-medsos-yt').value.trim() || 'https://youtube.com',
+        medsos_tt: document.getElementById('set-medsos-tt').value.trim() || 'https://tiktok.com',
+        medsos_fb: document.getElementById('set-medsos-fb').value.trim() || 'https://facebook.com'
+      };
+      await upsertSiteConfig(updated);
+    }
+
     // ==================== CRUD EKSTRAKURIKULER ====================
     function openEkskulModal(item = null) {
       document.getElementById('edit-ekskul-id').value = item ? item.id : '';
@@ -1251,6 +1556,11 @@
       document.getElementById('set-gel1-desc').value = siteConfig.gel1_desc;
       document.getElementById('set-gel2-title').value = siteConfig.gel2_title;
       document.getElementById('set-gel2-desc').value = siteConfig.gel2_desc;
+
+      document.getElementById('set-medsos-ig').value = siteConfig.medsos_ig || '';
+      document.getElementById('set-medsos-yt').value = siteConfig.medsos_yt || '';
+      document.getElementById('set-medsos-tt').value = siteConfig.medsos_tt || '';
+      document.getElementById('set-medsos-fb').value = siteConfig.medsos_fb || '';
     }
 
     async function savePPDBSettings(e) {
