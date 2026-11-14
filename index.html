@@ -2538,8 +2538,7 @@
         await loadAllDataFromDB();
       }
     }
-  </script>
-  <!-- ==================== MODUL LANJUTAN YAYASAN (SUPABASE STORAGE & DB) ==================== -->
+  </script><!-- ==================== MODUL LANJUTAN YAYASAN (SUPABASE STORAGE & DB) ==================== -->
 
 <!-- A. SECTION PUBLIK: PORTAL WALI SANTRI & CEK DATA TERPADU -->
 <section id="portal-wali" class="py-14 sm:py-20 bg-white border-t border-slate-200">
@@ -2862,7 +2861,8 @@
   </div>
 </div>
 
-<script>// ==================== LOGIKA SUPABASE MODUL LANJUTAN ====================
+<script>
+  // ==================== LOGIKA SUPABASE MODUL LANJUTAN ====================
   // Deteksi otomatis instance Supabase yang sudah ada di aplikasi Anda
   function getSbClient() {
     if (window._extSbClient) return window._extSbClient;
@@ -3231,6 +3231,7 @@
     alert('Bukti pembayaran berhasil diunggah ke Supabase Storage dan menunggu verifikasi bendahara.');
     document.getElementById('btn-cari-wali').click();
   }
-</script>
+</script><button type="button" onclick="toggleAdminExtensionModal()" id="btn-open-ext-admin"
+  class="hidden fixed bottom-5 right-5 z-50 bg-emerald-900 hover:bg-emerald-950 text-gold-400 border-2 border-gold-400/60 font-extrabold text-xs px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 transition">
 </body>
 </html>
