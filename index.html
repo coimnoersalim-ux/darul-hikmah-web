@@ -741,6 +741,40 @@
         </button>
       </div>
     </aside>
+    <!-- Kolom Akses Sistem di Footer -->
+<div>
+  <h4 class="text-white font-bold text-lg mb-4">Akses Sistem</h4>
+  <a href="#admin" onclick="openAdminModal()" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-1 transition">
+    Masuk ke Dashboard Admin & CMS →
+  </a>
+  <!-- TAMBAHAN: Catatan / Statistik Pengunjung Web -->
+  <div class="mt-6 pt-5 border-t border-slate-800">
+    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+      Catatan Pengunjung Web
+    </p>
+    <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-3.5 space-y-2 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-slate-400 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Online Sekarang
+        </span>
+        <span id="stat-online" class="text-emerald-400 font-bold">1</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-slate-400">Hari Ini</span>
+        <span id="stat-today" class="text-white font-semibold">0</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-slate-400">Bulan Ini</span>
+        <span id="stat-month" class="text-white font-semibold">0</span>
+      </div>
+      <div class="flex justify-between items-center pt-2 border-t border-slate-700/80">
+        <span class="text-slate-300 font-medium">Total Kunjungan</span>
+        <span id="stat-total" class="text-amber-400 font-bold">0</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Main Admin Content -->
     <main class="flex-1 p-6 lg:p-10 overflow-y-auto">
