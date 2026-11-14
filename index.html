@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. META TAG SEO UTAMA (Wajib agar judul & deskripsi rapi di Google) -->
+    <title>MTs & MA Darul Hikmah - Madrasah Unggulan & Tahfidzul Qur'an</title>
+    <meta name="description" content="Website resmi MTs dan MA Darul Hikmah. Membentuk generasi berakhlak mulia, unggul dalam prestasi akademik, dan program Tahfidzul Qur'an. Info PPDB 2026 dibuka.">
+    <meta name="keywords" content="MTs Darul Hikmah, MA Darul Hikmah, Sekolah Islam, Madrasah Aliyah, Madrasah Tsanawiyah, PPDB Darul Hikmah, Pesantren Darul Hikmah">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://darulhikmah.vercel.app/">
+
+    <!-- 2. OPEN GRAPH / MEDIA SOSIAL (Tampilan rapi saat link dibagikan di WA/FB) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MTs & MA Darul Hikmah - Mencetak Generasi Qur'ani & Berprestasi">
+    <meta property="og:description" content="Penerimaan Peserta Didik Baru (PPDB) MTs & MA Darul Hikmah telah dibuka. Daftar sekarang secara online.">
+    <meta property="og:url" content="https://darulhikmah.vercel.app/">
+    <meta property="og:image" content="https://placehold.co/1200x630/047857/ffffff?text=MTs+%26+MA+Darul+Hikmah">
+
+    <!-- 3. SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "MTs & MA Darul Hikmah",
+      "alternateName": "Madrasah Tsanawiyah dan Madrasah Aliyah Darul Hikmah",
+      "url": "https://darulhikmah.vercel.app",
+      "description": "Lembaga pendidikan Islam jenjang MTs dan MA yang memadukan kurikulum nasional dengan nilai kepesantrenan dan Tahfidzul Qur'an.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Pendidikan Islam No. 123",
+        "addressLocality": "Kota Anda",
+        "addressRegion": "Provinsi Anda",
+        "postalCode": "12345",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62-21-555-0192"
+    }
+    </script>
+
+    <!-- Tailwind CSS & Library Pendukung (QR Scanner & QR Generator) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hidden-view { display: none !important; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- NOTIFIKASI TOAST (Pengganti alert) -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-300">
+        <div id="toast-content" class="bg-emerald-800 text-white px-6 py-3.5 rounded-xl shadow-xl font-medium flex items-center gap-3">
+            <span id="toast-message">Pesan notifikasi</span>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         BAGIAN 1: HALAMAN PUBLIK (FRONT-END)
+    ====================================================================== -->
+    <div id="public-app">
+        <!-- NAVBAR -->
+        <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+                <a href="#" onclick="switchPublicTab('beranda')" class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-emerald-700 text-white rounded-xl flex items-center justify-center font-extrabold text-lg shadow-sm">DH</div>
+                    <div>
+                        <h1 class="text-lg font-extrabold text-emerald-950 leading-tight">DARUL HIKMAH</h1>
+                        <span class="text-xs font-semibold text-gray-500 tracking-wider">MTs & MADRASAH ALIYAH</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-700">
+                    <a href="#beranda" onclick="switchPublicTab('beranda')" class="hover:text-emerald-700 transition">Beranda</a>
+                    <a href="#profil" onclick="switchPublicTab('profil')" class="hover:text-emerald-700 transition">Profil</a>
+                    <a href="#berita" onclick="switchPublicTab('berita')" class="hover:text-emerald-700 transition">Berita</a>
+                    <a href="#ekskul" onclick="switchPublicTab('ekskul')" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
+                    <a href="#kontak" onclick="switchPublicTab('kontak')" class="hover:text-emerald-700 transition">Kontak</a>
+                    <button onclick="openPPDBModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl transition shadow-sm">
+                        Daftar PPDB 2026
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <!-- Mobile Nav Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+                <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Beranda</a>
+                <a href="#profil" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Profil Sekolah</a>
+                <a href="#berita" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Berita</a>
+                <a href="#ekskul" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Ekstrakurikuler</a>
+                <button onclick="toggleMobileMenu(); openPPDBModal();" class="w-full bg-emerald-700 text-white py-2.5 rounded-xl font-semibold">Daftar PPDB 2026</button>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section id="beranda" class="bg-gradient-to-br from-emerald-50 via-white to-emerald-50/40 py-16 md:py-24 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold">
+                        ✨ Penerimaan Peserta Didik Baru (PPDB) TA 2026/2027 Dibuka
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-emerald-950 leading-tight">
+                        Membentuk Generasi Berakhlak Mulia & Unggul dalam Prestasi
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        Madrasah Tsanawiyah (MTs) dan Madrasah Aliyah (MA) Darul Hikmah memadukan kurikulum nasional modern dengan nilai-nilai kepesantrenan, literasi digital, dan program Tahfidzul Qur'an.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="openPPDBModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-7 py-3.5 rounded-xl font-bold shadow-lg shadow-emerald-700/20 transition">
+                            Daftar Online Sekarang
+                        </button>
+                        <a href="#profil" class="bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-700 px-7 py-3.5 rounded-xl font-bold transition">
+                            Profil Madrasah
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="bg-emerald-700 p-3 rounded-3xl shadow-xl">
+                        <img src="https://placehold.co/600x450/065f46/ffffff?text=Gedung+%26+Santri+Darul+Hikmah" alt="MTs & MA Darul Hikmah" class="w-full h-auto rounded-2xl object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFIL & JENJANG PENDIDIKAN -->
+        <section id="profil" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Unit Pendidikan Darul Hikmah</h3>
+                    <p class="text-gray-600">Menyelenggarakan pendidikan berjenjang yang berkesinambungan dengan pembinaan karakter Islami dan teknologi.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-2xl border border-gray-200 hover:border-emerald-600 transition shadow-sm hover:shadow-md bg-white">
+                        <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">Jenjang Menengah Pertama</span>
+                        <h4 class="text-2xl font-bold text-emerald-950 mb-3">Madrasah Tsanawiyah (MTs)</h4>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">Program pendidikan setingkat SMP dengan penguatan karakter Islami, pembiasaan shalat berjamaah, program Tahfidz Juz 30 & 29, serta penguatan literasi sains dan bahasa Arab/Inggris.</p>
+                        <button onclick="openPPDBModal('MTs')" class="text-emerald-700 font-bold text-sm hover:underline">Daftar Jenjang MTs →</button>
+                    </div>
+                    <div class="p-8 rounded-2xl border border-gray-200 hover:border-emerald-600 transition shadow-sm hover:shadow-md bg-white">
+                        <span class="inline-block bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">Jenjang Menengah Atas</span>
+                        <h4 class="text-2xl font-bold text-emerald-950 mb-3">Madrasah Aliyah (MA)</h4>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">Program pendidikan setingkat SMA dengan peminatan MIPA, IPS, dan Keagamaan. Mempersiapkan lulusan yang siap bersaing di Perguruan Tinggi Negeri (PTN) maupun Timur Tengah.</p>
+                        <button onclick="openPPDBModal('MA')" class="text-emerald-700 font-bold text-sm hover:underline">Daftar Jenjang MA →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BERITA SEKOLAH -->
+        <section id="berita" class="py-20 bg-gray-50 border-y border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Berita & Pengumuman Terbaru</h3>
+                    <p class="text-gray-600">Informasi terkini seputar kegiatan akademik, prestasi siswa, dan agenda madrasah.</p>
+                </div>
+                <div id="public-news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Diisi secara dinamis oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EKSTRAKURIKULER -->
+        <section id="ekskul" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Ekstrakurikuler & Pengembangan Bakat</h3>
+                    <p class="text-gray-600">Wadah penyaluran minat, bakat, dan kepemimpinan siswa MTs dan MA Darul Hikmah.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                        <img src="https://placehold.co/400x250/047857/ffffff?text=Tahfidz+Qur'an" alt="Tahfidz" class="w-full h-44 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-bold text-emerald-950 mb-1">Tahfidzul Qur'an</h4>
+                            <p class="text-xs text-gray-500">Halaqah harian & karantina hafalan bersanad.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                        <img src="https://placehold.co/400x250/065f46/ffffff?text=Pramuka+Gudep" alt="Pramuka" class="w-full h-44 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-bold text-emerald-950 mb-1">Pramuka & Kepemimpinan</h4>
+                            <p class="text-xs text-gray-500">Melatih kemandirian, kedisiplinan, dan kerja tim.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                        <img src="https://placehold.co/400x250/047857/ffffff?text=Hadroh+%26+Marawis" alt="Hadroh" class="w-full h-44 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-bold text-emerald-950 mb-1">Seni Hadroh & Tilawah</h4>
+                            <p class="text-xs text-gray-500">Melestarikan seni budaya Islam dan seni baca Al-Qur'an.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                        <img src="https://placehold.co/400x250/065f46/ffffff?text=Klub+Sains+%26+IT" alt="Sains" class="w-full h-44 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-bold text-emerald-950 mb-1">Klub Sains & Robotik</h4>
+                            <p class="text-xs text-gray-500">Persiapan Kompetisi Sains Madrasah (KSM) & coding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="kontak" class="bg-emerald-950 text-white pt-16 pb-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-emerald-800">
+                <div>
+                    <h3 class="text-xl font-extrabold mb-3">MTs & MA Darul Hikmah</h3>
+                    <p class="text-emerald-200 text-sm leading-relaxed">Jl. Pendidikan Islam No. 123, Indonesia. Berkomitmen mencetak generasi cerdas, berkarakter Islami, dan siap menghadapi tantangan zaman.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-emerald-100">Akses Sistem</h4>
+                    <ul class="space-y-2.5 text-sm text-emerald-200">
+                        <li><button onclick="openPPDBModal()" class="hover:text-white">Formulir PPDB Online</button></li>
+                        <li><button onclick="showView('login-view')" class="hover:text-white font-semibold text-amber-400">🔐 Login Portal Admin & Absensi QR</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-emerald-100">Kontak Resmi</h4>
+                    <ul class="space-y-2 text-sm text-emerald-200">
+                        <li>Telepon: (021) 555-0192</li>
+                        <li>WhatsApp PPDB: 0812-3456-7890</li>
+                        <li>Email: info@darulhikmah.sch.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 pt-6 text-center text-xs text-emerald-300">
+                &copy; 2026 MTs & MA Darul Hikmah. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL PENDAFTARAN PPDB -->
+    <div id="ppdb-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-extrabold text-emerald-950">Formulir PPDB Online 2026</h3>
+                <button onclick="closePPDBModal()" class="text-gray-400 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <form onsubmit="submitPPDB(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jenjang Tujuan</label>
+                    <select id="ppdb-jenjang" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+                        <option value="MTs">Madrasah Tsanawiyah (MTs)</option>
+                        <option value="MA">Madrasah Aliyah (MA)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Lengkap Calon Siswa</label>
+                    <input type="text" id="ppdb-nama" required placeholder="Contoh: Ahmad Fauzan" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Asal Sekolah (SD/MI atau SMP/MTs)</label>
+                    <input type="text" id="ppdb-asal" required placeholder="Contoh: MI Al-Ikhlas" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp Orang Tua/Wali</label>
+                    <input type="tel" id="ppdb-wa" required placeholder="0812xxxxxxxx" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
+                </div>
+                <div class="pt-2 flex justify-end gap-3">
+                    <button type="button" onclick="closePPDBModal()" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-600 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl text-sm font-bold">Kirim Pendaftaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         BAGIAN 2: HALAMAN LOGIN ADMIN
+    ====================================================================== -->
+    <div id="login-view" class="hidden-view min-h-screen bg-emerald-950 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl">
+            <div class="text-center mb-8">
+                <div class="w-14 h-14 bg-emerald-700 text-white rounded-2xl flex items-center justify-center font-extrabold text-2xl mx-auto mb-4">DH</div>
+                <h2 class="text-2xl font-extrabold text-gray-900">Portal Admin Sekolah</h2>
+                <p class="text-sm text-gray-500 mt-1">MTs & MA Darul Hikmah</p>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Username / Email Admin</label>
+                    <input type="text" id="admin-user" value="admin@darulhikmah.sch.id" required class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Kata Sandi</label>
+                    <input type="password" id="admin-pass" value="admin123" required class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+                    <p class="text-xs text-emerald-700 mt-1.5">*Demo akun sudah terisi otomatis, langsung klik Masuk.</p>
+                </div>
+                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-3.5 rounded-xl font-bold shadow-lg transition">
+                    Masuk ke Dashboard
+                </button>
+            </form>
+            <div class="mt-6 text-center">
+                <button onclick="showView('public-app')" class="text-sm font-semibold text-gray-500 hover:text-emerald-700">← Kembali ke Halaman Publik</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         BAGIAN 3: DASHBOARD ADMIN & SCANNER QR CODE
+    ====================================================================== -->
+    <div id="admin-dashboard" class="hidden-view min-h-screen bg-gray-100 flex flex-col md:flex-row">
+        <!-- Sidebar Admin -->
+        <aside class="w-full md:w-64 bg-emerald-950 text-white flex flex-col">
+            <div class="p-6 border-b border-emerald-800 flex items-center justify-between">
+                <div>
+                    <h2 class="font-extrabold text-lg">ADMIN PANEL</h2>
+                    <span class="text-xs text-emerald-300">MTs & MA Darul Hikmah</span>
+                </div>
+            </div>
+            <nav class="flex-1 p-4 space-y-2 text-sm font-semibold">
+                <button onclick="switchAdminTab('ringkasan')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white">📊 Ringkasan Dashboard</button>
+                <button onclick="switchAdminTab('scan-qr')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📷 Scan QR Absensi</button>
+                <button onclick="switchAdminTab('siswa')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">🎓 Data Siswa (MTs & MA)</button>
+                <button onclick="switchAdminTab('ppdb-admin')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📝 Data Pendaftar PPDB</button>
+            </nav>
+            <div class="p-4 border-t border-emerald-800">
+                <button onclick="logoutAdmin()" class="w-full bg-red-600/20 hover:bg-red-600 text-red-200 hover:text-white py-2.5 rounded-xl text-sm font-bold transition">
+                    Keluar / Halaman Publik
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Admin -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <!-- TAB 1: RINGKASAN -->
+            <div id="tab-ringkasan" class="admin-tab space-y-6">
+                <h1 class="text-2xl font-extrabold text-gray-900">Ringkasan Sistem Sekolah</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <span class="text-xs font-bold text-gray-400 uppercase">Total Siswa Terdaftar</span>
+                        <p id="stat-total-siswa" class="text-3xl font-extrabold text-emerald-700 mt-2">4</p>
+                        <span class="text-xs text-gray-500">MTs & MA Aktif</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <span class="text-xs font-bold text-gray-400 uppercase">Hadir Hari Ini (Scan QR)</span>
+                        <p id="stat-hadir" class="text-3xl font-extrabold text-blue-600 mt-2">0</p>
+                        <span class="text-xs text-gray-500">Tercatat otomatis</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <span class="text-xs font-bold text-gray-400 uppercase">Pendaftar PPDB Baru</span>
+                        <p id="stat-ppdb" class="text-3xl font-extrabold text-amber-600 mt-2">1</p>
+                        <span class="text-xs text-gray-500">Menunggu verifikasi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SCAN QR ABSENSI -->
+            <div id="tab-scan-qr" class="admin-tab hidden-view space-y-6">
+                <div class="flex flex-wrap justify-between items-center gap-4">
+                    <div>
+                        <h1 class="text-2xl font-extrabold text-gray-900">Absensi Digital Kamera QR Code</h1>
+                        <p class="text-sm text-gray-500">Arahkan kartu QR siswa ke kamera atau gunakan tombol simulasi scan di bawah.</p>
+                    </div>
+                    <button onclick="startQRScanner()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl text-sm font-bold">
+                        Aktifkan Kamera Scanner
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Kamera Box -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 text-center">
+                        <div id="qr-reader" class="w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-900 min-h-[250px] flex items-center justify-center text-white text-sm">
+                            Klik "Aktifkan Kamera Scanner" untuk mulai memindai
+                        </div>
+                        <div id="scan-feedback" class="mt-4 p-3 rounded-xl bg-gray-50 text-sm font-semibold text-gray-700">
+                            Menunggu pemindaian kartu pelajar...
+                        </div>
+                    </div>
+
+                    <!-- Log Kehadiran Real-time -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <h3 class="font-bold text-gray-900 mb-4">Log Kehadiran Hari Ini</h3>
+                        <div id="attendance-log" class="space-y-3 max-h-80 overflow-y-auto">
+                            <p class="text-sm text-gray-400 italic">Belum ada siswa yang melakukan scan hari ini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: DATA SISWA & KARTU QR -->
+            <div id="tab-siswa" class="admin-tab hidden-view space-y-6">
+                <div class="flex flex-wrap justify-between items-center gap-4">
+                    <h1 class="text-2xl font-extrabold text-gray-900">Manajemen Data Siswa (MTs & MA)</h1>
+                    <div class="flex gap-2">
+                        <button onclick="filterSiswa('ALL')" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white">Semua</button>
+                        <button onclick="filterSiswa('MTs')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MTs</button>
+                        <button onclick="filterSiswa('MA')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MA</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500">
+                            <tr>
+                                <th class="p-4">NISN</th>
+                                <th class="p-4">Nama Siswa</th>
+                                <th class="p-4">Jenjang</th>
+                                <th class="p-4">Kelas</th>
+                                <th class="p-4">Aksi & QR Code</th>
+                            </tr>
+                        </thead>
+                        <tbody id="siswa-table-body" class="divide-y divide-gray-100">
+                            <!-- Diisi via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 4: DATA PENDAFTAR PPDB -->
+            <div id="tab-ppdb-admin" class="admin-tab hidden-view space-y-6">
+                <h1 class="text-2xl font-extrabold text-gray-900">Data Calon Siswa Baru (PPDB)</h1>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500">
+                            <tr>
+                                <th class="p-4">No. Daftar</th>
+                                <th class="p-4">Nama Lengkap</th>
+                                <th class="p-4">Jenjang</th>
+                                <th class="p-4">Asal Sekolah</th>
+                                <th class="p-4">WhatsApp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ppdb-table-body" class="divide-y divide-gray-100">
+                            <!-- Diisi via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL KARTU QR SISWA -->
+    <div id="qr-card-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xs w-full p-6 text-center shadow-2xl">
+            <h3 class="font-extrabold text-emerald-950 text-lg">KARTU PELAJAR DIGITAL</h3>
+            <p class="text-xs text-gray-500 mb-4">MTs & MA Darul Hikmah</p>
+            <div id="qrcode-canvas" class="flex justify-center my-4 p-3 bg-white border rounded-xl"></div>
+            <h4 id="qr-student-name" class="font-bold text-gray-900 text-base">Nama Siswa</h4>
+            <p id="qr-student-info" class="text-xs text-emerald-700 font-semibold mb-5">NISN: 000000</p>
+            <button onclick="document.getElementById('qr-card-modal').classList.add('hidden')" class="w-full bg-gray-900 text-white py-2.5 rounded-xl text-sm font-bold">Tutup Kartu</button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT LOGIC (STATE & INTERAKSI)
+    ====================================================================== -->
+    <script>
+        // Data Awal (Mock Database)
+        const studentsData = [
+            { nisn: '0081122331', nama: 'Muhammad Rizky Pratama', jenjang: 'MTs', kelas: '8A' },
+            { nisn: '0081122332', nama: 'Siti Aisyah Putri', jenjang: 'MTs', kelas: '9B' },
+            { nisn: '0069988771', nama: 'Ahmad Zaki Mubarak', jenjang: 'MA', kelas: '11 IPA 1' },
+            { nisn: '0069988772', nama: 'Fatimah Az-Zahra', jenjang: 'MA', kelas: '12 Agama' }
+        ];
+
+        const newsData = [
+            { date: '12 Nov 2026', cat: 'Prestasi', title: 'Siswa MA Darul Hikmah Raih Medali Emas Kompetisi Sains Madrasah (KSM)' },
+            { date: '08 Nov 2026', cat: 'Pengumuman', title: 'Jadwal Pelaksanaan Penilaian Akhir Semester (PAS) Ganjil MTs & MA' },
+            { date: '01 Nov 2026', cat: 'Inovasi', title: 'Penerapan Sistem Absensi Digital Berbasis QR Code untuk Kedisiplinan Siswa' }
+        ];
+
+        const ppdbList = [
+            { no: 'PPDB-2026-001', nama: 'Nabila Khairunnisa', jenjang: 'MTs', asal: 'MI Nurul Huda', wa: '08123456789' }
+        ];
+
+        const attendanceToday = [];
+        let html5QrcodeScanner = null;
+
+        // Render Berita Publik
+        function renderPublicNews() {
+            const container = document.getElementById('public-news-grid');
+            container.innerHTML = newsData.map(item => `
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <img src="https://placehold.co/600x350/d1fae5/065f46?text=${encodeURIComponent(item.cat)}" alt="${item.title}" class="w-full h-44 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-emerald-700">${item.date} • ${item.cat}</span>
+                        <h4 class="font-bold text-gray-900 mt-2 mb-3 leading-snug">${item.title}</h4>
+                        <span class="text-xs font-bold text-emerald-700">Baca Selengkapnya →</span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Toast Notification
+        function showToast(msg) {
+            const box = document.getElementById('toast-box');
+            document.getElementById('toast-message').textContent = msg;
+            box.classList.remove('hidden');
+            setTimeout(() => box.classList.add('hidden'), 3500);
+        }
+
+        // Navigasi Utama (Publik vs Login vs Admin)
+        function showView(viewId) {
+            ['public-app', 'login-view', 'admin-dashboard'].forEach(id => {
+                document.getElementById(id).classList.add('hidden-view');
+            });
+            document.getElementById(viewId).classList.remove('hidden-view');
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // PPDB Modal Logic
+        function openPPDBModal(jenjang = 'MTs') {
+            document.getElementById('ppdb-jenjang').value = jenjang;
+            document.getElementById('ppdb-modal').classList.remove('hidden');
+        }
+        function closePPDBModal() {
+            document.getElementById('ppdb-modal').classList.add('hidden');
+        }
+        function submitPPDB(e) {
+            e.preventDefault();
+            const newReg = {
+                no: 'PPDB-2026-00' + (ppdbList.length + 1),
+                nama: document.getElementById('ppdb-nama').value,
+                jenjang: document.getElementById('ppdb-jenjang').value,
+                asal: document.getElementById('ppdb-asal').value,
+                wa: document.getElementById('ppdb-wa').value
+            };
+            ppdbList.push(newReg);
+            closePPDBModal();
+            e.target.reset();
+            showToast(`Pendaftaran berhasil! Nomor Anda: ${newReg.no}`);
+            renderAdminTables();
+        }
+
+        // Login & Admin Logic
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            showView('admin-dashboard');
+            renderAdminTables();
+            showToast('Selamat datang di Dashboard Admin Darul Hikmah');
+        }
+
+        function logoutAdmin() {
+            if (html5QrcodeScanner) {
+                html5QrcodeScanner.clear().catch(() => {});
+            }
+            showView('public-app');
+        }
+
+        function switchAdminTab(tabName) {
+            document.querySelectorAll('.admin-tab').forEach(el => el.classList.add('hidden-view'));
+            document.getElementById('tab-' + tabName).classList.remove('hidden-view');
+        }
+
+        function renderAdminTables(filter = 'ALL') {
+            document.getElementById('stat-total-siswa').textContent = studentsData.length;
+            document.getElementById('stat-hadir').textContent = attendanceToday.length;
+            document.getElementById('stat-ppdb').textContent = ppdbList.length;
+
+            // Tabel Siswa
+            const filtered = filter === 'ALL' ? studentsData : studentsData.filter(s => s.jenjang === filter);
+            document.getElementById('siswa-table-body').innerHTML = filtered.map(s => `
+                <tr class="hover:bg-gray-50">
+                    <td class="p-4 font-mono text-xs">${s.nisn}</td>
+                    <td class="p-4 font-bold text-gray-900">${s.nama}</td>
+                    <td class="p-4"><span class="px-2.5 py-1 rounded-md text-xs font-bold ${s.jenjang === 'MTs' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${s.jenjang}</span></td>
+                    <td class="p-4">${s.kelas}</td>
+                    <td class="p-4 flex gap-2">
+                        <button onclick="showStudentQR('${s.nisn}')" class="bg-gray-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold">Lihat Kartu QR</button>
+                        <button onclick="processAttendanceScan('${s.nisn}')" class="bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-lg text-xs font-semibold">Simulasi Scan</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Tabel PPDB
+            document.getElementById('ppdb-table-body').innerHTML = ppdbList.map(p => `
+                <tr>
+                    <td class="p-4 font-mono text-xs font-bold text-emerald-700">${p.no}</td>
+                    <td class="p-4 font-bold">${p.nama}</td>
+                    <td class="p-4">${p.jenjang}</td>
+                    <td class="p-4">${p.asal}</td>
+                    <td class="p-4">${p.wa}</td>
+                </tr>
+            `).join('');
+        }
+
+        function filterSiswa(jenjang) {
+            renderAdminTables(jenjang);
+        }
+
+        // Generate Kartu QR Siswa
+        function showStudentQR(nisn) {
+            const student = studentsData.find(s => s.nisn === nisn);
+            if (!student) return;
+            const qrContainer = document.getElementById('qrcode-canvas');
+            qrContainer.innerHTML = '';
+            new QRCode(qrContainer, { text: student.nisn, width: 160, height: 160 });
+            document.getElementById('qr-student-name').textContent = student.nama;
+            document.getElementById('qr-student-info').textContent = `${student.jenjang} - Kelas ${student.kelas} (${student.nisn})`;
+            document.getElementById('qr-card-modal').classList.remove('hidden');
+        }
+
+        // Kamera QR Scanner & Proses Absensi
+        function startQRScanner() {
+            const readerEl = document.getElementById('qr-reader');
+            readerEl.innerHTML = '';
+            html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: { width: 220, height: 220 } }, false);
+            html5QrcodeScanner.render((decodedText) => {
+                processAttendanceScan(decodedText);
+            });
+        }
+
+        function processAttendanceScan(nisn) {
+            const student = studentsData.find(s => s.nisn === nisn);
+            const feedback = document.getElementById('scan-feedback');
+            
+            if (!student) {
+                feedback.innerHTML = `<span class="text-red-600">❌ QR Code (${nisn}) tidak terdaftar di database siswa!</span>`;
+                return;
+            }
+            if (attendanceToday.some(a => a.nisn === nisn)) {
+                feedback.innerHTML = `<span class="text-amber-600">⚠️ ${student.nama} sudah melakukan absensi hari ini.</span>`;
+                return;
+            }
+
+            const timeNow = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            attendanceToday.unshift({ ...student, waktu: timeNow });
+            
+            feedback.innerHTML = `<span class="text-emerald-700">✅ Berhasil Absen: ${student.nama} (${student.jenjang}) pukul ${timeNow} WIB</span>`;
+            showToast(`Absensi tercatat: ${student.nama}`);
+            
+            // Update Log UI
+            document.getElementById('attendance-log').innerHTML = attendanceToday.map(a => `
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
+                    <div>
+                        <p class="font-bold text-sm text-emerald-950">${a.nama}</p>
+                        <p class="text-xs text-emerald-700">${a.jenjang} • Kelas ${a.kelas}</p>
+                    </div>
+                    <span class="text-xs font-extrabold bg-emerald-700 text-white px-2.5 py-1 rounded-lg">${a.waktu} WIB</span>
+                </div>
+            `).join('');
+            renderAdminTables();
+        }
+
+        // Inisialisasi Awal
+        window.onload = function() {
+            renderPublicNews();
+        };
+    </script>
+</body>
+</html>
