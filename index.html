@@ -2565,6 +2565,62 @@
         await loadAllDataFromDB();
       }
     }
-  </script>
+ <script>
+  async function updateVisitorStats() {
+    try {
+      const todayStr = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+      const monthStr = todayStr.slice(0, 7); // YYYY-MM
+
+      // Ambil data saat ini dari Supabase
+      const { data, error } = await supabase
+        .from('visitor_stats')
+        .select('*')
+        .eq('id', 1)
+        .single();
+
+      if (error || !data) return;
+
+      let newTotal = data.total_visits + 1;
+      let newToday = (data.last_date === todayStr) ? data.today_visits + 1 : 1;
+      let newMonth = (data.last_month === monthStr) ? data.month_visits + 1 : 1;
+
+      // Cek sessionStorage agar refresh halaman tidak dihitung berkali-kali
+      if (!sessionStorage.getItem('visited_session')) {
+        await supabase
+          .from('visitor_stats')
+          .update({
+            total_visits: newTotal,
+            today_visits: newToday,
+            month_visits: newMonth,
+            last_date: todayStr,
+            last_month: monthStr
+          })
+          .eq('id', 1);
+
+        sessionStorage.setItem('visited_session', 'true');
+      } else {
+        newTotal = data.total_visits;
+        newToday = data.today_visits;
+        newMonth = data.month_visits;
+      }
+
+      // Tampilkan ke elemen HTML dengan format ribuan
+      document.getElementById('stat-total').textContent = newTotal.toLocaleString('id-ID');
+      document.getElementById('stat-today').textContent = newToday.toLocaleString('id-ID');
+      document.getElementById('stat-month').textContent = newMonth.toLocaleString('id-ID');
+      
+      // Simulasi pengunjung online aktif (minimal 1 yaitu user sendiri)
+      const onlineCount = Math.floor(Math.random() * 3) + 1;
+      document.getElementById('stat-online').textContent = onlineCount;
+
+    } catch (err) {
+      console.error('Gagal memuat statistik pengunjung:', err);
+    }
+  }
+
+  // Jalankan saat halaman selesai dimuat
+  document.addEventListener('DOMContentLoaded', updateVisitorStats);
+</script>
+</body>
 </body>
 </html>
