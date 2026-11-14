@@ -1,758 +1,985 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 1. META TAG SEO UTAMA -->
-    <title>MTs & MA Darul Hikmah - Madrasah Unggulan & Tahfidzul Qur'an</title>
-    <meta name="description" content="Website resmi MTs dan MA Darul Hikmah. Membentuk generasi berakhlak mulia, unggul dalam prestasi akademik, dan program Tahfidzul Qur'an. Info PPDB 2026 dibuka.">
-    <meta name="keywords" content="MTs Darul Hikmah, MA Darul Hikmah, Sekolah Islam, Madrasah Aliyah, Madrasah Tsanawiyah, PPDB Darul Hikmah, Pesantren Darul Hikmah">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://darul-hikmah-web.vercel.app/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 1. SEO UTAMA & META TAGS -->
+  <title>MTs & MA Darul Hikmah - Madrasah Unggulan & Tahfidzul Qur'an</title>
+  <meta name="description" content="Website resmi MTs dan MA Darul Hikmah. Mencetak generasi Qur'ani, berakhlak karimah, cerdas, dan berdaya saing global. Informasi PPDB, Profil, Berita, dan Ekstrakurikuler.">
+  <meta name="keywords" content="MTs Darul Hikmah, MA Darul Hikmah, Sekolah Islam, Madrasah Tsanawiyah, Madrasah Aliyah, PPDB Darul Hikmah, Tahfidz Qur'an">
+  <meta name="author" content="MTs & MA Darul Hikmah">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://darul-hikmah-web.vercel.app/">
 
-    <!-- 2. OPEN GRAPH / MEDIA SOSIAL -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="MTs & MA Darul Hikmah - Mencetak Generasi Qur'ani & Berprestasi">
-    <meta property="og:description" content="Penerimaan Peserta Didik Baru (PPDB) MTs & MA Darul Hikmah telah dibuka. Daftar sekarang secara online.">
-    <meta property="og:url" content="https://darul-hikmah-web.vercel.app/">
-    <meta property="og:image" content="https://placehold.co/1200x630/047857/ffffff?text=MTs+%26+MA+Darul+Hikmah">
+  <!-- 2. OPEN GRAPH / MEDIA SOSIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MTs & MA Darul Hikmah - Madrasah Unggulan">
+  <meta property="og:description" content="Penerimaan Peserta Didik Baru (PPDB) MTs & MA Darul Hikmah telah dibuka. Daftar sekarang secara online!">
+  <meta property="og:url" content="https://darul-hikmah-web.vercel.app/">
+  <meta property="og:site_name" content="MTs & MA Darul Hikmah">
 
-    <!-- 3. SCHEMA.ORG STRUCTURED DATA -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "MTs & MA Darul Hikmah",
-      "alternateName": "Madrasah Tsanawiyah dan Madrasah Aliyah Darul Hikmah",
-      "url": "https://darul-hikmah-web.vercel.app",
-      "description": "Lembaga pendidikan Islam jenjang MTs dan MA yang memadukan kurikulum nasional dengan nilai kepesantrenan dan Tahfidzul Qur'an.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. Pendidikan Islam No. 123",
-        "addressLocality": "Kota Anda",
-        "addressRegion": "Provinsi Anda",
-        "postalCode": "12345",
-        "addressCountry": "ID"
-      },
-      "telephone": "+62-21-555-0192"
+  <!-- 3. SCHEMA.ORG JSON-LD UNTUK GOOGLE SEARCH -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "MTs dan MA Darul Hikmah",
+    "alternateName": "Madrasah Darul Hikmah",
+    "url": "https://darul-hikmah-web.vercel.app/",
+    "description": "Lembaga pendidikan Islam terpadu tingkat Madrasah Tsanawiyah (MTs) dan Madrasah Aliyah (MA) yang memadukan kurikulum nasional, kepesantrenan, dan sains.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Pendidikan Islam No. 99",
+      "addressLocality": "Kabupaten",
+      "addressRegion": "Jawa",
+      "addressCountry": "ID"
     }
-    </script>
+  }
+  </script>
 
-    <!-- Tailwind CSS, Supabase SDK, QR Scanner & QR Generator -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .hidden-view { display: none !important; }
-    </style>
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Library Supabase, QRCode Generator, HTML5-QRCode Scanner, & SheetJS (Excel Export) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: {
+            emerald: {
+              50: '#ecfdf5', 100: '#d1fae5', 600: '#059669',
+              700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22',
+            },
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .pattern-islamic {
+      background-color: #064e3b;
+      background-image: radial-gradient(#059669 1px, transparent 1px), radial-gradient(#059669 1px, #064e3b 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #print-card-area, #print-card-area * { visibility: visible; }
+      #print-card-area { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- NOTIFIKASI TOAST -->
-    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-300">
-        <div id="toast-content" class="bg-emerald-800 text-white px-6 py-3.5 rounded-xl shadow-xl font-medium flex items-center gap-3">
-            <span id="toast-message">Pesan notifikasi</span>
+  <!-- ==================== 1. HALAMAN PUBLIK ==================== -->
+  <div id="public-view">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-emerald-100 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="#beranda" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-extrabold text-xl shadow-md">DH</div>
+          <div>
+            <span class="block text-lg font-extrabold text-emerald-950 leading-tight">DARUL HIKMAH</span>
+            <span class="block text-xs font-semibold text-emerald-600 tracking-wider">MTs &amp; MADRASAH ALIYAH</span>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
+          <a href="#profil" class="hover:text-emerald-700 transition">Profil</a>
+          <a href="#berita" class="hover:text-emerald-700 transition">Berita</a>
+          <a href="#ekskul" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
+          <a href="#ppdb" class="hover:text-emerald-700 transition">PPDB</a>
+          <a href="#kontak" class="hover:text-emerald-700 transition">Kontak</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button onclick="openLoginModal()" class="text-xs sm:text-sm font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2 rounded-lg border border-emerald-200 transition">
+            Login Admin
+          </button>
+          <a href="#ppdb" class="hidden sm:inline-flex bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow transition">
+            Daftar PPDB
+          </a>
         </div>
-    </div>
+      </div>
+    </header>
 
-    <!-- =====================================================================
-         BAGIAN 1: HALAMAN PUBLIK (FRONT-END)
-    ====================================================================== -->
-    <div id="public-app">
-        <!-- NAVBAR -->
-        <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-11 h-11 bg-emerald-700 text-white rounded-xl flex items-center justify-center font-extrabold text-lg shadow-sm">DH</div>
-                    <div>
-                        <h1 class="text-lg font-extrabold text-emerald-950 leading-tight">DARUL HIKMAH</h1>
-                        <span class="text-xs font-semibold text-gray-500 tracking-wider">MTs & MADRASAH ALIYAH</span>
-                    </div>
-                </a>
-                
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-700">
-                    <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
-                    <a href="#profil" class="hover:text-emerald-700 transition">Profil</a>
-                    <a href="#berita" class="hover:text-emerald-700 transition">Berita</a>
-                    <a href="#ekskul" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
-                    <a href="#kontak" class="hover:text-emerald-700 transition">Kontak</a>
-                    <button onclick="openPPDBModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl transition shadow-sm">
-                        Daftar PPDB 2026
-                    </button>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-            <!-- Mobile Nav Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
-                <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Beranda</a>
-                <a href="#profil" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Profil Sekolah</a>
-                <a href="#berita" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Berita</a>
-                <a href="#ekskul" onclick="toggleMobileMenu()" class="block py-2 font-semibold text-gray-700">Ekstrakurikuler</a>
-                <button onclick="toggleMobileMenu(); openPPDBModal();" class="w-full bg-emerald-700 text-white py-2.5 rounded-xl font-semibold">Daftar PPDB 2026</button>
-            </div>
-        </header>
-
-        <!-- HERO SECTION -->
-        <section id="beranda" class="bg-gradient-to-br from-emerald-50 via-white to-emerald-50/40 py-16 md:py-24 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6">
-                    <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold">
-                        ✨ Penerimaan Peserta Didik Baru (PPDB) TA 2026/2027 Dibuka
-                    </span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-emerald-950 leading-tight">
-                        Membentuk Generasi Berakhlak Mulia & Unggul dalam Prestasi
-                    </h2>
-                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                        Madrasah Tsanawiyah (MTs) dan Madrasah Aliyah (MA) Darul Hikmah memadukan kurikulum nasional modern dengan nilai-nilai kepesantrenan, literasi digital, dan program Tahfidzul Qur'an.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <button onclick="openPPDBModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-7 py-3.5 rounded-xl font-bold shadow-lg shadow-emerald-700/20 transition">
-                            Daftar Online Sekarang
-                        </button>
-                        <a href="#profil" class="bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-700 px-7 py-3.5 rounded-xl font-bold transition">
-                            Profil Madrasah
-                        </a>
-                    </div>
-                </div>
-                <div class="lg:col-span-5">
-                    <div class="bg-emerald-700 p-3 rounded-3xl shadow-xl">
-                        <img src="https://placehold.co/600x450/065f46/ffffff?text=Gedung+%26+Santri+Darul+Hikmah" alt="MTs & MA Darul Hikmah" class="w-full h-auto rounded-2xl object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROFIL & JENJANG PENDIDIKAN -->
-        <section id="profil" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-14">
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Unit Pendidikan Darul Hikmah</h3>
-                    <p class="text-gray-600">Menyelenggarakan pendidikan berjenjang yang berkesinambungan dengan pembinaan karakter Islami dan teknologi.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-8 rounded-2xl border border-gray-200 hover:border-emerald-600 transition shadow-sm hover:shadow-md bg-white">
-                        <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">Jenjang Menengah Pertama</span>
-                        <h4 class="text-2xl font-bold text-emerald-950 mb-3">Madrasah Tsanawiyah (MTs)</h4>
-                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">Program pendidikan setingkat SMP dengan penguatan karakter Islami, pembiasaan shalat berjamaah, program Tahfidz Juz 30 & 29, serta penguatan literasi sains dan bahasa Arab/Inggris.</p>
-                        <button onclick="openPPDBModal('MTs')" class="text-emerald-700 font-bold text-sm hover:underline">Daftar Jenjang MTs →</button>
-                    </div>
-                    <div class="p-8 rounded-2xl border border-gray-200 hover:border-emerald-600 transition shadow-sm hover:shadow-md bg-white">
-                        <span class="inline-block bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">Jenjang Menengah Atas</span>
-                        <h4 class="text-2xl font-bold text-emerald-950 mb-3">Madrasah Aliyah (MA)</h4>
-                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">Program pendidikan setingkat SMA dengan peminatan MIPA, IPS, dan Keagamaan. Mempersiapkan lulusan yang siap bersaing di Perguruan Tinggi Negeri (PTN) maupun Timur Tengah.</p>
-                        <button onclick="openPPDBModal('MA')" class="text-emerald-700 font-bold text-sm hover:underline">Daftar Jenjang MA →</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BERITA SEKOLAH -->
-        <section id="berita" class="py-20 bg-gray-50 border-y border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-14">
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Berita & Pengumuman Terbaru</h3>
-                    <p class="text-gray-600">Informasi terkini seputar kegiatan akademik, prestasi siswa, dan agenda madrasah.</p>
-                </div>
-                <div id="public-news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
-            </div>
-        </section>
-
-        <!-- EKSTRAKURIKULER -->
-        <section id="ekskul" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-14">
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Ekstrakurikuler & Pengembangan Bakat</h3>
-                    <p class="text-gray-600">Wadah penyaluran minat, bakat, dan kepemimpinan siswa MTs dan MA Darul Hikmah.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
-                        <img src="https://placehold.co/400x250/047857/ffffff?text=Tahfidz+Qur'an" alt="Tahfidz" class="w-full h-44 object-cover">
-                        <div class="p-5">
-                            <h4 class="font-bold text-emerald-950 mb-1">Tahfidzul Qur'an</h4>
-                            <p class="text-xs text-gray-500">Halaqah harian & karantina hafalan bersanad.</p>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
-                        <img src="https://placehold.co/400x250/065f46/ffffff?text=Pramuka+Gudep" alt="Pramuka" class="w-full h-44 object-cover">
-                        <div class="p-5">
-                            <h4 class="font-bold text-emerald-950 mb-1">Pramuka & Kepemimpinan</h4>
-                            <p class="text-xs text-gray-500">Melatih kemandirian, kedisiplinan, dan kerja tim.</p>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
-                        <img src="https://placehold.co/400x250/047857/ffffff?text=Hadroh+%26+Marawis" alt="Hadroh" class="w-full h-44 object-cover">
-                        <div class="p-5">
-                            <h4 class="font-bold text-emerald-950 mb-1">Seni Hadroh & Tilawah</h4>
-                            <p class="text-xs text-gray-500">Melestarikan seni budaya Islam dan seni baca Al-Qur'an.</p>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
-                        <img src="https://placehold.co/400x250/065f46/ffffff?text=Klub+Sains+%26+IT" alt="Sains" class="w-full h-44 object-cover">
-                        <div class="p-5">
-                            <h4 class="font-bold text-emerald-950 mb-1">Klub Sains & Robotik</h4>
-                            <p class="text-xs text-gray-500">Persiapan Kompetisi Sains Madrasah (KSM) & coding.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer id="kontak" class="bg-emerald-950 text-white pt-16 pb-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-emerald-800">
-                <div>
-                    <h3 class="text-xl font-extrabold mb-3">MTs & MA Darul Hikmah</h3>
-                    <p class="text-emerald-200 text-sm leading-relaxed">Jl. Pendidikan Islam No. 123, Indonesia. Berkomitmen mencetak generasi cerdas, berkarakter Islami, dan siap menghadapi tantangan zaman.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4 text-emerald-100">Akses Sistem</h4>
-                    <ul class="space-y-2.5 text-sm text-emerald-200">
-                        <li><button onclick="openPPDBModal()" class="hover:text-white">Formulir PPDB Online</button></li>
-                        <li><button onclick="showView('login-view')" class="hover:text-white font-semibold text-amber-400">🔐 Login Portal Admin & Absensi QR</button></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4 text-emerald-100">Kontak Resmi</h4>
-                    <ul class="space-y-2 text-sm text-emerald-200">
-                        <li>Telepon: (021) 555-0192</li>
-                        <li>WhatsApp PPDB: 0812-3456-7890</li>
-                        <li>Email: info@darulhikmah.sch.id</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="max-w-7xl mx-auto px-4 pt-6 text-center text-xs text-emerald-300">
-                &copy; 2026 MTs & MA Darul Hikmah. Terhubung dengan Cloud Database.
-            </div>
-        </footer>
-    </div>
-
-    <!-- MODAL PENDAFTARAN PPDB -->
-    <div id="ppdb-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl">
-            <div class="flex justify-between items-center mb-5">
-                <h3 class="text-xl font-extrabold text-emerald-950">Formulir PPDB Online 2026</h3>
-                <button onclick="closePPDBModal()" class="text-gray-400 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <form onsubmit="submitPPDB(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jenjang Tujuan</label>
-                    <select id="ppdb-jenjang" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
-                        <option value="MTs">Madrasah Tsanawiyah (MTs)</option>
-                        <option value="MA">Madrasah Aliyah (MA)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Lengkap Calon Siswa</label>
-                    <input type="text" id="ppdb-nama" required placeholder="Contoh: Ahmad Fauzan" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Asal Sekolah (SD/MI atau SMP/MTs)</label>
-                    <input type="text" id="ppdb-asal" required placeholder="Contoh: MI Al-Ikhlas" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp Orang Tua/Wali</label>
-                    <input type="tel" id="ppdb-wa" required placeholder="0812xxxxxxxx" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-600">
-                </div>
-                <div class="pt-2 flex justify-end gap-3">
-                    <button type="button" onclick="closePPDBModal()" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-600 hover:bg-gray-100">Batal</button>
-                    <button type="submit" id="btn-submit-ppdb" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl text-sm font-bold">Kirim Pendaftaran</button>
-                </div>
-            </form>
+    <!-- Hero Section -->
+    <section id="beranda" class="pattern-islamic text-white py-20 lg:py-28 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-800/80 border border-emerald-500/40 text-emerald-200 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+            Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran 2026/2027 Dibuka
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            Membentuk Generasi <span class="text-gold-400">Qur'ani</span>, Cerdas &amp; Berakhlak Mulia
+          </h1>
+          <p class="text-emerald-100/90 text-lg max-w-2xl leading-relaxed">
+            Selamat datang di portal resmi <strong>MTs &amp; MA Darul Hikmah</strong>. Memadukan kurikulum pendidikan nasional, penguasaan sains &amp; teknologi, serta nilai-nilai kepesantrenan.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#ppdb" class="bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold px-7 py-3.5 rounded-xl shadow-lg transition">
+              Daftar PPDB Sekarang &rarr;
+            </a>
+            <a href="#profil" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-7 py-3.5 rounded-xl transition">
+              Profil Madrasah
+            </a>
+          </div>
         </div>
-    </div>
-
-    <!-- =====================================================================
-         BAGIAN 2: HALAMAN LOGIN ADMIN
-    ====================================================================== -->
-    <div id="login-view" class="hidden-view min-h-screen bg-emerald-950 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl">
-            <div class="text-center mb-8">
-                <div class="w-14 h-14 bg-emerald-700 text-white rounded-2xl flex items-center justify-center font-extrabold text-2xl mx-auto mb-4">DH</div>
-                <h2 class="text-2xl font-extrabold text-gray-900">Portal Admin Sekolah</h2>
-                <p class="text-sm text-gray-500 mt-1">MTs & MA Darul Hikmah</p>
+        <div class="lg:col-span-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 space-y-5">
+          <h3 class="text-lg font-bold text-gold-400">Jenjang Pendidikan Terpadu</h3>
+          <div class="bg-emerald-950/60 p-4 rounded-2xl border border-emerald-700/50">
+            <div class="font-bold text-white text-base">Madrasah Tsanawiyah (MTs)</div>
+            <p class="text-xs text-emerald-200 mt-1">Program Reguler, Kelas Tahfidz Al-Qur'an, dan Pembinaan Olimpiade Sains.</p>
+          </div>
+          <div class="bg-emerald-950/60 p-4 rounded-2xl border border-emerald-700/50">
+            <div class="font-bold text-white text-base">Madrasah Aliyah (MA)</div>
+            <p class="text-xs text-emerald-200 mt-1">Peminatan MIPA, IPS, dan Ilmu Keagamaan (IIK) siap masuk PTN &amp; Timur Tengah.</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3 pt-2 text-center">
+            <div class="bg-white/10 rounded-xl p-3">
+              <div class="text-2xl font-extrabold text-gold-400">A</div>
+              <div class="text-[11px] text-emerald-100">Akreditasi</div>
             </div>
-            <form onsubmit="handleAdminLogin(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Username / Email Admin</label>
-                    <input type="text" id="admin-user" value="admin@darulhikmah.sch.id" required class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Kata Sandi</label>
-                    <input type="password" id="admin-pass" value="admin123" required class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
-                    <p class="text-xs text-emerald-700 mt-1.5">*Gunakan akun default atau ubah password di kode.</p>
-                </div>
-                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-3.5 rounded-xl font-bold shadow-lg transition">
-                    Masuk ke Dashboard
-                </button>
-            </form>
-            <div class="mt-6 text-center">
-                <button onclick="showView('public-app')" class="text-sm font-semibold text-gray-500 hover:text-emerald-700">← Kembali ke Halaman Publik</button>
+            <div class="bg-white/10 rounded-xl p-3">
+              <div class="text-2xl font-extrabold text-white">650+</div>
+              <div class="text-[11px] text-emerald-100">Siswa Aktif</div>
             </div>
+            <div class="bg-white/10 rounded-xl p-3">
+              <div class="text-2xl font-extrabold text-white">48</div>
+              <div class="text-[11px] text-emerald-100">Tenaga Pendidik</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- =====================================================================
-         BAGIAN 3: DASHBOARD ADMIN & SCANNER QR CODE
-    ====================================================================== -->
-    <div id="admin-dashboard" class="hidden-view min-h-screen bg-gray-100 flex flex-col md:flex-row">
-        <!-- Sidebar Admin -->
-        <aside class="w-full md:w-64 bg-emerald-950 text-white flex flex-col">
-            <div class="p-6 border-b border-emerald-800">
-                <h2 class="font-extrabold text-lg">ADMIN PANEL</h2>
-                <span class="text-xs text-emerald-300">Cloud Database Aktif 🟢</span>
-            </div>
-            <nav class="flex-1 p-4 space-y-2 text-sm font-semibold">
-                <button onclick="switchAdminTab('ringkasan')" class="w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white">📊 Ringkasan Dashboard</button>
-                <button onclick="switchAdminTab('scan-qr')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📷 Scan QR Absensi</button>
-                <button onclick="switchAdminTab('siswa')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">🎓 Data Siswa (MTs & MA)</button>
-                <button onclick="switchAdminTab('ppdb-admin')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📝 Data Pendaftar PPDB</button>
-            </nav>
-            <div class="p-4 border-t border-emerald-800">
-                <button onclick="logoutAdmin()" class="w-full bg-red-600/20 hover:bg-red-600 text-red-200 hover:text-white py-2.5 rounded-xl text-sm font-bold transition">
-                    Keluar / Halaman Publik
-                </button>
-            </div>
-        </aside>
-
-        <!-- Main Content Admin -->
-        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
-            <!-- TAB 1: RINGKASAN -->
-            <div id="tab-ringkasan" class="admin-tab space-y-6">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-2xl font-extrabold text-gray-900">Ringkasan Sistem Sekolah</h1>
-                    <button onclick="syncAllData()" class="text-xs bg-white border border-gray-300 px-3 py-2 rounded-lg font-bold hover:bg-gray-50">🔄 Segarkan Data</button>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                        <span class="text-xs font-bold text-gray-400 uppercase">Total Siswa Terdaftar</span>
-                        <p id="stat-total-siswa" class="text-3xl font-extrabold text-emerald-700 mt-2">...</p>
-                        <span class="text-xs text-gray-500">MTs & MA Tersimpan di Cloud</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                        <span class="text-xs font-bold text-gray-400 uppercase">Hadir Hari Ini (Scan QR)</span>
-                        <p id="stat-hadir" class="text-3xl font-extrabold text-blue-600 mt-2">...</p>
-                        <span class="text-xs text-gray-500">Tercatat permanen</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                        <span class="text-xs font-bold text-gray-400 uppercase">Pendaftar PPDB Masuk</span>
-                        <p id="stat-ppdb" class="text-3xl font-extrabold text-amber-600 mt-2">...</p>
-                        <span class="text-xs text-gray-500">Formulir online</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 2: SCAN QR ABSENSI -->
-            <div id="tab-scan-qr" class="admin-tab hidden-view space-y-6">
-                <div class="flex flex-wrap justify-between items-center gap-4">
-                    <div>
-                        <h1 class="text-2xl font-extrabold text-gray-900">Absensi Digital Kamera QR Code</h1>
-                        <p class="text-sm text-gray-500">Arahkan kartu QR siswa ke kamera. Hasil otomatis tersimpan ke database.</p>
-                    </div>
-                    <button onclick="startQRScanner()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl text-sm font-bold">
-                        Aktifkan Kamera Scanner
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 text-center">
-                        <div id="qr-reader" class="w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-900 min-h-[250px] flex items-center justify-center text-white text-sm">
-                            Klik "Aktifkan Kamera Scanner" untuk mulai memindai
-                        </div>
-                        <div id="scan-feedback" class="mt-4 p-3 rounded-xl bg-gray-50 text-sm font-semibold text-gray-700">
-                            Menunggu pemindaian kartu pelajar...
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                        <h3 class="font-bold text-gray-900 mb-4">Log Kehadiran Hari Ini</h3>
-                        <div id="attendance-log" class="space-y-3 max-h-80 overflow-y-auto">
-                            <p class="text-sm text-gray-400 italic">Memuat data kehadiran...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 3: DATA SISWA & KARTU QR -->
-            <div id="tab-siswa" class="admin-tab hidden-view space-y-6">
-                <div class="flex flex-wrap justify-between items-center gap-4">
-                    <h1 class="text-2xl font-extrabold text-gray-900">Manajemen Data Siswa (MTs & MA)</h1>
-                    <div class="flex flex-wrap gap-2">
-                        <button onclick="document.getElementById('add-student-modal').classList.remove('hidden')" class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white shadow-sm">+ Tambah Siswa</button>
-                        <button onclick="filterSiswa('ALL')" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white">Semua</button>
-                        <button onclick="filterSiswa('MTs')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MTs</button>
-                        <button onclick="filterSiswa('MA')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MA</button>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
-                    <table class="w-full text-left text-sm">
-                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500">
-                            <tr>
-                                <th class="p-4">NISN</th>
-                                <th class="p-4">Nama Siswa</th>
-                                <th class="p-4">Jenjang</th>
-                                <th class="p-4">Kelas</th>
-                                <th class="p-4">Aksi & QR Code</th>
-                            </tr>
-                        </thead>
-                        <tbody id="siswa-table-body" class="divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- TAB 4: DATA PENDAFTAR PPDB -->
-            <div id="tab-ppdb-admin" class="admin-tab hidden-view space-y-6">
-                <h1 class="text-2xl font-extrabold text-gray-900">Data Calon Siswa Baru (PPDB)</h1>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
-                    <table class="w-full text-left text-sm">
-                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500">
-                            <tr>
-                                <th class="p-4">No. Daftar</th>
-                                <th class="p-4">Nama Lengkap</th>
-                                <th class="p-4">Jenjang</th>
-                                <th class="p-4">Asal Sekolah</th>
-                                <th class="p-4">WhatsApp</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ppdb-table-body" class="divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- MODAL TAMBAH SISWA BARU -->
-    <div id="add-student-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-extrabold text-emerald-950">Tambah Data Siswa Baru</h3>
-                <button onclick="document.getElementById('add-student-modal').classList.add('hidden')" class="text-gray-400 text-2xl">&times;</button>
-            </div>
-            <form onsubmit="addNewStudent(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">NISN (Unik untuk QR Code)</label>
-                    <input type="text" id="new-nisn" required placeholder="Contoh: 0081122339" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Lengkap Siswa</label>
-                    <input type="text" id="new-nama" required placeholder="Contoh: Muhammad Ilham" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jenjang</label>
-                        <select id="new-jenjang" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
-                            <option value="MTs">MTs</option>
-                            <option value="MA">MA</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Kelas</label>
-                        <input type="text" id="new-kelas" required placeholder="Contoh: 7A / 10 IPA" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
-                    </div>
-                </div>
-                <div class="pt-2 flex justify-end gap-2">
-                    <button type="button" onclick="document.getElementById('add-student-modal').classList.add('hidden')" class="px-4 py-2 rounded-xl text-sm text-gray-600">Batal</button>
-                    <button type="submit" class="bg-emerald-700 text-white px-5 py-2 rounded-xl text-sm font-bold">Simpan Siswa</button>
-                </div>
-            </form>
+    <!-- Profil & Visi Misi -->
+    <section id="profil" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Tentang Kami</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Profil MTs &amp; MA Darul Hikmah</h2>
+          <p class="text-slate-600 mt-3 text-sm">Lembaga pendidikan Islam modern yang berkomitmen melahirkan pemimpin masa depan berkarakter Islami.</p>
         </div>
-    </div>
-
-    <!-- MODAL KARTU QR SISWA -->
-    <div id="qr-card-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-xs w-full p-6 text-center shadow-2xl">
-            <h3 class="font-extrabold text-emerald-950 text-lg">KARTU PELAJAR DIGITAL</h3>
-            <p class="text-xs text-gray-500 mb-4">MTs & MA Darul Hikmah</p>
-            <div id="qrcode-canvas" class="flex justify-center my-4 p-3 bg-white border rounded-xl"></div>
-            <h4 id="qr-student-name" class="font-bold text-gray-900 text-base">Nama Siswa</h4>
-            <p id="qr-student-info" class="text-xs text-emerald-700 font-semibold mb-5">NISN: 000000</p>
-            <button onclick="window.print()" class="w-full bg-emerald-700 text-white py-2 rounded-xl text-sm font-bold mb-2">Cetak Kartu</button>
-            <button onclick="document.getElementById('qr-card-modal').classList.add('hidden')" class="w-full bg-gray-200 text-gray-800 py-2 rounded-xl text-sm font-bold">Tutup</button>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-emerald-900 mb-3">Visi Madrasah</h3>
+            <p class="text-slate-700 leading-relaxed italic">
+              "Terwujudnya peserta didik yang unggul dalam prestasi akademik dan non-akademik, beriman, bertakwa, berakhlakul karimah, serta berwawasan global."
+            </p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Misi Utama</h3>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li>&#10003; Menyelenggarakan pembelajaran aktif, kreatif, dan berbasis teknologi informasi.</li>
+              <li>&#10003; Membiasakan budaya literasi Al-Qur'an, ibadah berjamaah, dan akhlak mulia.</li>
+              <li>&#10003; Mengembangkan bakat dan minat siswa melalui ekstrakurikuler berprestasi.</li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Berita Sekolah -->
+    <section id="berita" class="py-20 bg-slate-50 border-t border-slate-200/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Kabar Madrasah</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Berita &amp; Pengumuman Terbaru</h2>
+          </div>
+        </div>
+        <div id="public-news-grid" class="grid md:grid-cols-3 gap-7"></div>
+      </div>
+    </section>
+
+    <!-- Ekstrakurikuler -->
+    <section id="ekskul" class="py-20 bg-white border-t border-slate-200/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Pengembangan Diri</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Ekstrakurikuler &amp; Galeri Kegiatan</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-2xl border border-slate-200 p-6 hover:border-emerald-500 transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-4">&#128214;</div>
+            <h3 class="font-bold text-slate-900">Tahfidzul Qur'an</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Program setoran hafalan harian dengan target mutqin 3-10 Juz selama masa studi.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 hover:border-emerald-500 transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-4">&#9876;</div>
+            <h3 class="font-bold text-slate-900">Pramuka &amp; Paskibra</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Membentuk kedisiplinan, kepemimpinan, dan kemandirian siswa MTs dan MA.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 hover:border-emerald-500 transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-4">&#129345;</div>
+            <h3 class="font-bold text-slate-900">Hadrah &amp; Kaligrafi</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Melestarikan seni budaya Islam melalui grup rebana Al-Banjari dan seni khat.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 hover:border-emerald-500 transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-4">&#128187;</div>
+            <h3 class="font-bold text-slate-900">KIR &amp; Robotika</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Karya Ilmiah Remaja dan pemrograman dasar untuk persiapan kompetisi madrasah.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PPDB Section -->
+    <section id="ppdb" class="py-20 bg-emerald-950 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-6 space-y-6">
+          <span class="px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold">PPDB ONLINE 2026/2027</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Penerimaan Peserta Didik Baru</h2>
+          <p class="text-emerald-200 text-sm leading-relaxed">
+            Daftarkan putra-putri Anda secara online. Data pendaftaran langsung terhubung ke sistem panitia PPDB MTs &amp; MA Darul Hikmah.
+          </p>
+          <div class="space-y-3 text-sm">
+            <div class="bg-emerald-900/70 p-4 rounded-xl border border-emerald-800">
+              <strong class="text-gold-400 block">Gelombang 1 (Jalur Prestasi &amp; Tahfidz)</strong>
+              <span class="text-emerald-100 text-xs">Januari – Maret 2026 (Bebas biaya formulir &amp; potongan SPP)</span>
+            </div>
+            <div class="bg-emerald-900/70 p-4 rounded-xl border border-emerald-800">
+              <strong class="text-gold-400 block">Gelombang 2 (Jalur Reguler)</strong>
+              <span class="text-emerald-100 text-xs">April – Juni 2026 (Tes baca Al-Qur'an &amp; potensi akademik)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Pendaftaran PPDB -->
+        <div class="lg:col-span-6 bg-white text-slate-800 rounded-3xl p-8 shadow-2xl">
+          <h3 class="text-xl font-extrabold text-emerald-950 mb-1">Formulir Pendaftaran Online</h3>
+          <p class="text-xs text-slate-500 mb-6">Isi biodata calon peserta didik dengan benar.</p>
+          <form onsubmit="submitPPDB(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Pilihan Jenjang</label>
+              <select id="ppdb-jenjang" required class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+                <option value="MTs">Madrasah Tsanawiyah (MTs)</option>
+                <option value="MA">Madrasah Aliyah (MA)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Calon Siswa</label>
+              <input type="text" id="ppdb-nama" required placeholder="Contoh: Ahmad Fauzan" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Asal Sekolah (SD/MI/SMP/MTs)</label>
+                <input type="text" id="ppdb-asal" required placeholder="Contoh: MI Al-Ikhlas" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp Orang Tua</label>
+                <input type="tel" id="ppdb-wa" required placeholder="0812xxxxxxxx" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
+              </div>
+            </div>
+            <button id="btn-submit-ppdb" type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow transition">
+              Kirim Pendaftaran PPDB
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak & Footer -->
+    <footer id="kontak" class="bg-slate-900 text-slate-300 py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <div class="text-white font-extrabold text-lg mb-2">MTs &amp; MA DARUL HIKMAH</div>
+          <p class="text-slate-400 text-xs leading-relaxed">Jl. Pendidikan Islam No. 99, Indonesia. Membina generasi berilmu amaliah dan beramal ilmiah.</p>
+        </div>
+        <div>
+          <div class="text-white font-bold mb-2">Kontak Sekretariat</div>
+          <p class="text-xs text-slate-400">Telepon / WA: +62 812-3456-7890<br>Email: info@darulhikmah.sch.id</p>
+        </div>
+        <div>
+          <div class="text-white font-bold mb-2">Akses Sistem</div>
+          <button onclick="openLoginModal()" class="text-xs text-emerald-400 hover:underline">Masuk ke Dashboard Admin &amp; Absensi QR &rarr;</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==================== 2. MODAL LOGIN ADMIN ==================== -->
+  <div id="login-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+      <button onclick="closeLoginModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">&times;</button>
+      <div class="w-12 h-12 rounded-2xl bg-emerald-700 text-white flex items-center justify-center font-extrabold text-xl mb-4">DH</div>
+      <h3 class="text-2xl font-extrabold text-slate-900">Login Admin Madrasah</h3>
+      <p class="text-xs text-slate-500 mt-1 mb-6">Masukkan akun administrator untuk mengakses database siswa dan absensi QR.</p>
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Username</label>
+          <input type="text" id="login-user" value="admin" required class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+          <input type="password" id="login-pass" value="admin123" required class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+        </div>
+        <div class="bg-emerald-50 text-emerald-800 text-[11px] p-3 rounded-xl border border-emerald-200">
+          <strong>Info Demo:</strong> Username: <code>admin</code> | Password: <code>admin123</code>
+        </div>
+        <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow transition">
+          Masuk ke Dashboard
+        </button>
+      </form>
     </div>
+  </div>
 
-    <!-- =====================================================================
-         JAVASCRIPT LOGIC + INTEGRASI SUPABASE CLOUD DATABASE
-    ====================================================================== -->
-    <script>
-        // KONEKSI SUPABASE ANDA
-        const SUPABASE_URL = 'https://toytkgysexrjsswqdugo.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_THg1M5VNpNiBpj_OAiQxaA_09x6RxPz';
-        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  <!-- ==================== 3. DASHBOARD ADMIN ==================== -->
+  <div id="admin-view" class="hidden min-h-screen flex flex-col md:flex-row bg-slate-100">
+    <!-- Sidebar -->
+    <aside class="w-full md:w-64 bg-emerald-950 text-white flex flex-col justify-between shrink-0">
+      <div>
+        <div class="p-6 border-b border-emerald-800/70">
+          <div class="font-extrabold text-lg tracking-tight">ADMIN PANEL</div>
+          <div class="text-xs text-emerald-400 flex items-center gap-1.5 mt-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Cloud Database Aktif
+          </div>
+        </div>
+        <nav class="p-4 space-y-1.5 text-sm font-medium">
+          <button onclick="switchAdminTab('dashboard')" id="nav-dashboard" class="w-full text-left px-4 py-2.5 rounded-xl bg-emerald-800 text-white">
+            &#128202; Ringkasan Dashboard
+          </button>
+          <button onclick="switchAdminTab('absensi')" id="nav-absensi" class="w-full text-left px-4 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#128247; Scan QR Absensi
+          </button>
+          <button onclick="switchAdminTab('rekap')" id="nav-rekap" class="w-full text-left px-4 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#128203; Rekap &amp; Ekspor Excel
+          </button>
+          <button onclick="switchAdminTab('siswa')" id="nav-siswa" class="w-full text-left px-4 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#127891; Data Siswa (MTs &amp; MA)
+          </button>
+          <button onclick="switchAdminTab('ppdb-admin')" id="nav-ppdb-admin" class="w-full text-left px-4 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#128221; Data Pendaftar PPDB
+          </button>
+        </nav>
+      </div>
+      <div class="p-4 border-t border-emerald-800/70">
+        <button onclick="logoutAdmin()" class="w-full bg-red-600/20 hover:bg-red-600/30 text-red-200 text-xs font-bold py-2.5 rounded-xl border border-red-500/30">
+          Keluar / Halaman Publik
+        </button>
+      </div>
+    </aside>
 
-        let studentsData = [];
-        let ppdbList = [];
-        let attendanceToday = [];
-        let html5QrcodeScanner = null;
-        let isScanning = false;
+    <!-- Main Admin Content -->
+    <main class="flex-1 p-6 lg:p-10 overflow-y-auto">
+      <!-- TAB 1: DASHBOARD -->
+      <div id="tab-dashboard" class="space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Dashboard Sistem Informasi Madrasah</h1>
+            <p class="text-xs text-slate-500">Data tersinkronisasi secara real-time dengan database cloud.</p>
+          </div>
+          <button onclick="loadAllDataFromDB()" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold px-4 py-2 rounded-xl shadow-sm">
+            &#8635; Segarkan Data
+          </button>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="text-xs font-bold text-slate-500">Total Siswa MTs</div>
+            <div id="stat-mts" class="text-3xl font-extrabold text-emerald-700 mt-1">0</div>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="text-xs font-bold text-slate-500">Total Siswa MA</div>
+            <div id="stat-ma" class="text-3xl font-extrabold text-emerald-700 mt-1">0</div>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="text-xs font-bold text-slate-500">Hadir Hari Ini (QR)</div>
+            <div id="stat-hadir" class="text-3xl font-extrabold text-gold-600 mt-1">0</div>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="text-xs font-bold text-slate-500">Pendaftar PPDB</div>
+            <div id="stat-ppdb" class="text-3xl font-extrabold text-blue-600 mt-1">0</div>
+          </div>
+        </div>
+      </div>
 
-        const newsData = [
-            { date: '12 Nov 2026', cat: 'Prestasi', title: 'Siswa MA Darul Hikmah Raih Medali Emas Kompetisi Sains Madrasah (KSM)' },
-            { date: '08 Nov 2026', cat: 'Pengumuman', title: 'Jadwal Pelaksanaan Penilaian Akhir Semester (PAS) Ganjil MTs & MA' },
-            { date: '01 Nov 2026', cat: 'Inovasi', title: 'Penerapan Sistem Absensi Digital Berbasis QR Code untuk Kedisiplinan Siswa' }
-        ];
+      <!-- TAB 2: SCAN QR ABSENSI -->
+      <div id="tab-absensi" class="hidden space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Absensi Digital Kamera QR Code</h1>
+            <p class="text-xs text-slate-500">Arahkan kartu QR siswa ke kamera. Hasil otomatis tersimpan ke database.</p>
+          </div>
+          <button onclick="startQRScanner()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow">
+            Aktifkan Kamera Scanner
+          </button>
+        </div>
 
-        function renderPublicNews() {
-            const container = document.getElementById('public-news-grid');
-            container.innerHTML = newsData.map(item => `
-                <article class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition">
-                    <img src="https://placehold.co/600x350/d1fae5/065f46?text=${encodeURIComponent(item.cat)}" alt="${item.title}" class="w-full h-44 object-cover">
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-emerald-700">${item.date} • ${item.cat}</span>
-                        <h4 class="font-bold text-gray-900 mt-2 mb-3 leading-snug">${item.title}</h4>
-                        <span class="text-xs font-bold text-emerald-700">Baca Selengkapnya →</span>
-                    </div>
-                </article>
-            `).join('');
-        }
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div id="qr-reader" class="w-full rounded-xl overflow-hidden bg-slate-900 min-h-[260px]"></div>
+            <div id="scan-feedback" class="mt-4 p-3.5 rounded-xl bg-slate-100 text-xs text-slate-600 text-center font-medium">
+              Menunggu pemindaian kartu pelajar...
+            </div>
+          </div>
+          <div class="lg:col-span-7 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold text-slate-800">Log Kehadiran Hari Ini</h3>
+              <button onclick="switchAdminTab('rekap')" class="text-xs font-bold text-emerald-700 hover:underline">Lihat Rekap &amp; Ekspor Excel &rarr;</button>
+            </div>
+            <div id="attendance-log" class="space-y-2.5 max-h-80 overflow-y-auto text-sm">
+              <p class="text-xs text-slate-400 italic">Memuat data kehadiran...</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        function showToast(msg) {
-            const box = document.getElementById('toast-box');
-            document.getElementById('toast-message').textContent = msg;
-            box.classList.remove('hidden');
-            setTimeout(() => box.classList.add('hidden'), 3500);
-        }
+      <!-- TAB 3: REKAP ABSENSI & EKSPOR EXCEL (MINGGUAN & BULANAN) -->
+      <div id="tab-rekap" class="hidden space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Rekap Kehadiran Siswa &amp; Ekspor Excel</h1>
+            <p class="text-xs text-slate-500">Filter laporan absensi mingguan atau bulanan dan unduh dalam format Microsoft Excel (.xlsx).</p>
+          </div>
+          <button onclick="exportAbsensiExcel()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+            &#128229; Unduh Laporan Excel (.xlsx)
+          </button>
+        </div>
 
-        function showView(viewId) {
-            ['public-app', 'login-view', 'admin-dashboard'].forEach(id => {
-                document.getElementById(id).classList.add('hidden-view');
-            });
-            document.getElementById(viewId).classList.remove('hidden-view');
-            window.scrollTo(0, 0);
-        }
+        <!-- Filter Rekap -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 grid sm:grid-cols-3 gap-4 items-end">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Periode Rekap</label>
+            <select id="filter-periode" onchange="renderRekapTable()" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm font-medium">
+              <option value="mingguan">Rekap Mingguan (7 Hari Terakhir)</option>
+              <option value="bulanan" selected>Rekap Bulanan (Bulan Ini)</option>
+              <option value="semua">Semua Riwayat Absensi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Filter Jenjang</label>
+            <select id="filter-jenjang-rekap" onchange="renderRekapTable()" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm font-medium">
+              <option value="SEMUA">Semua Jenjang (MTs &amp; MA)</option>
+              <option value="MTs">Khusus MTs</option>
+              <option value="MA">Khusus MA</option>
+            </select>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-900">
+            <span class="block font-bold">Total Catatan Kehadiran:</span>
+            <span id="rekap-summary-count" class="text-lg font-extrabold text-emerald-700">0 Kehadiran</span>
+          </div>
+        </div>
 
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        // AMBIL SEMUA DATA DARI SUPABASE
-        async function syncAllData() {
-            const todayStr = new Date().toISOString().split('T')[0];
-
-            const [resStudents, resPPDB, resAttendance] = await Promise.all([
-                db.from('students').select('*').order('created_at', { ascending: false }),
-                db.from('ppdb_registrations').select('*').order('created_at', { ascending: false }),
-                db.from('attendances').select('*').eq('tanggal', todayStr).order('id', { ascending: false })
-            ]);
-
-            if (resStudents.data) studentsData = resStudents.data;
-            if (resPPDB.data) ppdbList = resPPDB.data;
-            if (resAttendance.data) attendanceToday = resAttendance.data;
-
-            renderAdminTables();
-            renderAttendanceLog();
-        }
-
-        // PPDB SUBMIT KE SUPABASE
-        function openPPDBModal(jenjang = 'MTs') {
-            document.getElementById('ppdb-jenjang').value = jenjang;
-            document.getElementById('ppdb-modal').classList.remove('hidden');
-        }
-        function closePPDBModal() {
-            document.getElementById('ppdb-modal').classList.add('hidden');
-        }
-        async function submitPPDB(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-submit-ppdb');
-            btn.textContent = 'Mengirim...';
-            btn.disabled = true;
-
-            const noDaftar = 'PPDB-2026-' + Math.floor(100 + Math.random() * 900);
-            const payload = {
-                no_daftar: noDaftar,
-                nama: document.getElementById('ppdb-nama').value,
-                jenjang: document.getElementById('ppdb-jenjang').value,
-                asal_sekolah: document.getElementById('ppdb-asal').value,
-                no_wa: document.getElementById('ppdb-wa').value
-            };
-
-            const { error } = await db.from('ppdb_registrations').insert([payload]);
-            btn.textContent = 'Kirim Pendaftaran';
-            btn.disabled = false;
-
-            if (error) {
-                showToast('Gagal menyimpan pendaftaran: ' + error.message);
-                return;
-            }
-
-            closePPDBModal();
-            e.target.reset();
-            showToast(`Pendaftaran berhasil! Nomor Anda: ${noDaftar}`);
-        }
-
-        // TAMBAH SISWA BARU KE SUPABASE
-        async function addNewStudent(e) {
-            e.preventDefault();
-            const payload = {
-                nisn: document.getElementById('new-nisn').value.trim(),
-                nama: document.getElementById('new-nama').value.trim(),
-                jenjang: document.getElementById('new-jenjang').value,
-                kelas: document.getElementById('new-kelas').value.trim()
-            };
-
-            const { error } = await db.from('students').insert([payload]);
-            if (error) {
-                showToast('Gagal menambah siswa (Pastikan NISN belum terdaftar): ' + error.message);
-                return;
-            }
-
-            document.getElementById('add-student-modal').classList.add('hidden');
-            e.target.reset();
-            showToast(`Siswa ${payload.nama} berhasil disimpan ke database!`);
-            syncAllData();
-        }
-
-        // LOGIN & ADMIN
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const user = document.getElementById('admin-user').value;
-            const pass = document.getElementById('admin-pass').value;
-            if (user === 'admin@darulhikmah.sch.id' && pass === 'admin123') {
-                showView('admin-dashboard');
-                syncAllData();
-                showToast('Login berhasil! Terhubung ke database Supabase.');
-            } else {
-                showToast('Email atau kata sandi admin salah!');
-            }
-        }
-
-        function logoutAdmin() {
-            if (html5QrcodeScanner) {
-                html5QrcodeScanner.clear().catch(() => {});
-            }
-            showView('public-app');
-        }
-
-        function switchAdminTab(tabName) {
-            document.querySelectorAll('.admin-tab').forEach(el => el.classList.add('hidden-view'));
-            document.getElementById('tab-' + tabName).classList.remove('hidden-view');
-        }
-
-        function renderAdminTables(filter = 'ALL') {
-            document.getElementById('stat-total-siswa').textContent = studentsData.length;
-            document.getElementById('stat-hadir').textContent = attendanceToday.length;
-            document.getElementById('stat-ppdb').textContent = ppdbList.length;
-
-            const filtered = filter === 'ALL' ? studentsData : studentsData.filter(s => s.jenjang === filter);
-            document.getElementById('siswa-table-body').innerHTML = filtered.map(s => `
-                <tr class="hover:bg-gray-50">
-                    <td class="p-4 font-mono text-xs">${s.nisn}</td>
-                    <td class="p-4 font-bold text-gray-900">${s.nama}</td>
-                    <td class="p-4"><span class="px-2.5 py-1 rounded-md text-xs font-bold ${s.jenjang === 'MTs' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${s.jenjang}</span></td>
-                    <td class="p-4">${s.kelas}</td>
-                    <td class="p-4 flex gap-2">
-                        <button onclick="showStudentQR('${s.nisn}')" class="bg-gray-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold">Lihat Kartu QR</button>
-                        <button onclick="processAttendanceScan('${s.nisn}')" class="bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-lg text-xs font-semibold">Simulasi Scan</button>
-                    </td>
-                </tr>
-            `).join('');
-
-            document.getElementById('ppdb-table-body').innerHTML = ppdbList.map(p => `
+        <!-- Ringkasan Kehadiran Per Siswa -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+            <h3 class="font-bold text-slate-800 text-sm">Tabel Rekapitulasi Kehadiran Per Siswa</h3>
+            <span class="text-[11px] text-slate-500">File Excel otomatis berisi 2 Sheet (Ringkasan Per Siswa &amp; Log Detail Harian)</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-slate-100 text-slate-600 text-xs uppercase">
                 <tr>
-                    <td class="p-4 font-mono text-xs font-bold text-emerald-700">${p.no_daftar}</td>
-                    <td class="p-4 font-bold">${p.nama}</td>
-                    <td class="p-4">${p.jenjang}</td>
-                    <td class="p-4">${p.asal_sekolah}</td>
-                    <td class="p-4">${p.no_wa}</td>
+                  <th class="p-4">NISN</th>
+                  <th class="p-4">Nama Siswa</th>
+                  <th class="p-4">Jenjang</th>
+                  <th class="p-4">Kelas</th>
+                  <th class="p-4 text-center">Jumlah Hadir</th>
+                  <th class="p-4">Tanggal Hadir Terakhir</th>
                 </tr>
-            `).join('');
+              </thead>
+              <tbody id="rekap-table-body" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: DATA SISWA & CETAK KARTU QR -->
+      <div id="tab-siswa" class="hidden space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Manajemen Data Siswa &amp; Kartu QR</h1>
+            <p class="text-xs text-slate-500">Tambah siswa baru MTs/MA atau cetak Kartu Pelajar QR Code mereka.</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="openAddStudentModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-xl text-xs font-bold shadow">
+              + Tambah Siswa Baru
+            </button>
+            <button onclick="filterStudents('ALL')" class="bg-slate-800 text-white px-3.5 py-2 rounded-xl text-xs font-bold">Semua</button>
+            <button onclick="filterStudents('MTs')" class="bg-white border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold">MTs</button>
+            <button onclick="filterStudents('MA')" class="bg-white border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold">MA</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 text-xs uppercase">
+              <tr>
+                <th class="p-4">NISN</th>
+                <th class="p-4">Nama Lengkap</th>
+                <th class="p-4">Jenjang</th>
+                <th class="p-4">Kelas</th>
+                <th class="p-4 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="student-table-body" class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 5: DATA PENDAFTAR PPDB -->
+      <div id="tab-ppdb-admin" class="hidden space-y-6">
+        <h1 class="text-2xl font-extrabold text-slate-900">Data Calon Siswa Pendaftar PPDB</h1>
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 text-xs uppercase">
+              <tr>
+                <th class="p-4">No. Daftar</th>
+                <th class="p-4">Nama Calon Siswa</th>
+                <th class="p-4">Jenjang</th>
+                <th class="p-4">Asal Sekolah</th>
+                <th class="p-4">No. WhatsApp</th>
+              </tr>
+            </thead>
+            <tbody id="ppdb-table-body" class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL TAMBAH SISWA BARU -->
+  <div id="add-student-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl relative">
+      <button onclick="document.getElementById('add-student-modal').classList.add('hidden')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">&times;</button>
+      <h3 class="text-xl font-extrabold text-slate-900 mb-1">Tambah Data Siswa</h3>
+      <p class="text-xs text-slate-500 mb-5">Data siswa akan langsung tersimpan ke database dan otomatis dibuatkan QR Code.</p>
+      <form onsubmit="addNewStudent(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">NISN (Sebagai Kode QR)</label>
+          <input type="text" id="new-nisn" required placeholder="Contoh: 0081122334" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Siswa</label>
+          <input type="text" id="new-nama" required placeholder="Contoh: Siti Aisyah" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Jenjang</label>
+            <select id="new-jenjang" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+              <option value="MTs">MTs</option>
+              <option value="MA">MA</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Kelas</label>
+            <input type="text" id="new-kelas" required placeholder="Contoh: 7A / 10 IPA 1" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm">
+          </div>
+        </div>
+        <button id="btn-save-student" type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow">
+          Simpan ke Database
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL CETAK KARTU PELAJAR QR -->
+  <div id="qr-card-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-5 shadow-2xl">
+      <div id="print-card-area" class="border-2 border-emerald-700 rounded-2xl overflow-hidden bg-white">
+        <div class="bg-emerald-800 text-white py-3 px-4">
+          <div class="text-xs font-bold tracking-wider">KARTU PELAJAR DIGITAL</div>
+          <div class="text-sm font-extrabold">MTs &amp; MA DARUL HIKMAH</div>
+        </div>
+        <div class="p-5 flex flex-col items-center">
+          <div id="modal-qrcode-box" class="p-2 border border-slate-200 rounded-xl mb-3"></div>
+          <div id="modal-student-name" class="font-extrabold text-slate-900 text-base"></div>
+          <div id="modal-student-info" class="text-xs text-emerald-700 font-semibold mt-0.5"></div>
+          <div id="modal-student-nisn" class="text-[11px] text-slate-400 mt-1 font-mono"></div>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="flex-1 bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs">Cetak Kartu</button>
+        <button onclick="document.getElementById('qr-card-modal').classList.add('hidden')" class="flex-1 bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 4. LOGIKA SUPABASE, QR & EXCEL ==================== -->
+  <script>
+    const SUPABASE_URL = 'https://toytkgysexrjsswqdugo.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_THg1M5VNpNiBpj_OAiQxaA_09x6RxPz';
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const newsData = [
+      { title: "Siswa MA Darul Hikmah Raih Medali Emas KSM Tingkat Provinsi", date: "12 November 2026", tag: "Prestasi", desc: "Alhamdulillah, delegasi olimpiade biologi dan matematika terintegrasi kembali mengharumkan nama madrasah." },
+      { title: "Pembukaan Wisuda Tahfidz Al-Qur'an Angkatan ke-14", date: "05 November 2026", tag: "Kegiatan", desc: "Sebanyak 85 santriwan dan santriwati MTs serta MA mengikuti uji publik hafalan 5 hingga 15 Juz." },
+      { title: "Informasi Jadwal Tes Seleksi PPDB Gelombang Pertama", date: "01 November 2026", tag: "PPDB", desc: "Calon peserta didik yang telah mendaftar online diharapkan mencetak kartu ujian melalui panitia." }
+    ];
+
+    let students = [];
+    let allAttendances = [];
+    let ppdbList = [];
+
+    function renderPublicNews() {
+      const grid = document.getElementById('public-news-grid');
+      grid.innerHTML = newsData.map(item => `
+        <article class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-3">${item.tag}</span>
+            <h3 class="font-bold text-lg text-slate-900 leading-snug mb-2">${item.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${item.desc}</p>
+          </div>
+          <div class="text-[11px] text-slate-400 font-medium mt-5 pt-4 border-t border-slate-100">${item.date}</div>
+        </article>
+      `).join('');
+    }
+    renderPublicNews();
+
+    async function submitPPDB(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit-ppdb');
+      btn.disabled = true;
+      btn.innerText = 'Menyimpan ke Server...';
+
+      const regNo = 'PPDB-2026-' + Math.floor(100 + Math.random() * 900);
+      const newEntry = {
+        no_daftar: regNo,
+        nama: document.getElementById('ppdb-nama').value,
+        jenjang: document.getElementById('ppdb-jenjang').value,
+        asal_sekolah: document.getElementById('ppdb-asal').value,
+        no_wa: document.getElementById('ppdb-wa').value
+      };
+
+      const { error } = await db.from('ppdb_registrations').insert([newEntry]);
+      btn.disabled = false;
+      btn.innerText = 'Kirim Pendaftaran PPDB';
+
+      if (error) {
+        alert('Gagal menyimpan pendaftaran: ' + error.message);
+      } else {
+        alert('Alhamdulillah! Pendaftaran berhasil tersimpan di database.\nNomor Registrasi Anda: ' + regNo);
+        e.target.reset();
+      }
+    }
+
+    function openLoginModal() { document.getElementById('login-modal').classList.remove('hidden'); }
+    function closeLoginModal() { document.getElementById('login-modal').classList.add('hidden'); }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const u = document.getElementById('login-user').value;
+      const p = document.getElementById('login-pass').value;
+      if (u === 'admin' && p === 'admin123') {
+        closeLoginModal();
+        document.getElementById('public-view').classList.add('hidden');
+        document.getElementById('admin-view').classList.remove('hidden');
+        await loadAllDataFromDB();
+      } else {
+        alert('Username atau Password salah!');
+      }
+    }
+
+    function logoutAdmin() {
+      document.getElementById('admin-view').classList.add('hidden');
+      document.getElementById('public-view').classList.remove('hidden');
+    }
+
+    function switchAdminTab(tabName) {
+      ['dashboard', 'absensi', 'rekap', 'siswa', 'ppdb-admin'].forEach(t => {
+        document.getElementById('tab-' + t).classList.add('hidden');
+        document.getElementById('nav-' + t).classList.remove('bg-emerald-800', 'text-white');
+        document.getElementById('nav-' + t).classList.add('text-emerald-200');
+      });
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      document.getElementById('nav-' + tabName).classList.add('bg-emerald-800', 'text-white');
+      if (tabName === 'rekap') renderRekapTable();
+    }
+
+    async function loadAllDataFromDB() {
+      const today = new Date().toISOString().split('T')[0];
+
+      const { data: sData } = await db.from('students').select('*').order('id', { ascending: false });
+      if (sData) students = sData;
+
+      // Ambil semua riwayat absensi untuk kebutuhan rekap mingguan & bulanan
+      const { data: aData } = await db.from('attendances').select('*').order('id', { ascending: false });
+      if (aData) allAttendances = aData;
+
+      const { data: pData } = await db.from('ppdb_registrations').select('*').order('id', { ascending: false });
+      if (pData) ppdbList = pData;
+
+      const todayAttendances = allAttendances.filter(a => a.tanggal === today);
+
+      document.getElementById('stat-mts').innerText = students.filter(s => s.jenjang === 'MTs').length;
+      document.getElementById('stat-ma').innerText = students.filter(s => s.jenjang === 'MA').length;
+      document.getElementById('stat-hadir').innerText = todayAttendances.length;
+      document.getElementById('stat-ppdb').innerText = ppdbList.length;
+
+      renderStudentsTable('ALL');
+      renderAttendanceLog(todayAttendances);
+      renderPPDBTable();
+      renderRekapTable();
+    }
+
+    function openAddStudentModal() { document.getElementById('add-student-modal').classList.remove('hidden'); }
+
+    async function addNewStudent(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-save-student');
+      btn.disabled = true;
+      btn.innerText = 'Menyimpan...';
+
+      const studentObj = {
+        nisn: document.getElementById('new-nisn').value.trim(),
+        nama: document.getElementById('new-nama').value.trim(),
+        jenjang: document.getElementById('new-jenjang').value,
+        kelas: document.getElementById('new-kelas').value.trim()
+      };
+
+      const { error } = await db.from('students').insert([studentObj]);
+      btn.disabled = false;
+      btn.innerText = 'Simpan ke Database';
+
+      if (error) {
+        alert('Gagal menyimpan siswa (pastikan NISN belum terdaftar): ' + error.message);
+      } else {
+        document.getElementById('add-student-modal').classList.add('hidden');
+        e.target.reset();
+        await loadAllDataFromDB();
+      }
+    }
+
+    function renderStudentsTable(filter) {
+      const tbody = document.getElementById('student-table-body');
+      const filtered = filter === 'ALL' ? students : students.filter(s => s.jenjang === filter);
+      tbody.innerHTML = filtered.map(s => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-4 font-mono text-xs">${s.nisn}</td>
+          <td class="p-4 font-bold text-slate-800">${s.nama}</td>
+          <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${s.jenjang === 'MTs' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${s.jenjang}</span></td>
+          <td class="p-4 text-slate-600">${s.kelas}</td>
+          <td class="p-4 text-right space-x-1">
+            <button onclick="showQRCard('${s.nisn}')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg">Kartu QR</button>
+            <button onclick="recordAttendance('${s.nisn}')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg">Tes Hadir</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    function filterStudents(jenjang) { renderStudentsTable(jenjang); }
+
+    function showQRCard(nisn) {
+      const s = students.find(item => item.nisn === nisn);
+      if (!s) return;
+      document.getElementById('modal-student-name').innerText = s.nama;
+      document.getElementById('modal-student-info').innerText = `Jenjang ${s.jenjang} - Kelas ${s.kelas}`;
+      document.getElementById('modal-student-nisn').innerText = `NISN: ${s.nisn}`;
+      const qrBox = document.getElementById('modal-qrcode-box');
+      qrBox.innerHTML = '';
+      new QRCode(qrBox, { text: s.nisn, width: 150, height: 150 });
+      document.getElementById('qr-card-modal').classList.remove('hidden');
+    }
+
+    function renderAttendanceLog(list) {
+      const log = document.getElementById('attendance-log');
+      if (!list || list.length === 0) {
+        log.innerHTML = '<p class="text-xs text-slate-400 italic">Belum ada siswa yang melakukan scan hari ini.</p>';
+        return;
+      }
+      log.innerHTML = list.map(item => `
+        <div class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 border border-emerald-100">
+          <div>
+            <div class="font-bold text-emerald-950 text-xs">${item.nama}</div>
+            <div class="text-[11px] text-emerald-700">${item.jenjang} - ${item.kelas} (NISN: ${item.nisn})</div>
+          </div>
+          <span class="text-xs font-mono font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-lg border border-emerald-200">${item.waktu} WIB</span>
+        </div>
+      `).join('');
+    }
+
+    function renderPPDBTable() {
+      const tbody = document.getElementById('ppdb-table-body');
+      tbody.innerHTML = ppdbList.map(p => `
+        <tr>
+          <td class="p-4 font-mono text-xs font-bold text-emerald-700">${p.no_daftar}</td>
+          <td class="p-4 font-bold">${p.nama}</td>
+          <td class="p-4">${p.jenjang}</td>
+          <td class="p-4">${p.asal_sekolah}</td>
+          <td class="p-4">${p.no_wa}</td>
+        </tr>
+      `).join('');
+    }
+
+    // ==================== LOGIKA REKAP MINGGUAN / BULANAN & EKSPOR EXCEL ====================
+    function getFilteredAttendances() {
+      const periode = document.getElementById('filter-periode').value;
+      const jenjangFilter = document.getElementById('filter-jenjang-rekap').value;
+      const now = new Date();
+
+      return allAttendances.filter(item => {
+        if (jenjangFilter !== 'SEMUA' && item.jenjang !== jenjangFilter) return false;
+        if (periode === 'semua') return true;
+
+        const itemDate = new Date(item.tanggal + 'T00:00:00');
+        if (periode === 'mingguan') {
+          const sevenDaysAgo = new Date();
+          sevenDaysAgo.setDate(now.getDate() - 7);
+          sevenDaysAgo.setHours(0, 0, 0, 0);
+          return itemDate >= sevenDaysAgo;
         }
-
-        function filterSiswa(jenjang) {
-            renderAdminTables(jenjang);
+        if (periode === 'bulanan') {
+          return itemDate.getMonth() === now.getMonth() && itemDate.getFullYear() === now.getFullYear();
         }
+        return true;
+      });
+    }
 
-        function showStudentQR(nisn) {
-            const student = studentsData.find(s => s.nisn === nisn);
-            if (!student) return;
-            const qrContainer = document.getElementById('qrcode-canvas');
-            qrContainer.innerHTML = '';
-            new QRCode(qrContainer, { text: student.nisn, width: 160, height: 160 });
-            document.getElementById('qr-student-name').textContent = student.nama;
-            document.getElementById('qr-student-info').textContent = `${student.jenjang} - Kelas ${student.kelas} (${student.nisn})`;
-            document.getElementById('qr-card-modal').classList.remove('hidden');
-        }
+    function buildStudentSummary(filteredLogs) {
+      const jenjangFilter = document.getElementById('filter-jenjang-rekap').value;
+      const targetStudents = jenjangFilter === 'SEMUA' ? students : students.filter(s => s.jenjang === jenjangFilter);
 
-        function renderAttendanceLog() {
-            const logEl = document.getElementById('attendance-log');
-            if (attendanceToday.length === 0) {
-                logEl.innerHTML = `<p class="text-sm text-gray-400 italic">Belum ada siswa yang melakukan scan hari ini.</p>`;
-                return;
-            }
-            logEl.innerHTML = attendanceToday.map(a => `
-                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
-                    <div>
-                        <p class="font-bold text-sm text-emerald-950">${a.nama}</p>
-                        <p class="text-xs text-emerald-700">${a.jenjang} • Kelas ${a.kelas}</p>
-                    </div>
-                    <span class="text-xs font-extrabold bg-emerald-700 text-white px-2.5 py-1 rounded-lg">${a.waktu} WIB</span>
-                </div>
-            `).join('');
-        }
-
-        function startQRScanner() {
-            const readerEl = document.getElementById('qr-reader');
-            readerEl.innerHTML = '';
-            html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: { width: 220, height: 220 } }, false);
-            html5QrcodeScanner.render((decodedText) => {
-                processAttendanceScan(decodedText);
-            });
-        }
-
-        async function processAttendanceScan(nisn) {
-            if (isScanning) return;
-            isScanning = true;
-
-            const student = studentsData.find(s => s.nisn === nisn);
-            const feedback = document.getElementById('scan-feedback');
-            
-            if (!student) {
-                feedback.innerHTML = `<span class="text-red-600">❌ QR Code (${nisn}) tidak terdaftar di database siswa!</span>`;
-                setTimeout(() => isScanning = false, 2000);
-                return;
-            }
-            if (attendanceToday.some(a => a.nisn === nisn)) {
-                feedback.innerHTML = `<span class="text-amber-600">⚠️ ${student.nama} sudah melakukan absensi hari ini.</span>`;
-                setTimeout(() => isScanning = false, 2000);
-                return;
-            }
-
-            const timeNow = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-            const newRecord = {
-                nisn: student.nisn,
-                nama: student.nama,
-                jenjang: student.jenjang,
-                kelas: student.kelas,
-                waktu: timeNow
-            };
-
-            const { error } = await db.from('attendances').insert([newRecord]);
-            if (error) {
-                feedback.innerHTML = `<span class="text-red-600">Gagal menyimpan absensi: ${error.message}</span>`;
-                isScanning = false;
-                return;
-            }
-
-            feedback.innerHTML = `<span class="text-emerald-700">✅ Berhasil Absen: ${student.nama} (${student.jenjang}) pukul ${timeNow} WIB</span>`;
-            showToast(`Absensi tersimpan di Cloud: ${student.nama}`);
-            await syncAllData();
-
-            setTimeout(() => isScanning = false, 2500);
-        }
-
-        window.onload = function() {
-            renderPublicNews();
+      return targetStudents.map(s => {
+        const logs = filteredLogs.filter(l => l.nisn === s.nisn);
+        // Hitung hari unik hadir
+        const uniqueDates = [...new Set(logs.map(l => l.tanggal))];
+        return {
+          nisn: s.nisn,
+          nama: s.nama,
+          jenjang: s.jenjang,
+          kelas: s.kelas,
+          total_hadir: uniqueDates.length,
+          terakhir_hadir: uniqueDates.length > 0 ? uniqueDates[0] : '-'
         };
-    </script>
+      });
+    }
+
+    function renderRekapTable() {
+      const filteredLogs = getFilteredAttendances();
+      const summary = buildStudentSummary(filteredLogs);
+      document.getElementById('rekap-summary-count').innerText = filteredLogs.length + ' Catatan Scan';
+
+      const tbody = document.getElementById('rekap-table-body');
+      if (summary.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-xs text-slate-400">Belum ada data siswa pada jenjang ini.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = summary.map(row => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-4 font-mono text-xs">${row.nisn}</td>
+          <td class="p-4 font-bold text-slate-800">${row.nama}</td>
+          <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${row.jenjang === 'MTs' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${row.jenjang}</span></td>
+          <td class="p-4 text-slate-600">${row.kelas}</td>
+          <td class="p-4 text-center">
+            <span class="inline-block px-3 py-1 rounded-lg font-extrabold text-xs ${row.total_hadir > 0 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-500'}">
+              ${row.total_hadir} Hari
+            </span>
+          </td>
+          <td class="p-4 text-xs text-slate-500 font-mono">${row.terakhir_hadir}</td>
+        </tr>
+      `).join('');
+    }
+
+    function exportAbsensiExcel() {
+      const periode = document.getElementById('filter-periode').value;
+      const jenjangFilter = document.getElementById('filter-jenjang-rekap').value;
+      const filteredLogs = getFilteredAttendances();
+      const summaryData = buildStudentSummary(filteredLogs);
+
+      if (summaryData.length === 0 && filteredLogs.length === 0) {
+        alert('Tidak ada data untuk diekspor pada filter ini.');
+        return;
+      }
+
+      // Sheet 1: Rekapitulasi Per Siswa
+      const sheet1Rows = summaryData.map((r, idx) => ({
+        'No': idx + 1,
+        'NISN': r.nisn,
+        'Nama Siswa': r.nama,
+        'Jenjang': r.jenjang,
+        'Kelas': r.kelas,
+        'Total Kehadiran (Hari)': r.total_hadir,
+        'Tanggal Hadir Terakhir': r.terakhir_hadir
+      }));
+
+      // Sheet 2: Log Detail Scan Harian
+      const sheet2Rows = filteredLogs.map((l, idx) => ({
+        'No': idx + 1,
+        'Tanggal': l.tanggal,
+        'Waktu Scan (WIB)': l.waktu,
+        'NISN': l.nisn,
+        'Nama Siswa': l.nama,
+        'Jenjang': l.jenjang,
+        'Kelas': l.kelas,
+        'Status': 'Hadir'
+      }));
+
+      const wb = XLSX.utils.book_new();
+      const ws1 = XLSX.utils.json_to_sheet(sheet1Rows);
+      const ws2 = XLSX.utils.json_to_sheet(sheet2Rows);
+
+      // Atur lebar kolom agar rapi saat dibuka di Excel
+      ws1['!cols'] = [{wch:5}, {wch:15}, {wch:28}, {wch:10}, {wch:12}, {wch:22}, {wch:22}];
+      ws2['!cols'] = [{wch:5}, {wch:14}, {wch:16}, {wch:15}, {wch:28}, {wch:10}, {wch:12}, {wch:10}];
+
+      XLSX.utils.book_append_sheet(wb, ws1, 'Rekap Per Siswa');
+      XLSX.utils.book_append_sheet(wb, ws2, 'Log Scan Harian');
+
+      const todayStr = new Date().toISOString().split('T')[0];
+      const fileName = `Rekap_Absensi_${periode.toUpperCase()}_${jenjangFilter}_DarulHikmah_${todayStr}.xlsx`;
+      XLSX.writeFile(wb, fileName);
+    }
+
+    // QR Scanner Logic
+    let html5QrcodeScanner = null;
+    function startQRScanner() {
+      if (html5QrcodeScanner) return;
+      html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 200 });
+      html5QrcodeScanner.render((decodedText) => {
+        recordAttendance(decodedText.trim());
+      });
+    }
+
+    let lastScanned = '';
+    async function recordAttendance(nisn) {
+      if (lastScanned === nisn) return;
+      lastScanned = nisn;
+      setTimeout(() => { lastScanned = ''; }, 3000);
+
+      const feedback = document.getElementById('scan-feedback');
+      const student = students.find(s => s.nisn === nisn);
+
+      if (!student) {
+        feedback.className = "mt-4 p-3.5 rounded-xl bg-red-100 text-red-700 text-xs text-center font-bold";
+        feedback.innerText = `QR Tidak Dikenal (${nisn}). Pastikan NISN terdaftar di Data Siswa.`;
+        return;
+      }
+
+      const today = new Date().toISOString().split('T')[0];
+      const nowTime = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+      if (allAttendances.some(a => a.nisn === nisn && a.tanggal === today)) {
+        feedback.className = "mt-4 p-3.5 rounded-xl bg-amber-100 text-amber-800 text-xs text-center font-bold";
+        feedback.innerText = `${student.nama} sudah tercatat hadir hari ini.`;
+        return;
+      }
+
+      const newRecord = {
+        nisn: student.nisn,
+        nama: student.nama,
+        jenjang: student.jenjang,
+        kelas: student.kelas,
+        tanggal: today,
+        waktu: nowTime
+      };
+
+      const { error } = await db.from('attendances').insert([newRecord]);
+      if (!error) {
+        feedback.className = "mt-4 p-3.5 rounded-xl bg-emerald-100 text-emerald-800 text-xs text-center font-bold";
+        feedback.innerText = `BERHASIL: ${student.nama} (${student.jenjang} - ${student.kelas}) tercatat hadir!`;
+        await loadAllDataFromDB();
+      }
+    }
+  </script>
 </body>
 </html>
