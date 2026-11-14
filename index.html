@@ -910,7 +910,14 @@
       `).join('');
     }
 
-    initPublicContent();
+    async function bootstrapApp() {
+      await initPublicContent();
+      if (sessionStorage.getItem('dh_admin_logged_in') === 'true') {
+        const savedTab = sessionStorage.getItem('dh_admin_active_tab') || 'dashboard';
+        await enterAdminDashboard(savedTab);
+      }
+    }
+    bootstrapApp();
 
     // PPDB Public Form
     async function submitPPDB(e) {
@@ -944,21 +951,29 @@
     function openLoginModal() { document.getElementById('login-modal').classList.remove('hidden'); }
     function closeLoginModal() { document.getElementById('login-modal').classList.add('hidden'); }
 
+    async function enterAdminDashboard(initialTab = 'dashboard') {
+      closeLoginModal();
+      document.getElementById('public-view').classList.add('hidden');
+      document.getElementById('admin-view').classList.remove('hidden');
+      sessionStorage.setItem('dh_admin_logged_in', 'true');
+      await loadAllDataFromDB();
+      switchAdminTab(initialTab);
+    }
+
     async function handleLogin(e) {
       e.preventDefault();
       const u = document.getElementById('login-user').value;
       const p = document.getElementById('login-pass').value;
       if (u === siteConfig.admin_user && p === siteConfig.admin_pass) {
-        closeLoginModal();
-        document.getElementById('public-view').classList.add('hidden');
-        document.getElementById('admin-view').classList.remove('hidden');
-        await loadAllDataFromDB();
+        await enterAdminDashboard('dashboard');
       } else {
         alert('Username atau Password salah!');
       }
     }
 
     function logoutAdmin() {
+      sessionStorage.removeItem('dh_admin_logged_in');
+      sessionStorage.removeItem('dh_admin_active_tab');
       document.getElementById('admin-view').classList.add('hidden');
       document.getElementById('public-view').classList.remove('hidden');
       initPublicContent();
@@ -966,6 +981,7 @@
 
     function switchAdminTab(tabName) {
       const tabs = ['dashboard', 'siswa', 'absensi', 'rekap', 'berita-admin', 'ekskul-admin', 'ppdb-admin', 'profil-admin'];
+      if (!tabs.includes(tabName)) tabName = 'dashboard';
       tabs.forEach(t => {
         document.getElementById('tab-' + t).classList.add('hidden');
         document.getElementById('nav-' + t).classList.remove('bg-emerald-800', 'text-white');
@@ -973,6 +989,7 @@
       });
       document.getElementById('tab-' + tabName).classList.remove('hidden');
       document.getElementById('nav-' + tabName).classList.add('bg-emerald-800', 'text-white');
+      sessionStorage.setItem('dh_admin_active_tab', tabName);
       if (tabName === 'rekap') renderRekapTable();
     }
 
