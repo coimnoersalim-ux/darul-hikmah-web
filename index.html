@@ -82,6 +82,18 @@
     .hero-bg-animate {
       animation: kenBurnsSlow 22s ease-in-out infinite;
     }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
     @media print {
       body * { visibility: hidden; }
       #print-card-area, #print-card-area * { visibility: visible; }
@@ -130,6 +142,32 @@
         </div>
       </div>
     </header>
+
+    <!-- Running Text / Pengumuman Berjalan -->
+    <div class="bg-emerald-900 text-white border-b border-emerald-800/80 overflow-hidden marquee-wrapper">
+      <div class="max-w-7xl mx-auto flex items-center">
+        <div class="bg-gold-500 text-emerald-950 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider px-3.5 py-2 shrink-0 flex items-center gap-1.5 z-10 shadow">
+          <span class="w-2 h-2 rounded-full bg-emerald-950 animate-ping"></span>
+          <span>INFO TERKINI</span>
+        </div>
+        <div class="overflow-hidden flex-1 py-2">
+          <div id="pub-running-text-track" class="marquee-track text-xs sm:text-sm font-semibold text-emerald-50">
+            <span class="mx-6">&#9733; Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Pondok Pesantren Riyadul Hikmah, PAUD Kober Al-Hasani, MTs Darul Hikmah &amp; MA Darul Hikmah)</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+            <span class="mx-6">&#128226; Penerimaan Santri &amp; Peserta Didik Baru (PSB / PPDB) Tahun Ajaran 2026/2027 Telah Dibuka — Daftar Online Satu Pintu Sekarang!</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+            <span class="mx-6">&#128214; Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+            <span class="mx-6">&#9733; Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Pondok Pesantren Riyadul Hikmah, PAUD Kober Al-Hasani, MTs Darul Hikmah &amp; MA Darul Hikmah)</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+            <span class="mx-6">&#128226; Penerimaan Santri &amp; Peserta Didik Baru (PSB / PPDB) Tahun Ajaran 2026/2027 Telah Dibuka — Daftar Online Satu Pintu Sekarang!</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+            <span class="mx-6">&#128214; Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
+            <span class="mx-6 text-gold-300">&bull;</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="beranda" class="pattern-islamic text-white py-20 lg:py-28 relative overflow-hidden">
@@ -907,6 +945,11 @@
               <input type="text" id="set-ppdb-badge" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
             </div>
             <div class="md:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-1">Teks Running Text (Pengumuman Berjalan di Atas)</label>
+              <input type="text" id="set-running-text" placeholder="Pisahkan antar info dengan tanda | (garis tegak)" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
+              <p class="text-[11px] text-slate-400 mt-1">Gunakan tanda pemisah <code>|</code> untuk membuat beberapa kalimat info berjalan secara bergantian.</p>
+            </div>
+            <div class="md:col-span-2">
               <label class="block text-xs font-bold text-slate-700 mb-1">Deskripsi Hero Beranda</label>
               <textarea id="set-hero-desc" rows="2" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm"></textarea>
             </div>
@@ -1179,6 +1222,7 @@
     let siteConfig = {
       school_name: "YAYASAN",
       ppdb_badge: "Penerimaan Santri & Peserta Didik Baru Satu Pintu (Ponpes, PAUD, MTs & MA) Dibuka",
+      running_text: "Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Ponpes Riyadul Hikmah, PAUD Kober Al-Hasani, MTs & MA Darul Hikmah) | Penerimaan Santri & Peserta Didik Baru (PSB / PPDB) Tahun Ajaran 2026/2027 Telah Dibuka — Daftar Online Satu Pintu! | Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), & Pendidikan Formal Terpadu",
       hero_desc: "Pusat pembinaan akhlak, kajian kitab kuning (turats), dan tahfidzul Qur'an di bawah naungan Yayasan Riyadul Hikmah Mekarrahayu dengan layanan pendidikan formal terpadu satu pintu jenjang PAUD Kober Al-Hasani, MTs Darul Hikmah, dan MA Darul Hikmah.",
       akreditasi: "A",
       jml_siswa: "650+",
@@ -1271,6 +1315,12 @@
       const navTitle = (!siteConfig.school_name || siteConfig.school_name.toUpperCase().includes('DARUL HIKMAH')) ? 'YAYASAN' : siteConfig.school_name;
       document.getElementById('pub-nav-title').innerText = navTitle;
       document.getElementById('pub-ppdb-badge').innerHTML = `<span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span> ${siteConfig.ppdb_badge}`;
+      const rtTrack = document.getElementById('pub-running-text-track');
+      if (rtTrack && siteConfig.running_text) {
+        const items = siteConfig.running_text.split('|').map(t => t.trim()).filter(Boolean);
+        const loopHtml = items.map(t => `<span class="mx-6">&#9733; ${t}</span><span class="mx-6 text-gold-300">&bull;</span>`).join('');
+        rtTrack.innerHTML = loopHtml + loopHtml;
+      }
       document.getElementById('pub-hero-desc').innerText = siteConfig.hero_desc;
       document.getElementById('pub-stat-akreditasi').innerText = siteConfig.akreditasi;
       document.getElementById('pub-stat-siswa').innerText = siteConfig.jml_siswa;
@@ -2130,6 +2180,8 @@
     function populateSettingsForms() {
       document.getElementById('set-school-name').value = siteConfig.school_name;
       document.getElementById('set-ppdb-badge').value = siteConfig.ppdb_badge;
+      const rtInput = document.getElementById('set-running-text');
+      if (rtInput) rtInput.value = siteConfig.running_text || '';
       document.getElementById('set-hero-desc').value = siteConfig.hero_desc;
       document.getElementById('set-akreditasi').value = siteConfig.akreditasi;
       document.getElementById('set-jml-siswa').value = siteConfig.jml_siswa;
@@ -2172,6 +2224,7 @@
         ...siteConfig,
         school_name: document.getElementById('set-school-name').value,
         ppdb_badge: document.getElementById('set-ppdb-badge').value,
+        running_text: document.getElementById('set-running-text') ? document.getElementById('set-running-text').value : siteConfig.running_text,
         hero_desc: document.getElementById('set-hero-desc').value,
         akreditasi: document.getElementById('set-akreditasi').value,
         jml_siswa: document.getElementById('set-jml-siswa').value,
