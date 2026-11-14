@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. META TAG SEO UTAMA (Wajib agar judul & deskripsi rapi di Google) -->
+    <!-- 1. META TAG SEO UTAMA -->
     <title>MTs & MA Darul Hikmah - Madrasah Unggulan & Tahfidzul Qur'an</title>
     <meta name="description" content="Website resmi MTs dan MA Darul Hikmah. Membentuk generasi berakhlak mulia, unggul dalam prestasi akademik, dan program Tahfidzul Qur'an. Info PPDB 2026 dibuka.">
     <meta name="keywords" content="MTs Darul Hikmah, MA Darul Hikmah, Sekolah Islam, Madrasah Aliyah, Madrasah Tsanawiyah, PPDB Darul Hikmah, Pesantren Darul Hikmah">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://darulhikmah.vercel.app/">
+    <link rel="canonical" href="https://darul-hikmah-web.vercel.app/">
 
-    <!-- 2. OPEN GRAPH / MEDIA SOSIAL (Tampilan rapi saat link dibagikan di WA/FB) -->
+    <!-- 2. OPEN GRAPH / MEDIA SOSIAL -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="MTs & MA Darul Hikmah - Mencetak Generasi Qur'ani & Berprestasi">
     <meta property="og:description" content="Penerimaan Peserta Didik Baru (PPDB) MTs & MA Darul Hikmah telah dibuka. Daftar sekarang secara online.">
-    <meta property="og:url" content="https://darulhikmah.vercel.app/">
+    <meta property="og:url" content="https://darul-hikmah-web.vercel.app/">
     <meta property="og:image" content="https://placehold.co/1200x630/047857/ffffff?text=MTs+%26+MA+Darul+Hikmah">
 
     <!-- 3. SCHEMA.ORG STRUCTURED DATA -->
@@ -25,7 +25,7 @@
       "@type": "EducationalOrganization",
       "name": "MTs & MA Darul Hikmah",
       "alternateName": "Madrasah Tsanawiyah dan Madrasah Aliyah Darul Hikmah",
-      "url": "https://darulhikmah.vercel.app",
+      "url": "https://darul-hikmah-web.vercel.app",
       "description": "Lembaga pendidikan Islam jenjang MTs dan MA yang memadukan kurikulum nasional dengan nilai kepesantrenan dan Tahfidzul Qur'an.",
       "address": {
         "@type": "PostalAddress",
@@ -39,8 +39,9 @@
     }
     </script>
 
-    <!-- Tailwind CSS & Library Pendukung (QR Scanner & QR Generator) -->
+    <!-- Tailwind CSS, Supabase SDK, QR Scanner & QR Generator -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -52,7 +53,7 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <!-- NOTIFIKASI TOAST (Pengganti alert) -->
+    <!-- NOTIFIKASI TOAST -->
     <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-300">
         <div id="toast-content" class="bg-emerald-800 text-white px-6 py-3.5 rounded-xl shadow-xl font-medium flex items-center gap-3">
             <span id="toast-message">Pesan notifikasi</span>
@@ -66,7 +67,7 @@
         <!-- NAVBAR -->
         <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-                <a href="#" onclick="switchPublicTab('beranda')" class="flex items-center gap-3">
+                <a href="#" class="flex items-center gap-3">
                     <div class="w-11 h-11 bg-emerald-700 text-white rounded-xl flex items-center justify-center font-extrabold text-lg shadow-sm">DH</div>
                     <div>
                         <h1 class="text-lg font-extrabold text-emerald-950 leading-tight">DARUL HIKMAH</h1>
@@ -76,11 +77,11 @@
                 
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-700">
-                    <a href="#beranda" onclick="switchPublicTab('beranda')" class="hover:text-emerald-700 transition">Beranda</a>
-                    <a href="#profil" onclick="switchPublicTab('profil')" class="hover:text-emerald-700 transition">Profil</a>
-                    <a href="#berita" onclick="switchPublicTab('berita')" class="hover:text-emerald-700 transition">Berita</a>
-                    <a href="#ekskul" onclick="switchPublicTab('ekskul')" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
-                    <a href="#kontak" onclick="switchPublicTab('kontak')" class="hover:text-emerald-700 transition">Kontak</a>
+                    <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
+                    <a href="#profil" class="hover:text-emerald-700 transition">Profil</a>
+                    <a href="#berita" class="hover:text-emerald-700 transition">Berita</a>
+                    <a href="#ekskul" class="hover:text-emerald-700 transition">Ekstrakurikuler</a>
+                    <a href="#kontak" class="hover:text-emerald-700 transition">Kontak</a>
                     <button onclick="openPPDBModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl transition shadow-sm">
                         Daftar PPDB 2026
                     </button>
@@ -162,9 +163,7 @@
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mb-3">Berita & Pengumuman Terbaru</h3>
                     <p class="text-gray-600">Informasi terkini seputar kegiatan akademik, prestasi siswa, dan agenda madrasah.</p>
                 </div>
-                <div id="public-news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Diisi secara dinamis oleh JavaScript -->
-                </div>
+                <div id="public-news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
             </div>
         </section>
 
@@ -232,7 +231,7 @@
                 </div>
             </div>
             <div class="max-w-7xl mx-auto px-4 pt-6 text-center text-xs text-emerald-300">
-                &copy; 2026 MTs & MA Darul Hikmah. All rights reserved.
+                &copy; 2026 MTs & MA Darul Hikmah. Terhubung dengan Cloud Database.
             </div>
         </footer>
     </div>
@@ -266,7 +265,7 @@
                 </div>
                 <div class="pt-2 flex justify-end gap-3">
                     <button type="button" onclick="closePPDBModal()" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-gray-600 hover:bg-gray-100">Batal</button>
-                    <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl text-sm font-bold">Kirim Pendaftaran</button>
+                    <button type="submit" id="btn-submit-ppdb" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl text-sm font-bold">Kirim Pendaftaran</button>
                 </div>
             </form>
         </div>
@@ -290,7 +289,7 @@
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Kata Sandi</label>
                     <input type="password" id="admin-pass" value="admin123" required class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
-                    <p class="text-xs text-emerald-700 mt-1.5">*Demo akun sudah terisi otomatis, langsung klik Masuk.</p>
+                    <p class="text-xs text-emerald-700 mt-1.5">*Gunakan akun default atau ubah password di kode.</p>
                 </div>
                 <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-3.5 rounded-xl font-bold shadow-lg transition">
                     Masuk ke Dashboard
@@ -308,17 +307,15 @@
     <div id="admin-dashboard" class="hidden-view min-h-screen bg-gray-100 flex flex-col md:flex-row">
         <!-- Sidebar Admin -->
         <aside class="w-full md:w-64 bg-emerald-950 text-white flex flex-col">
-            <div class="p-6 border-b border-emerald-800 flex items-center justify-between">
-                <div>
-                    <h2 class="font-extrabold text-lg">ADMIN PANEL</h2>
-                    <span class="text-xs text-emerald-300">MTs & MA Darul Hikmah</span>
-                </div>
+            <div class="p-6 border-b border-emerald-800">
+                <h2 class="font-extrabold text-lg">ADMIN PANEL</h2>
+                <span class="text-xs text-emerald-300">Cloud Database Aktif 🟢</span>
             </div>
             <nav class="flex-1 p-4 space-y-2 text-sm font-semibold">
-                <button onclick="switchAdminTab('ringkasan')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white">📊 Ringkasan Dashboard</button>
-                <button onclick="switchAdminTab('scan-qr')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📷 Scan QR Absensi</button>
-                <button onclick="switchAdminTab('siswa')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">🎓 Data Siswa (MTs & MA)</button>
-                <button onclick="switchAdminTab('ppdb-admin')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📝 Data Pendaftar PPDB</button>
+                <button onclick="switchAdminTab('ringkasan')" class="w-full text-left px-4 py-3 rounded-xl bg-emerald-800 text-white">📊 Ringkasan Dashboard</button>
+                <button onclick="switchAdminTab('scan-qr')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📷 Scan QR Absensi</button>
+                <button onclick="switchAdminTab('siswa')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">🎓 Data Siswa (MTs & MA)</button>
+                <button onclick="switchAdminTab('ppdb-admin')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-900 text-emerald-100">📝 Data Pendaftar PPDB</button>
             </nav>
             <div class="p-4 border-t border-emerald-800">
                 <button onclick="logoutAdmin()" class="w-full bg-red-600/20 hover:bg-red-600 text-red-200 hover:text-white py-2.5 rounded-xl text-sm font-bold transition">
@@ -331,22 +328,25 @@
         <main class="flex-1 p-6 md:p-10 overflow-y-auto">
             <!-- TAB 1: RINGKASAN -->
             <div id="tab-ringkasan" class="admin-tab space-y-6">
-                <h1 class="text-2xl font-extrabold text-gray-900">Ringkasan Sistem Sekolah</h1>
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-extrabold text-gray-900">Ringkasan Sistem Sekolah</h1>
+                    <button onclick="syncAllData()" class="text-xs bg-white border border-gray-300 px-3 py-2 rounded-lg font-bold hover:bg-gray-50">🔄 Segarkan Data</button>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
                         <span class="text-xs font-bold text-gray-400 uppercase">Total Siswa Terdaftar</span>
-                        <p id="stat-total-siswa" class="text-3xl font-extrabold text-emerald-700 mt-2">4</p>
-                        <span class="text-xs text-gray-500">MTs & MA Aktif</span>
+                        <p id="stat-total-siswa" class="text-3xl font-extrabold text-emerald-700 mt-2">...</p>
+                        <span class="text-xs text-gray-500">MTs & MA Tersimpan di Cloud</span>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
                         <span class="text-xs font-bold text-gray-400 uppercase">Hadir Hari Ini (Scan QR)</span>
-                        <p id="stat-hadir" class="text-3xl font-extrabold text-blue-600 mt-2">0</p>
-                        <span class="text-xs text-gray-500">Tercatat otomatis</span>
+                        <p id="stat-hadir" class="text-3xl font-extrabold text-blue-600 mt-2">...</p>
+                        <span class="text-xs text-gray-500">Tercatat permanen</span>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                        <span class="text-xs font-bold text-gray-400 uppercase">Pendaftar PPDB Baru</span>
-                        <p id="stat-ppdb" class="text-3xl font-extrabold text-amber-600 mt-2">1</p>
-                        <span class="text-xs text-gray-500">Menunggu verifikasi</span>
+                        <span class="text-xs font-bold text-gray-400 uppercase">Pendaftar PPDB Masuk</span>
+                        <p id="stat-ppdb" class="text-3xl font-extrabold text-amber-600 mt-2">...</p>
+                        <span class="text-xs text-gray-500">Formulir online</span>
                     </div>
                 </div>
             </div>
@@ -356,7 +356,7 @@
                 <div class="flex flex-wrap justify-between items-center gap-4">
                     <div>
                         <h1 class="text-2xl font-extrabold text-gray-900">Absensi Digital Kamera QR Code</h1>
-                        <p class="text-sm text-gray-500">Arahkan kartu QR siswa ke kamera atau gunakan tombol simulasi scan di bawah.</p>
+                        <p class="text-sm text-gray-500">Arahkan kartu QR siswa ke kamera. Hasil otomatis tersimpan ke database.</p>
                     </div>
                     <button onclick="startQRScanner()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl text-sm font-bold">
                         Aktifkan Kamera Scanner
@@ -364,7 +364,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Kamera Box -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 text-center">
                         <div id="qr-reader" class="w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-900 min-h-[250px] flex items-center justify-center text-white text-sm">
                             Klik "Aktifkan Kamera Scanner" untuk mulai memindai
@@ -374,11 +373,10 @@
                         </div>
                     </div>
 
-                    <!-- Log Kehadiran Real-time -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
                         <h3 class="font-bold text-gray-900 mb-4">Log Kehadiran Hari Ini</h3>
                         <div id="attendance-log" class="space-y-3 max-h-80 overflow-y-auto">
-                            <p class="text-sm text-gray-400 italic">Belum ada siswa yang melakukan scan hari ini.</p>
+                            <p class="text-sm text-gray-400 italic">Memuat data kehadiran...</p>
                         </div>
                     </div>
                 </div>
@@ -388,7 +386,8 @@
             <div id="tab-siswa" class="admin-tab hidden-view space-y-6">
                 <div class="flex flex-wrap justify-between items-center gap-4">
                     <h1 class="text-2xl font-extrabold text-gray-900">Manajemen Data Siswa (MTs & MA)</h1>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="document.getElementById('add-student-modal').classList.remove('hidden')" class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white shadow-sm">+ Tambah Siswa</button>
                         <button onclick="filterSiswa('ALL')" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white">Semua</button>
                         <button onclick="filterSiswa('MTs')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MTs</button>
                         <button onclick="filterSiswa('MA')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white border border-gray-300">Khusus MA</button>
@@ -406,9 +405,7 @@
                                 <th class="p-4">Aksi & QR Code</th>
                             </tr>
                         </thead>
-                        <tbody id="siswa-table-body" class="divide-y divide-gray-100">
-                            <!-- Diisi via JS -->
-                        </tbody>
+                        <tbody id="siswa-table-body" class="divide-y divide-gray-100"></tbody>
                     </table>
                 </div>
             </div>
@@ -427,13 +424,48 @@
                                 <th class="p-4">WhatsApp</th>
                             </tr>
                         </thead>
-                        <tbody id="ppdb-table-body" class="divide-y divide-gray-100">
-                            <!-- Diisi via JS -->
-                        </tbody>
+                        <tbody id="ppdb-table-body" class="divide-y divide-gray-100"></tbody>
                     </table>
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- MODAL TAMBAH SISWA BARU -->
+    <div id="add-student-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-extrabold text-emerald-950">Tambah Data Siswa Baru</h3>
+                <button onclick="document.getElementById('add-student-modal').classList.add('hidden')" class="text-gray-400 text-2xl">&times;</button>
+            </div>
+            <form onsubmit="addNewStudent(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">NISN (Unik untuk QR Code)</label>
+                    <input type="text" id="new-nisn" required placeholder="Contoh: 0081122339" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Lengkap Siswa</label>
+                    <input type="text" id="new-nama" required placeholder="Contoh: Muhammad Ilham" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jenjang</label>
+                        <select id="new-jenjang" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
+                            <option value="MTs">MTs</option>
+                            <option value="MA">MA</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Kelas</label>
+                        <input type="text" id="new-kelas" required placeholder="Contoh: 7A / 10 IPA" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm">
+                    </div>
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="document.getElementById('add-student-modal').classList.add('hidden')" class="px-4 py-2 rounded-xl text-sm text-gray-600">Batal</button>
+                    <button type="submit" class="bg-emerald-700 text-white px-5 py-2 rounded-xl text-sm font-bold">Simpan Siswa</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- MODAL KARTU QR SISWA -->
@@ -444,21 +476,25 @@
             <div id="qrcode-canvas" class="flex justify-center my-4 p-3 bg-white border rounded-xl"></div>
             <h4 id="qr-student-name" class="font-bold text-gray-900 text-base">Nama Siswa</h4>
             <p id="qr-student-info" class="text-xs text-emerald-700 font-semibold mb-5">NISN: 000000</p>
-            <button onclick="document.getElementById('qr-card-modal').classList.add('hidden')" class="w-full bg-gray-900 text-white py-2.5 rounded-xl text-sm font-bold">Tutup Kartu</button>
+            <button onclick="window.print()" class="w-full bg-emerald-700 text-white py-2 rounded-xl text-sm font-bold mb-2">Cetak Kartu</button>
+            <button onclick="document.getElementById('qr-card-modal').classList.add('hidden')" class="w-full bg-gray-200 text-gray-800 py-2 rounded-xl text-sm font-bold">Tutup</button>
         </div>
     </div>
 
     <!-- =====================================================================
-         JAVASCRIPT LOGIC (STATE & INTERAKSI)
+         JAVASCRIPT LOGIC + INTEGRASI SUPABASE CLOUD DATABASE
     ====================================================================== -->
     <script>
-        // Data Awal (Mock Database)
-        const studentsData = [
-            { nisn: '0081122331', nama: 'Muhammad Rizky Pratama', jenjang: 'MTs', kelas: '8A' },
-            { nisn: '0081122332', nama: 'Siti Aisyah Putri', jenjang: 'MTs', kelas: '9B' },
-            { nisn: '0069988771', nama: 'Ahmad Zaki Mubarak', jenjang: 'MA', kelas: '11 IPA 1' },
-            { nisn: '0069988772', nama: 'Fatimah Az-Zahra', jenjang: 'MA', kelas: '12 Agama' }
-        ];
+        // KONEKSI SUPABASE ANDA
+        const SUPABASE_URL = 'https://toytkgysexrjsswqdugo.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_THg1M5VNpNiBpj_OAiQxaA_09x6RxPz';
+        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let studentsData = [];
+        let ppdbList = [];
+        let attendanceToday = [];
+        let html5QrcodeScanner = null;
+        let isScanning = false;
 
         const newsData = [
             { date: '12 Nov 2026', cat: 'Prestasi', title: 'Siswa MA Darul Hikmah Raih Medali Emas Kompetisi Sains Madrasah (KSM)' },
@@ -466,14 +502,6 @@
             { date: '01 Nov 2026', cat: 'Inovasi', title: 'Penerapan Sistem Absensi Digital Berbasis QR Code untuk Kedisiplinan Siswa' }
         ];
 
-        const ppdbList = [
-            { no: 'PPDB-2026-001', nama: 'Nabila Khairunnisa', jenjang: 'MTs', asal: 'MI Nurul Huda', wa: '08123456789' }
-        ];
-
-        const attendanceToday = [];
-        let html5QrcodeScanner = null;
-
-        // Render Berita Publik
         function renderPublicNews() {
             const container = document.getElementById('public-news-grid');
             container.innerHTML = newsData.map(item => `
@@ -488,7 +516,6 @@
             `).join('');
         }
 
-        // Toast Notification
         function showToast(msg) {
             const box = document.getElementById('toast-box');
             document.getElementById('toast-message').textContent = msg;
@@ -496,7 +523,6 @@
             setTimeout(() => box.classList.add('hidden'), 3500);
         }
 
-        // Navigasi Utama (Publik vs Login vs Admin)
         function showView(viewId) {
             ['public-app', 'login-view', 'admin-dashboard'].forEach(id => {
                 document.getElementById(id).classList.add('hidden-view');
@@ -509,7 +535,25 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // PPDB Modal Logic
+        // AMBIL SEMUA DATA DARI SUPABASE
+        async function syncAllData() {
+            const todayStr = new Date().toISOString().split('T')[0];
+
+            const [resStudents, resPPDB, resAttendance] = await Promise.all([
+                db.from('students').select('*').order('created_at', { ascending: false }),
+                db.from('ppdb_registrations').select('*').order('created_at', { ascending: false }),
+                db.from('attendances').select('*').eq('tanggal', todayStr).order('id', { ascending: false })
+            ]);
+
+            if (resStudents.data) studentsData = resStudents.data;
+            if (resPPDB.data) ppdbList = resPPDB.data;
+            if (resAttendance.data) attendanceToday = resAttendance.data;
+
+            renderAdminTables();
+            renderAttendanceLog();
+        }
+
+        // PPDB SUBMIT KE SUPABASE
         function openPPDBModal(jenjang = 'MTs') {
             document.getElementById('ppdb-jenjang').value = jenjang;
             document.getElementById('ppdb-modal').classList.remove('hidden');
@@ -517,28 +561,69 @@
         function closePPDBModal() {
             document.getElementById('ppdb-modal').classList.add('hidden');
         }
-        function submitPPDB(e) {
+        async function submitPPDB(e) {
             e.preventDefault();
-            const newReg = {
-                no: 'PPDB-2026-00' + (ppdbList.length + 1),
+            const btn = document.getElementById('btn-submit-ppdb');
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+
+            const noDaftar = 'PPDB-2026-' + Math.floor(100 + Math.random() * 900);
+            const payload = {
+                no_daftar: noDaftar,
                 nama: document.getElementById('ppdb-nama').value,
                 jenjang: document.getElementById('ppdb-jenjang').value,
-                asal: document.getElementById('ppdb-asal').value,
-                wa: document.getElementById('ppdb-wa').value
+                asal_sekolah: document.getElementById('ppdb-asal').value,
+                no_wa: document.getElementById('ppdb-wa').value
             };
-            ppdbList.push(newReg);
+
+            const { error } = await db.from('ppdb_registrations').insert([payload]);
+            btn.textContent = 'Kirim Pendaftaran';
+            btn.disabled = false;
+
+            if (error) {
+                showToast('Gagal menyimpan pendaftaran: ' + error.message);
+                return;
+            }
+
             closePPDBModal();
             e.target.reset();
-            showToast(`Pendaftaran berhasil! Nomor Anda: ${newReg.no}`);
-            renderAdminTables();
+            showToast(`Pendaftaran berhasil! Nomor Anda: ${noDaftar}`);
         }
 
-        // Login & Admin Logic
+        // TAMBAH SISWA BARU KE SUPABASE
+        async function addNewStudent(e) {
+            e.preventDefault();
+            const payload = {
+                nisn: document.getElementById('new-nisn').value.trim(),
+                nama: document.getElementById('new-nama').value.trim(),
+                jenjang: document.getElementById('new-jenjang').value,
+                kelas: document.getElementById('new-kelas').value.trim()
+            };
+
+            const { error } = await db.from('students').insert([payload]);
+            if (error) {
+                showToast('Gagal menambah siswa (Pastikan NISN belum terdaftar): ' + error.message);
+                return;
+            }
+
+            document.getElementById('add-student-modal').classList.add('hidden');
+            e.target.reset();
+            showToast(`Siswa ${payload.nama} berhasil disimpan ke database!`);
+            syncAllData();
+        }
+
+        // LOGIN & ADMIN
         function handleAdminLogin(e) {
             e.preventDefault();
-            showView('admin-dashboard');
-            renderAdminTables();
-            showToast('Selamat datang di Dashboard Admin Darul Hikmah');
+            const user = document.getElementById('admin-user').value;
+            const pass = document.getElementById('admin-pass').value;
+            if (user === 'admin@darulhikmah.sch.id' && pass === 'admin123') {
+                showView('admin-dashboard');
+                syncAllData();
+                showToast('Login berhasil! Terhubung ke database Supabase.');
+            } else {
+                showToast('Email atau kata sandi admin salah!');
+            }
         }
 
         function logoutAdmin() {
@@ -558,7 +643,6 @@
             document.getElementById('stat-hadir').textContent = attendanceToday.length;
             document.getElementById('stat-ppdb').textContent = ppdbList.length;
 
-            // Tabel Siswa
             const filtered = filter === 'ALL' ? studentsData : studentsData.filter(s => s.jenjang === filter);
             document.getElementById('siswa-table-body').innerHTML = filtered.map(s => `
                 <tr class="hover:bg-gray-50">
@@ -573,14 +657,13 @@
                 </tr>
             `).join('');
 
-            // Tabel PPDB
             document.getElementById('ppdb-table-body').innerHTML = ppdbList.map(p => `
                 <tr>
-                    <td class="p-4 font-mono text-xs font-bold text-emerald-700">${p.no}</td>
+                    <td class="p-4 font-mono text-xs font-bold text-emerald-700">${p.no_daftar}</td>
                     <td class="p-4 font-bold">${p.nama}</td>
                     <td class="p-4">${p.jenjang}</td>
-                    <td class="p-4">${p.asal}</td>
-                    <td class="p-4">${p.wa}</td>
+                    <td class="p-4">${p.asal_sekolah}</td>
+                    <td class="p-4">${p.no_wa}</td>
                 </tr>
             `).join('');
         }
@@ -589,7 +672,6 @@
             renderAdminTables(jenjang);
         }
 
-        // Generate Kartu QR Siswa
         function showStudentQR(nisn) {
             const student = studentsData.find(s => s.nisn === nisn);
             if (!student) return;
@@ -601,7 +683,23 @@
             document.getElementById('qr-card-modal').classList.remove('hidden');
         }
 
-        // Kamera QR Scanner & Proses Absensi
+        function renderAttendanceLog() {
+            const logEl = document.getElementById('attendance-log');
+            if (attendanceToday.length === 0) {
+                logEl.innerHTML = `<p class="text-sm text-gray-400 italic">Belum ada siswa yang melakukan scan hari ini.</p>`;
+                return;
+            }
+            logEl.innerHTML = attendanceToday.map(a => `
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
+                    <div>
+                        <p class="font-bold text-sm text-emerald-950">${a.nama}</p>
+                        <p class="text-xs text-emerald-700">${a.jenjang} • Kelas ${a.kelas}</p>
+                    </div>
+                    <span class="text-xs font-extrabold bg-emerald-700 text-white px-2.5 py-1 rounded-lg">${a.waktu} WIB</span>
+                </div>
+            `).join('');
+        }
+
         function startQRScanner() {
             const readerEl = document.getElementById('qr-reader');
             readerEl.innerHTML = '';
@@ -611,39 +709,47 @@
             });
         }
 
-        function processAttendanceScan(nisn) {
+        async function processAttendanceScan(nisn) {
+            if (isScanning) return;
+            isScanning = true;
+
             const student = studentsData.find(s => s.nisn === nisn);
             const feedback = document.getElementById('scan-feedback');
             
             if (!student) {
                 feedback.innerHTML = `<span class="text-red-600">❌ QR Code (${nisn}) tidak terdaftar di database siswa!</span>`;
+                setTimeout(() => isScanning = false, 2000);
                 return;
             }
             if (attendanceToday.some(a => a.nisn === nisn)) {
                 feedback.innerHTML = `<span class="text-amber-600">⚠️ ${student.nama} sudah melakukan absensi hari ini.</span>`;
+                setTimeout(() => isScanning = false, 2000);
                 return;
             }
 
             const timeNow = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-            attendanceToday.unshift({ ...student, waktu: timeNow });
-            
+            const newRecord = {
+                nisn: student.nisn,
+                nama: student.nama,
+                jenjang: student.jenjang,
+                kelas: student.kelas,
+                waktu: timeNow
+            };
+
+            const { error } = await db.from('attendances').insert([newRecord]);
+            if (error) {
+                feedback.innerHTML = `<span class="text-red-600">Gagal menyimpan absensi: ${error.message}</span>`;
+                isScanning = false;
+                return;
+            }
+
             feedback.innerHTML = `<span class="text-emerald-700">✅ Berhasil Absen: ${student.nama} (${student.jenjang}) pukul ${timeNow} WIB</span>`;
-            showToast(`Absensi tercatat: ${student.nama}`);
-            
-            // Update Log UI
-            document.getElementById('attendance-log').innerHTML = attendanceToday.map(a => `
-                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
-                    <div>
-                        <p class="font-bold text-sm text-emerald-950">${a.nama}</p>
-                        <p class="text-xs text-emerald-700">${a.jenjang} • Kelas ${a.kelas}</p>
-                    </div>
-                    <span class="text-xs font-extrabold bg-emerald-700 text-white px-2.5 py-1 rounded-lg">${a.waktu} WIB</span>
-                </div>
-            `).join('');
-            renderAdminTables();
+            showToast(`Absensi tersimpan di Cloud: ${student.nama}`);
+            await syncAllData();
+
+            setTimeout(() => isScanning = false, 2500);
         }
 
-        // Inisialisasi Awal
         window.onload = function() {
             renderPublicNews();
         };
