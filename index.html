@@ -108,69 +108,99 @@
     <!-- Top Bar Yayasan -->
     <div class="bg-emerald-950 text-emerald-100 text-[11px] py-1.5 border-b border-emerald-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
-        <span class="font-bold tracking-wider uppercase text-gold-400">&#9733; YAYASAN RIYADUL HIKMAH MEKARRAHAYU</span>
-        <span class="text-emerald-200">Pendidikan Satu Pintu: Ponpes Riyadul Hikmah &bull; PAUD Kober Al-Hasani &bull; MTs &amp; MA Darul Hikmah</span>
+        <span class="font-bold tracking-wider uppercase text-gold-400 flex items-center gap-1.5">
+          <span>&#9733;</span> YAYASAN RIYADUL HIKMAH MEKARRAHAYU
+        </span>
+        <span class="text-emerald-200 hidden sm:inline">Pendidikan Satu Pintu: Ponpes Riyadul Hikmah &bull; PAUD Kober Al-Hasani &bull; MTs &amp; MA Darul Hikmah</span>
       </div>
     </div>
 
-    <!-- Navbar -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-emerald-100 shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="#beranda" class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-emerald-800 text-gold-400 border border-gold-400/40 flex items-center justify-center font-extrabold text-lg shadow-md">RH</div>
-          <div>
-            <span id="pub-nav-title" class="block text-base sm:text-lg font-extrabold text-emerald-950 leading-tight tracking-wide">YAYASAN</span>
-            <span id="pub-nav-subtitle" class="block text-[11px] sm:text-xs font-bold text-emerald-700 tracking-wide">Riyadul Hikmah Mekarrahayu</span>
+    <!-- Navbar Modern & Proporsional (Responsif Desktop & Mobile) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+        <a href="#beranda" class="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 text-gold-400 border border-gold-400/50 flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shrink-0 group-hover:scale-105 transition">RH</div>
+          <div class="min-w-0">
+            <span id="pub-nav-title" class="block text-sm sm:text-base font-extrabold text-emerald-950 leading-tight tracking-wide truncate">YAYASAN</span>
+            <span id="pub-nav-subtitle" class="block text-[10px] sm:text-[11px] font-bold text-emerald-700 tracking-wide truncate">Riyadul Hikmah Mekarrahayu</span>
           </div>
         </a>
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
-          <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
-          <a href="#pesantren" class="hover:text-emerald-700 transition text-emerald-900 font-bold">Kepesantrenan</a>
-          <a href="#jenjang-satu-pintu" class="hover:text-emerald-700 transition">Unit PAUD, MTs &amp; MA</a>
-          <a href="#berita" class="hover:text-emerald-700 transition">Berita</a>
-          <a href="#dokumentasi" class="hover:text-emerald-700 transition">Dokumentasi</a>
-          <a href="#ppdb" class="hover:text-emerald-700 transition">PSB / PPDB</a>
-          <a href="#kontak" class="hover:text-emerald-700 transition">Kontak</a>
+
+        <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70 text-[13px] font-semibold text-slate-600">
+          <a href="#beranda" class="px-3.5 py-1.5 rounded-full bg-white text-emerald-900 font-bold shadow-xs whitespace-nowrap transition">Beranda</a>
+          <a href="#pesantren" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">Kepesantrenan</a>
+          <a href="#jenjang-satu-pintu" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">Unit PAUD, MTs &amp; MA</a>
+          <a href="#berita" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">Berita</a>
+          <a href="#dokumentasi" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">Dokumentasi</a>
+          <a href="#ppdb" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">PSB / PPDB</a>
+          <a href="#kontak" class="px-3.5 py-1.5 rounded-full hover:bg-white/80 hover:text-emerald-800 whitespace-nowrap transition">Kontak</a>
         </nav>
-        <div class="flex items-center gap-2.5">
-          <button onclick="openLoginModal()" class="text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-2 rounded-lg border border-emerald-200 transition">
+
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <button onclick="openLoginModal()" class="hidden sm:inline-flex text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2.5 rounded-xl border border-emerald-200/80 whitespace-nowrap transition">
             Login Admin
           </button>
-          <a href="#ppdb" class="hidden sm:inline-flex bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg shadow transition">
-            Daftar Santri / Siswa
+          <a href="#ppdb" class="inline-flex items-center gap-1 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white text-[11px] sm:text-xs font-extrabold px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-md whitespace-nowrap transition">
+            <span>Daftar</span>
+            <span class="hidden sm:inline">Santri / Siswa</span>
+            <span>&rarr;</span>
           </a>
+          <!-- Tombol Hamburger Menu untuk HP & Tablet -->
+          <button type="button" onclick="toggleMobileMenu()" aria-label="Buka Menu Navigasi" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 transition">
+            <svg id="mobile-menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="mobile-menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Drawer Menu Mobile & Tablet -->
+      <div id="mobile-nav-drawer" class="hidden xl:hidden bg-white border-t border-emerald-100 px-4 pt-3 pb-5 space-y-2 shadow-xl">
+        <div class="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700">
+          <a href="#beranda" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl bg-emerald-50 text-emerald-900">Beranda</a>
+          <a href="#pesantren" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">Kepesantrenan</a>
+          <a href="#jenjang-satu-pintu" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">Unit PAUD, MTs &amp; MA</a>
+          <a href="#berita" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">Berita</a>
+          <a href="#dokumentasi" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">Dokumentasi</a>
+          <a href="#ppdb" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">PSB / PPDB</a>
+          <a href="#kontak" onclick="closeMobileMenu()" class="px-3.5 py-2.5 rounded-xl hover:bg-slate-100">Kontak Sekretariat</a>
+          <button type="button" onclick="closeMobileMenu(); openLoginModal();" class="text-left px-3.5 py-2.5 rounded-xl bg-amber-50 text-amber-900 border border-amber-200">Login Admin</button>
+        </div>
+      </div>
+
+      <!-- Running Text Terintegrasi di Bawah Navbar dengan Desain Mewah -->
+      <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-white border-t border-emerald-800/70 overflow-hidden marquee-wrapper">
+        <div class="max-w-7xl mx-auto flex items-center relative">
+          <div class="bg-gradient-to-r from-gold-500 to-amber-400 text-emerald-950 font-extrabold text-[11px] uppercase tracking-wider px-4 py-2 shrink-0 flex items-center gap-2 z-10 shadow-md rounded-r-full">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-950 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-950"></span>
+            </span>
+            <span class="whitespace-nowrap">INFO TERKINI</span>
+          </div>
+          <div class="overflow-hidden flex-1 py-2 relative">
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-emerald-950 to-transparent z-10"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-emerald-950 to-transparent z-10"></div>
+            <div id="pub-running-text-track" class="marquee-track text-xs font-semibold text-emerald-50 tracking-wide">
+              <span class="mx-6 inline-flex items-center gap-2"><span class="text-gold-400">&#9733;</span> Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Ponpes Riyadul Hikmah, PAUD Kober Al-Hasani, MTs &amp; MA Darul Hikmah)</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+              <span class="mx-6 inline-flex items-center gap-2"><span class="px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 text-[10px] font-extrabold">PPDB 2026/2027</span> Penerimaan Santri &amp; Peserta Didik Baru Satu Pintu Telah Dibuka — Daftar Online Sekarang!</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+              <span class="mx-6 inline-flex items-center gap-2"><span class="text-gold-400">&#128214;</span> Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+              <span class="mx-6 inline-flex items-center gap-2"><span class="text-gold-400">&#9733;</span> Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Ponpes Riyadul Hikmah, PAUD Kober Al-Hasani, MTs &amp; MA Darul Hikmah)</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+              <span class="mx-6 inline-flex items-center gap-2"><span class="px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 text-[10px] font-extrabold">PPDB 2026/2027</span> Penerimaan Santri &amp; Peserta Didik Baru Satu Pintu Telah Dibuka — Daftar Online Sekarang!</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+              <span class="mx-6 inline-flex items-center gap-2"><span class="text-gold-400">&#128214;</span> Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
+              <span class="mx-4 text-gold-400/60">|</span>
+            </div>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- Running Text / Pengumuman Berjalan -->
-    <div class="bg-emerald-900 text-white border-b border-emerald-800/80 overflow-hidden marquee-wrapper">
-      <div class="max-w-7xl mx-auto flex items-center">
-        <div class="bg-gold-500 text-emerald-950 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider px-3.5 py-2 shrink-0 flex items-center gap-1.5 z-10 shadow">
-          <span class="w-2 h-2 rounded-full bg-emerald-950 animate-ping"></span>
-          <span>INFO TERKINI</span>
-        </div>
-        <div class="overflow-hidden flex-1 py-2">
-          <div id="pub-running-text-track" class="marquee-track text-xs sm:text-sm font-semibold text-emerald-50">
-            <span class="mx-6">&#9733; Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Pondok Pesantren Riyadul Hikmah, PAUD Kober Al-Hasani, MTs Darul Hikmah &amp; MA Darul Hikmah)</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-            <span class="mx-6">&#128226; Penerimaan Santri &amp; Peserta Didik Baru (PSB / PPDB) Tahun Ajaran 2026/2027 Telah Dibuka — Daftar Online Satu Pintu Sekarang!</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-            <span class="mx-6">&#128214; Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-            <span class="mx-6">&#9733; Selamat Datang di Portal Resmi Yayasan Riyadul Hikmah Mekarrahayu (Pondok Pesantren Riyadul Hikmah, PAUD Kober Al-Hasani, MTs Darul Hikmah &amp; MA Darul Hikmah)</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-            <span class="mx-6">&#128226; Penerimaan Santri &amp; Peserta Didik Baru (PSB / PPDB) Tahun Ajaran 2026/2027 Telah Dibuka — Daftar Online Satu Pintu Sekarang!</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-            <span class="mx-6">&#128214; Program Unggulan: Tahfidzul Qur'an Bersanad, Kajian Kitab Kuning (Turats), &amp; Pendidikan Formal Terpadu</span>
-            <span class="mx-6 text-gold-300">&bull;</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Hero Section -->
-    <section id="beranda" class="pattern-islamic text-white py-20 lg:py-28 relative overflow-hidden">
+    <section id="beranda" class="pattern-islamic text-white py-12 sm:py-20 lg:py-28 relative overflow-hidden">
       <!-- Layer Latar Belakang Gambar Bergerak (Slideshow / Ken Burns) & Video -->
       <div id="hero-bg-layer" class="absolute inset-0 z-0 overflow-hidden pointer-events-none hidden">
         <div id="hero-bg-slides" class="absolute inset-0"></div>
@@ -178,33 +208,33 @@
         <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/75 to-emerald-900/65"></div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 text-xs font-extrabold uppercase tracking-wider">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+          <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider">
             <span>Naungan: Yayasan Riyadul Hikmah Mekarrahayu</span>
           </div>
-          <h1 id="pub-hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+          <h1 id="pub-hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
             Pondok Pesantren <span class="text-gold-400">Riyadul Hikmah</span>
           </h1>
-          <div id="pub-ppdb-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-800/80 border border-emerald-500/40 text-emerald-100 text-xs font-semibold">
-            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-            Penerimaan Santri &amp; Peserta Didik Baru Satu Pintu (Ponpes, PAUD, MTs &amp; MA) Dibuka
+          <div id="pub-ppdb-badge" class="inline-flex items-start sm:items-center gap-2 px-3.5 py-2 sm:py-1.5 rounded-2xl sm:rounded-full bg-emerald-800/80 border border-emerald-500/40 text-emerald-100 text-[11px] sm:text-xs font-semibold leading-snug">
+            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse mt-1 sm:mt-0 shrink-0"></span>
+            <span>Penerimaan Santri &amp; Peserta Didik Baru Satu Pintu (Ponpes, PAUD, MTs &amp; MA) Dibuka</span>
           </div>
-          <p id="pub-hero-desc" class="text-emerald-100/95 text-base sm:text-lg max-w-2xl leading-relaxed">
+          <p id="pub-hero-desc" class="text-emerald-100/95 text-sm sm:text-lg max-w-2xl leading-relaxed">
             Pusat pembinaan akhlak, kajian kitab kuning (turats), dan tahfidzul Qur'an di bawah naungan <strong>Yayasan Riyadul Hikmah Mekarrahayu</strong> dengan layanan pendidikan formal terpadu satu pintu jenjang <strong>PAUD Kober Al-Hasani</strong>, <strong>MTs Darul Hikmah</strong>, dan <strong>MA Darul Hikmah</strong>.
           </p>
-          <div class="flex flex-wrap gap-3.5 pt-2">
-            <a href="#ppdb" class="bg-gold-500 hover:bg-gold-400 text-emerald-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg transition">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
+            <a href="#ppdb" class="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-400 text-emerald-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg text-sm transition">
               Pendaftaran Satu Pintu &rarr;
             </a>
-            <a href="#jenjang-satu-pintu" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+            <a href="#jenjang-satu-pintu" class="w-full sm:w-auto text-center bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition">
               Pilih Unit PAUD / MTs / MA
             </a>
           </div>
         </div>
 
         <!-- Kartu Utama Kepesantrenan & Akses Satu Pintu -->
-        <div class="lg:col-span-5 bg-emerald-950/75 backdrop-blur-md border border-gold-400/30 rounded-3xl p-7 space-y-4 shadow-2xl">
+        <div class="lg:col-span-5 bg-emerald-950/75 backdrop-blur-md border border-gold-400/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 space-y-4 shadow-2xl">
           <div class="flex items-center justify-between border-b border-emerald-800 pb-3">
             <div>
               <span class="text-[11px] font-bold uppercase tracking-widest text-gold-400">Lembaga Inti</span>
@@ -261,7 +291,7 @@
     </section>
 
     <!-- Profil Utama: Yayasan & Pondok Pesantren Riyadul Hikmah -->
-    <section id="pesantren" class="py-20 bg-white">
+    <section id="pesantren" class="py-14 sm:py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-14">
           <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs uppercase tracking-widest">Yayasan Riyadul Hikmah Mekarrahayu</span>
@@ -318,7 +348,7 @@
     </section>
 
     <!-- PORTAL SATU PINTU: PAUD KOBER AL-HASANI, MTs DARUL HIKMAH & MA DARUL HIKMAH -->
-    <section id="jenjang-satu-pintu" class="py-20 bg-slate-100 border-t border-slate-200">
+    <section id="jenjang-satu-pintu" class="py-14 sm:py-20 bg-slate-100 border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10">
           <span class="text-emerald-700 font-extrabold text-xs uppercase tracking-widest">Pendidikan Formal Satu Pintu</span>
@@ -428,7 +458,7 @@
     </section>
 
     <!-- Berita Sekolah -->
-    <section id="berita" class="py-20 bg-slate-50 border-t border-slate-200/60">
+    <section id="berita" class="py-14 sm:py-20 bg-slate-50 border-t border-slate-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
@@ -441,7 +471,7 @@
     </section>
 
     <!-- Dokumentasi Kegiatan Sekolah -->
-    <section id="dokumentasi" class="py-20 bg-emerald-50/50 border-t border-slate-200/60">
+    <section id="dokumentasi" class="py-14 sm:py-20 bg-emerald-50/50 border-t border-slate-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Galeri Madrasah</span>
@@ -466,7 +496,7 @@
     </section>
 
     <!-- PPDB Section -->
-    <section id="ppdb" class="py-20 bg-emerald-950 text-white">
+    <section id="ppdb" class="py-14 sm:py-20 bg-emerald-950 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
         <div class="lg:col-span-6 space-y-6">
           <span class="px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold">PSB &amp; PPDB SATU PINTU</span>
@@ -487,7 +517,7 @@
         </div>
 
         <!-- Form Pendaftaran PPDB -->
-        <div id="ppdb-form-container" class="lg:col-span-6 bg-white text-slate-800 rounded-3xl p-8 shadow-2xl">
+        <div id="ppdb-form-container" class="lg:col-span-6 bg-white text-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl">
           <h3 class="text-xl font-extrabold text-emerald-950 mb-1">Formulir Pendaftaran Satu Pintu</h3>
           <p class="text-xs text-slate-500 mb-6">Pilih tujuan jenjang / program kepesantrenan dan isi biodata dengan benar.</p>
           <form onsubmit="submitPPDB(event)" class="space-y-4">
@@ -582,16 +612,21 @@
 
   <!-- ==================== 3. DASHBOARD ADMIN LENGKAP (FULL CMS) ==================== -->
   <div id="admin-view" class="hidden min-h-screen flex flex-col md:flex-row bg-slate-100">
-    <!-- Sidebar Lengkap Sesuai Sitemap -->
+    <!-- Sidebar Lengkap Sesuai Sitemap (Responsif di HP & Desktop) -->
     <aside class="w-full md:w-64 bg-emerald-950 text-white flex flex-col justify-between shrink-0">
       <div>
-        <div class="p-6 border-b border-emerald-800/70">
-          <div class="font-extrabold text-lg tracking-tight">ADMIN PANEL</div>
-          <div class="text-xs text-emerald-400 flex items-center gap-1.5 mt-1">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Full CMS &amp; Cloud Aktif
+        <div class="p-4 sm:p-6 border-b border-emerald-800/70 flex items-center justify-between">
+          <div>
+            <div class="font-extrabold text-base sm:text-lg tracking-tight">ADMIN PANEL</div>
+            <div class="text-[11px] sm:text-xs text-emerald-400 flex items-center gap-1.5 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Full CMS &amp; Cloud Aktif
+            </div>
           </div>
+          <button type="button" onclick="document.getElementById('admin-sidebar-nav').classList.toggle('hidden')" class="md:hidden px-3 py-1.5 rounded-lg bg-emerald-800 text-xs font-bold border border-emerald-700">
+            Menu &#9776;
+          </button>
         </div>
-        <nav class="p-3.5 space-y-1 text-xs sm:text-sm font-medium">
+        <nav id="admin-sidebar-nav" class="hidden md:block p-3.5 space-y-1 text-xs sm:text-sm font-medium">
           <button onclick="switchAdminTab('dashboard')" id="nav-dashboard" class="w-full text-left px-3.5 py-2.5 rounded-xl bg-emerald-800 text-white">
             &#128202; Ringkasan Dashboard
           </button>
@@ -1318,7 +1353,7 @@
       const rtTrack = document.getElementById('pub-running-text-track');
       if (rtTrack && siteConfig.running_text) {
         const items = siteConfig.running_text.split('|').map(t => t.trim()).filter(Boolean);
-        const loopHtml = items.map(t => `<span class="mx-6">&#9733; ${t}</span><span class="mx-6 text-gold-300">&bull;</span>`).join('');
+        const loopHtml = items.map(t => `<span class="mx-6 inline-flex items-center gap-2"><span class="text-gold-400">&#9733;</span> ${t}</span><span class="mx-4 text-gold-400/60">|</span>`).join('');
         rtTrack.innerHTML = loopHtml + loopHtml;
       }
       document.getElementById('pub-hero-desc').innerText = siteConfig.hero_desc;
@@ -1675,6 +1710,32 @@
         alert('Alhamdulillah! Pendaftaran berhasil tersimpan.\nNomor Registrasi Anda: ' + regNo);
         e.target.reset();
       }
+    }
+
+    // Mobile Navigation Drawer
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const iconOpen = document.getElementById('mobile-menu-icon-open');
+      const iconClose = document.getElementById('mobile-menu-icon-close');
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+    function closeMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const iconOpen = document.getElementById('mobile-menu-icon-open');
+      const iconClose = document.getElementById('mobile-menu-icon-close');
+      if (drawer) drawer.classList.add('hidden');
+      if (iconOpen) iconOpen.classList.remove('hidden');
+      if (iconClose) iconClose.classList.add('hidden');
     }
 
     // Auth & Navigation
