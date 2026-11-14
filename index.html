@@ -203,33 +203,16 @@
       </div>
     </section>
 
-    <!-- Dokumentasi & Media Sosial Sekolah -->
+    <!-- Dokumentasi Kegiatan Sekolah -->
     <section id="dokumentasi" class="py-20 bg-emerald-50/50 border-t border-slate-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Galeri &amp; Kanal Resmi</span>
-            <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Dokumentasi Kegiatan &amp; Media Sosial</h2>
-            <p class="text-slate-600 text-sm mt-2 max-w-2xl">Ikuti aktivitas harian santri, liputan kegiatan madrasah, dan publikasi resmi melalui akun media sosial MTs &amp; MA Darul Hikmah.</p>
-          </div>
-          <!-- Tombol Tautan Akun Medsos Resmi -->
-          <div class="flex flex-wrap gap-2.5">
-            <a id="link-medsos-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-amber-500 hover:opacity-90 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
-              <span>&#128248;</span> Instagram
-            </a>
-            <a id="link-medsos-yt" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
-              <span>&#9654;&#65039;</span> YouTube
-            </a>
-            <a id="link-medsos-tt" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
-              <span>&#127925;</span> TikTok
-            </a>
-            <a id="link-medsos-fb" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition">
-              <span>&#128101;</span> Facebook
-            </a>
-          </div>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Galeri Madrasah</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Dokumentasi Kegiatan Sekolah</h2>
+          <p class="text-slate-600 text-sm mt-2">Arsip foto dan momen kegiatan belajar mengajar, keagamaan, serta prestasi siswa MTs &amp; MA Darul Hikmah.</p>
         </div>
 
-        <!-- Grid Galeri Dokumentasi Terhubung ke Medsos -->
+        <!-- Grid Galeri Dokumentasi -->
         <div id="public-docs-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
       </div>
     </section>
@@ -309,18 +292,18 @@
         </div>
         <div>
           <div class="text-white font-bold mb-2">Kontak Sekretariat</div>
-          <p class="text-xs text-slate-400">
+          <p class="text-xs text-slate-400 leading-relaxed">
             Telepon / WA: <span id="pub-telp">+62 812-3456-7890</span><br>
             Email: <span id="pub-email">info@darulhikmah.sch.id</span>
           </p>
-          <div class="flex flex-wrap gap-3 mt-3 text-xs font-semibold">
-            <a id="footer-medsos-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">Instagram</a>
-            <span class="text-slate-600">&bull;</span>
-            <a id="footer-medsos-yt" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline">YouTube</a>
-            <span class="text-slate-600">&bull;</span>
-            <a id="footer-medsos-tt" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="text-slate-200 hover:underline">TikTok</a>
-            <span class="text-slate-600">&bull;</span>
-            <a id="footer-medsos-fb" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Facebook</a>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Media Sosial Resmi</div>
+            <div class="flex flex-wrap gap-2">
+              <a id="footer-medsos-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-pink-600 text-slate-200 hover:text-white text-xs font-semibold transition">Instagram</a>
+              <a id="footer-medsos-yt" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-red-600 text-slate-200 hover:text-white text-xs font-semibold transition">YouTube</a>
+              <a id="footer-medsos-tt" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold transition">TikTok</a>
+              <a id="footer-medsos-fb" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white text-xs font-semibold transition">Facebook</a>
+            </div>
           </div>
         </div>
         <div>
@@ -386,7 +369,10 @@
             &#128240; Kelola Berita &amp; Artikel
           </button>
           <button onclick="switchAdminTab('docs-admin')" id="nav-docs-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
-            &#128248; Dokumentasi &amp; Medsos
+            &#128248; Galeri Dokumentasi
+          </button>
+          <button onclick="switchAdminTab('medsos-admin')" id="nav-medsos-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
+            &#127760; Akun Media Sosial
           </button>
           <button onclick="switchAdminTab('ekskul-admin')" id="nav-ekskul-admin" class="w-full text-left px-3.5 py-2.5 rounded-xl text-emerald-200 hover:bg-emerald-900">
             &#127942; Kelola Ekstrakurikuler
@@ -580,16 +566,28 @@
         </div>
       </div>
 
-      <!-- TAB: KELOLA DOKUMENTASI & AKUN MEDSOS SEKOLAH -->
-      <div id="tab-docs-admin" class="hidden space-y-8">
+      <!-- TAB: KELOLA GALERI DOKUMENTASI KEGIATAN -->
+      <div id="tab-docs-admin" class="hidden space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Galeri Dokumentasi Kegiatan Sekolah</h1>
+            <p class="text-xs text-slate-500">Tambah, ubah, atau hapus foto &amp; album kegiatan madrasah untuk ditampilkan di halaman publik.</p>
+          </div>
+          <button onclick="openDocModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow">
+            + Tambah Foto Dokumentasi
+          </button>
+        </div>
+        <div id="admin-docs-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </div>
+
+      <!-- TAB: KELOLA AKUN MEDIA SOSIAL (FOOTER KONTAK) -->
+      <div id="tab-medsos-admin" class="hidden space-y-6">
         <div>
-          <h1 class="text-2xl font-extrabold text-slate-900">Dokumentasi Kegiatan &amp; Akun Media Sosial</h1>
-          <p class="text-xs text-slate-500">Hubungkan tautan akun resmi madrasah (Instagram, YouTube, TikTok, Facebook) dan kelola galeri dokumentasi kegiatan.</p>
+          <h1 class="text-2xl font-extrabold text-slate-900">Pengaturan Akun Media Sosial Sekolah</h1>
+          <p class="text-xs text-slate-500">Tautan ini ditampilkan pada bagian Kontak Sekretariat di bagian bawah (footer) website.</p>
         </div>
 
-        <!-- Form Pengaturan Tautan Akun Medsos Resmi -->
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-          <h3 class="font-bold text-slate-900 mb-4">Tautan Akun Media Sosial Resmi Madrasah</h3>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 max-w-3xl">
           <form onsubmit="saveMedsosLinks(event)" class="grid sm:grid-cols-2 gap-4 text-sm">
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1">URL Instagram Sekolah</label>
@@ -607,23 +605,12 @@
               <label class="block text-xs font-bold text-slate-700 mb-1">URL Facebook Sekolah</label>
               <input type="url" id="set-medsos-fb" placeholder="https://facebook.com/darulhikmah" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs">
             </div>
-            <div class="sm:col-span-2 flex justify-end">
+            <div class="sm:col-span-2 flex justify-end pt-2">
               <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow">
                 Simpan Tautan Media Sosial
               </button>
             </div>
           </form>
-        </div>
-
-        <!-- Manajemen Item Dokumentasi Galeri -->
-        <div class="space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <h3 class="font-bold text-slate-900 text-lg">Daftar Album &amp; Postingan Dokumentasi</h3>
-            <button onclick="openDocModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow">
-              + Tambah Dokumentasi Baru
-            </button>
-          </div>
-          <div id="admin-docs-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </div>
       </div>
 
@@ -850,17 +837,17 @@
   <div id="doc-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-7 shadow-2xl relative">
       <button onclick="document.getElementById('doc-modal').classList.add('hidden')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">&times;</button>
-      <h3 class="text-xl font-extrabold text-slate-900 mb-4">Tambah / Edit Dokumentasi Kegiatan</h3>
+      <h3 class="text-xl font-extrabold text-slate-900 mb-4">Tambah / Edit Foto Dokumentasi</h3>
       <form onsubmit="saveDocItem(event)" class="space-y-4">
         <input type="hidden" id="edit-doc-id">
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Platform Sumber</label>
-            <select id="form-doc-platform" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
-              <option value="Instagram">Instagram</option>
-              <option value="YouTube">YouTube</option>
-              <option value="TikTok">TikTok</option>
-              <option value="Facebook">Facebook</option>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Kegiatan</label>
+            <select id="form-doc-category" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+              <option value="Kegiatan Siswa">Kegiatan Siswa</option>
+              <option value="Keagamaan & Tahfidz">Keagamaan &amp; Tahfidz</option>
+              <option value="Prestasi & Lomba">Prestasi &amp; Lomba</option>
+              <option value="Fasilitas Madrasah">Fasilitas Madrasah</option>
             </select>
           </div>
           <div>
@@ -873,19 +860,31 @@
           <input type="text" id="form-doc-title" required placeholder="Contoh: Upacara Hari Santri Nasional 2026" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">URL Gambar / Thumbnail (Opsional)</label>
-          <input type="url" id="form-doc-image" placeholder="https://images.unsplash.com/..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
+          <label class="block text-xs font-bold text-slate-700 mb-1">URL Foto Kegiatan</label>
+          <input type="url" id="form-doc-image" required placeholder="https://images.unsplash.com/..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Link Postingan / Video Medsos Sekolah</label>
-          <input type="url" id="form-doc-url" required placeholder="https://instagram.com/p/..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Keterangan Singkat</label>
-          <textarea id="form-doc-desc" rows="2" required placeholder="Deskripsi singkat momen kegiatan..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm"></textarea>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Keterangan Foto</label>
+          <textarea id="form-doc-desc" rows="3" required placeholder="Deskripsi singkat momen kegiatan..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm"></textarea>
         </div>
         <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow">Simpan Dokumentasi</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Modal Lightbox Preview Foto Dokumentasi Publik -->
+  <div id="doc-lightbox-modal" onclick="if(event.target===this) this.classList.add('hidden')" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+      <button onclick="document.getElementById('doc-lightbox-modal').classList.add('hidden')" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/70 text-white hover:bg-slate-900 font-bold text-xl flex items-center justify-center">&times;</button>
+      <img id="lightbox-img" src="" alt="" class="w-full max-h-[420px] object-cover bg-slate-100">
+      <div class="p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span id="lightbox-cat" class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold"></span>
+          <span id="lightbox-date" class="text-xs text-slate-400"></span>
+        </div>
+        <h3 id="lightbox-title" class="text-xl font-extrabold text-slate-900"></h3>
+        <p id="lightbox-desc" class="text-sm text-slate-600 mt-2 leading-relaxed"></p>
+      </div>
     </div>
   </div>
 
@@ -982,30 +981,27 @@
     const defaultDocs = [
       {
         id: 1,
-        platform: "Instagram",
+        platform: "Kegiatan Siswa",
         date: "10 November 2026",
         title: "Peringatan Hari Pahlawan & Apel Santri MTs-MA",
         image_url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
-        post_url: "https://instagram.com",
-        description: "Dokumentasi lengkap upacara bendera dan pembacaan ikrar santri di lapangan utama madrasah."
+        description: "Upacara bendera dan pembacaan ikrar santri di lapangan utama MTs & MA Darul Hikmah."
       },
       {
         id: 2,
-        platform: "YouTube",
+        platform: "Keagamaan & Tahfidz",
         date: "02 November 2026",
-        title: "Video Profil & Kegiatan Tahfidz Al-Qur'an Darul Hikmah",
+        title: "Halaqah Tahfidz Al-Qur'an Pagi Bersama Asatidz",
         image_url: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80",
-        post_url: "https://youtube.com",
-        description: "Liputan dokumenter halaqah tahfidz pagi dan pembinaan karakter Islami peserta didik."
+        description: "Kegiatan setoran hafalan dan muraja'ah harian peserta didik program unggulan tahfidz."
       },
       {
         id: 3,
-        platform: "TikTok",
+        platform: "Prestasi & Lomba",
         date: "25 Oktober 2026",
-        title: "Highlight Pentas Seni & Hadrah Al-Banjari Santri",
+        title: "Pentas Seni & Penampilan Hadrah Al-Banjari",
         image_url: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
-        post_url: "https://tiktok.com",
-        description: "Cuplikan penampilan tim hadrah dan kreasi seni siswa-siswi MTs dan MA Darul Hikmah."
+        description: "Kreasi seni Islami siswa-siswi dalam rangka peringatan Hari Santri Nasional."
       }
     ];
 
@@ -1083,41 +1079,44 @@
       `).join('');
     }
 
-    function getPlatformBadgeStyle(platform) {
-      const p = (platform || '').toLowerCase();
-      if (p === 'instagram') return 'bg-pink-600 text-white';
-      if (p === 'youtube') return 'bg-red-600 text-white';
-      if (p === 'tiktok') return 'bg-slate-900 text-white';
-      return 'bg-blue-600 text-white';
+    function openDocLightbox(index) {
+      const item = docsList[index];
+      if (!item) return;
+      const fallbackImg = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80';
+      document.getElementById('lightbox-img').src = (item.image_url && item.image_url.trim() !== '') ? item.image_url : fallbackImg;
+      document.getElementById('lightbox-cat').innerText = item.platform || 'Dokumentasi';
+      document.getElementById('lightbox-date').innerText = item.date || '';
+      document.getElementById('lightbox-title').innerText = item.title || '';
+      document.getElementById('lightbox-desc').innerText = item.description || '';
+      document.getElementById('doc-lightbox-modal').classList.remove('hidden');
     }
 
     function renderPublicDocs() {
       const grid = document.getElementById('public-docs-grid');
       if (!grid) return;
-      grid.innerHTML = docsList.map(item => {
+      grid.innerHTML = docsList.map((item, idx) => {
         const fallbackImg = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80';
         const imgSrc = item.image_url && item.image_url.trim() !== '' ? item.image_url : fallbackImg;
-        const targetUrl = item.post_url || siteConfig.medsos_ig || '#';
         return `
-          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div onclick="openDocLightbox(${idx})" class="cursor-pointer group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
             <div>
-              <div class="relative h-48 overflow-hidden bg-slate-200">
+              <div class="relative h-52 overflow-hidden bg-slate-200">
                 <img src="${imgSrc}" alt="${item.title}" onerror="this.src='${fallbackImg}'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold shadow ${getPlatformBadgeStyle(item.platform)}">
-                  ${item.platform || 'Medsos'}
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold shadow bg-emerald-700/90 text-white backdrop-blur-sm">
+                  ${item.platform || 'Dokumentasi'}
                 </span>
               </div>
               <div class="p-6">
                 <div class="text-[11px] text-slate-400 font-semibold mb-1.5">${item.date || ''}</div>
                 <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition leading-snug mb-2">${item.title}</h3>
-                <p class="text-xs text-slate-600 leading-relaxed">${item.description || ''}</p>
+                <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">${item.description || ''}</p>
               </div>
             </div>
             <div class="px-6 pb-5 pt-2 flex items-center justify-between text-xs font-bold text-emerald-700">
-              <span>Lihat di ${item.platform || 'Media Sosial'}</span>
+              <span>Lihat Foto Selengkapnya</span>
               <span class="group-hover:translate-x-1 transition">&rarr;</span>
             </div>
-          </a>
+          </div>
         `;
       }).join('');
     }
@@ -1203,7 +1202,7 @@
     }
 
     function switchAdminTab(tabName) {
-      const tabs = ['dashboard', 'siswa', 'absensi', 'rekap', 'berita-admin', 'docs-admin', 'ekskul-admin', 'ppdb-admin', 'profil-admin'];
+      const tabs = ['dashboard', 'siswa', 'absensi', 'rekap', 'berita-admin', 'docs-admin', 'medsos-admin', 'ekskul-admin', 'ppdb-admin', 'profil-admin'];
       if (!tabs.includes(tabName)) tabName = 'dashboard';
       tabs.forEach(t => {
         document.getElementById('tab-' + t).classList.add('hidden');
@@ -1383,14 +1382,13 @@
       `).join('');
     }
 
-    // ==================== CRUD DOKUMENTASI & MEDSOS ====================
+    // ==================== CRUD GALERI DOKUMENTASI & MEDSOS ====================
     function openDocModal(item = null) {
       document.getElementById('edit-doc-id').value = item ? item.id : '';
-      document.getElementById('form-doc-platform').value = item ? item.platform : 'Instagram';
+      document.getElementById('form-doc-category').value = item ? item.platform : 'Kegiatan Siswa';
       document.getElementById('form-doc-date').value = item ? item.date : new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
       document.getElementById('form-doc-title').value = item ? item.title : '';
       document.getElementById('form-doc-image').value = item ? (item.image_url || '') : '';
-      document.getElementById('form-doc-url').value = item ? (item.post_url || '') : (siteConfig.medsos_ig || '');
       document.getElementById('form-doc-desc').value = item ? (item.description || '') : '';
       document.getElementById('doc-modal').classList.remove('hidden');
     }
@@ -1399,11 +1397,11 @@
       e.preventDefault();
       const id = document.getElementById('edit-doc-id').value;
       const payload = {
-        platform: document.getElementById('form-doc-platform').value,
+        platform: document.getElementById('form-doc-category').value,
         date: document.getElementById('form-doc-date').value,
         title: document.getElementById('form-doc-title').value,
         image_url: document.getElementById('form-doc-image').value.trim(),
-        post_url: document.getElementById('form-doc-url').value.trim(),
+        post_url: '#',
         description: document.getElementById('form-doc-desc').value
       };
       const res = id ? await db.from('documentations').update(payload).eq('id', id) : await db.from('documentations').insert([payload]);
@@ -1416,7 +1414,7 @@
     }
 
     async function deleteDocItem(id) {
-      if (!confirm('Hapus item dokumentasi ini?')) return;
+      if (!confirm('Hapus foto dokumentasi ini?')) return;
       await db.from('documentations').delete().eq('id', id);
       await loadAllDataFromDB();
     }
@@ -1425,20 +1423,21 @@
       const grid = document.getElementById('admin-docs-grid');
       if (!grid) return;
       if (!docsList || docsList.length === 0) {
-        grid.innerHTML = '<p class="text-xs text-slate-400">Belum ada dokumentasi di database. Klik "+ Tambah Dokumentasi Baru".</p>';
+        grid.innerHTML = '<p class="text-xs text-slate-400">Belum ada foto dokumentasi. Klik "+ Tambah Foto Dokumentasi".</p>';
         return;
       }
+      const fallbackImg = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80';
       grid.innerHTML = docsList.map(d => `
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
           <div>
-            <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold ${getPlatformBadgeStyle(d.platform)}">${d.platform}</span>
-              <span class="text-[11px] text-slate-400">${d.date || ''}</span>
-            </div>
+            <img src="${d.image_url || fallbackImg}" onerror="this.src='${fallbackImg}'" class="w-full h-36 object-cover bg-slate-100">
             <div class="p-4">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700">${d.platform || 'Kegiatan'}</span>
+                <span class="text-[11px] text-slate-400">${d.date || ''}</span>
+              </div>
               <h4 class="font-bold text-slate-900 text-sm">${d.title}</h4>
               <p class="text-xs text-slate-600 mt-1 line-clamp-2">${d.description || ''}</p>
-              <a href="${d.post_url}" target="_blank" class="inline-block mt-2 text-[11px] text-emerald-700 font-semibold hover:underline truncate max-w-full">${d.post_url}</a>
             </div>
           </div>
           <div class="flex gap-2 p-4 pt-2 border-t border-slate-100">
